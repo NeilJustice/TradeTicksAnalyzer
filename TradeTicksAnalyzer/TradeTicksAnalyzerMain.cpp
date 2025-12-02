@@ -5,9 +5,9 @@
 using namespace std;
 #include "libTradeTicksAnalyzer/Components/TradeTicksAnalyzerProgram.h"
 
-// program-mode-a --required-string=String --parallel
+// calculate-trade-tick-latencies --required-string=String --parallel
 
-// program-mode-b --required-string=String --parallel
+// find-possible-bad-trade-ticks --required-string=String --parallel
 
 // Acceptance Tests
 // ================
