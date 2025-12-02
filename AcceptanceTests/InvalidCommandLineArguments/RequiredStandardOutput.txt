@@ -4,7 +4,7 @@
 \[TradeTicksAnalyzer #DATETODAY# \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] Directory: .*\\AcceptanceTests\\InvalidCommandLineArguments
 \[TradeTicksAnalyzer #DATETODAY# \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] Error: std::invalid_argument: Invalid command line usage.
 
-TradeTicksAnalyzer : Program description
+TradeTicksAnalyzer
 
 Usage:
    programname program-mode-a

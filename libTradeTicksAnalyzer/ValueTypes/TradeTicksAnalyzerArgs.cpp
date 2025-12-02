@@ -18,7 +18,7 @@ R"(Usage:
    )" + TradeTicksAnalyzerArgs::CommandLineUsage_program_mode_b_args;
 
 const string TradeTicksAnalyzerArgs::CommandLineUsage =
-R"(TradeTicksAnalyzer : Program description
+R"(TradeTicksAnalyzer
 
 Usage:
    )" + TradeTicksAnalyzerArgs::CommandLineUsage_program_mode_a_args + R"(

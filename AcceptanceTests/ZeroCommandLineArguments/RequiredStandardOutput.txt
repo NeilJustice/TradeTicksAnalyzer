@@ -1,4 +1,4 @@
-TradeTicksAnalyzer : Program description
+TradeTicksAnalyzer
 
 Usage:
    programname program-mode-a --required-string=<String> \[--parallel\]
