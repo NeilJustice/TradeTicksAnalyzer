@@ -1,0 +1,2 @@
+LinuxCodeCoverageRunner.exe read-llvm-code-coverage-text-report `
+   --llvm-code-coverage-text-report="C:\CodeCoverageReports\TradeTicksAnalyzer\covhtml\TradeTicksAnalyzer_llvm_code_coverage_report.txt"

@@ -1,0 +1,5 @@
+TradeTicksAnalyzer : Program description
+
+Usage:
+   programname program-mode-a --required-string=<String> \[--parallel\]
+   programname program-mode-b --required-string=<String> \[--parallel\]

@@ -1,0 +1,16 @@
+\[TradeTicksAnalyzer #DATETODAY# \d\d:\d\d:\d\d (AM|PM) T\d+\s*\]   Running: TradeTicksAnalyzer\.exe invalid_program_mode
+\[TradeTicksAnalyzer #DATETODAY# \d\d:\d\d:\d\d (AM|PM) T\d+\s*\]   Machine: .*
+\[TradeTicksAnalyzer #DATETODAY# \d\d:\d\d:\d\d (AM|PM) T\d+\s*\]      User: .*
+\[TradeTicksAnalyzer #DATETODAY# \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] Directory: .*\\AcceptanceTests\\InvalidCommandLineArguments
+\[TradeTicksAnalyzer #DATETODAY# \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] Error: std::invalid_argument: Invalid command line usage.
+
+TradeTicksAnalyzer : Program description
+
+Usage:
+   programname program-mode-a
+      --required-string=<String>
+      \[--parallel\]
+   programname program-mode-b
+      --required-string=<String>
+      \[--parallel\]
+\[TradeTicksAnalyzer #DATETODAY# \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] ExitCode: 1

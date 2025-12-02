@@ -1,0 +1,35 @@
+{
+   "version": "0.2.0",
+   "configurations": [
+      // {
+      //    "name": "LLDB Debug libTradeTicksAnalyzerTests",
+      //    "type": "lldb",
+      //    "request": "launch",
+      //    "preLaunchTask": "Build Debug",
+      //    "cwd": "${workspaceRoot}",
+      //    "program": "Debug/libTradeTicksAnalyzerTests/libTradeTicksAnalyzerTests",
+      //    "stopOnEntry": true
+      // },
+      {
+         "name": "GDB Debug TradeTicksAnalyzer",
+         "type": "cppdbg",
+         "request": "launch",
+         "preLaunchTask": "Build Debug",
+         "cwd": "${workspaceRoot}",
+         "program": "/code/TradeTicksAnalyzer/Debug/TradeTicksAnalyzer/TradeTicksAnalyzer",
+         "args": [ "program-mode-a", "--required-string=String", "--parallel" ],
+         "linux": { "MIMode": "gdb" },
+         "stopAtEntry": true
+      },
+      // {
+      //    "name": "GDB Debug libTradeTicksAnalyzerTests",
+      //    "type": "cppdbg",
+      //    "request": "launch",
+      //    "preLaunchTask": "Build Debug",
+      //    "cwd": "${workspaceRoot}",
+      //    "program": "/code/TradeTicksAnalyzer/Debug/libTradeTicksAnalyzerTests/libTradeTicksAnalyzerTests",
+      //    "linux": { "MIMode": "gdb" },
+      //    "stopAtEntry": true
+      // }
+   ]
+}

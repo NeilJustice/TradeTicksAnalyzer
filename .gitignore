@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+CoberturaCodeCoverageResults_*.xml
+
+# CMake
+CMakeFiles/
+Debug/
+RelWithDebInfo/
+*.cmake
+!CMakeMacros.cmake
+CMakeCache.txt
+install_manifest.txt
+
+# Linux
+covhtml/
+build.ninja
+
+# Windows
+.vs/
+x64/
+*.dat
+*.db
+*.exe
+*.filters
+*.ilk
+*.ipch
+*.lib
+*.obj
+*.opendb
+*.pch
+*.pdb
+*.psess
+*.vcxproj
+*.sln
+*.suo
+*.tlog
+*.tmp
+*.user
+*.vspx
