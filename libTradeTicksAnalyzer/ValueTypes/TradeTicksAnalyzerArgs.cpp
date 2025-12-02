@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "libTradeTicksAnalyzer/ValueTypes/TradeTicksAnalyzerArgs.h"
 
-const string TradeTicksAnalyzerArgs::CommandLineUsage_program_mode_a_args = 
+const string TradeTicksAnalyzerArgs::CommandLineUsage_program_mode_a_args =
 R"(programname program-mode-a
       --required-string=<String>
       [--parallel])";
