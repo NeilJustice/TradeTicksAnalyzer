@@ -48,7 +48,7 @@ R"(Usage:
 
 TEST(CommandLineUsage_IsExpectedString)
 {
-   ARE_EQUAL(R"(TradeTicksAnalyzer : Program description
+   ARE_EQUAL(R"(TradeTicksAnalyzer
 
 Usage:
    programname program-mode-a
