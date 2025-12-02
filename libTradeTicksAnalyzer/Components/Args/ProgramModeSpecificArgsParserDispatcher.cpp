@@ -24,12 +24,12 @@ TradeTicksAnalyzerArgs ProgramModeSpecificArgsParserDispatcher::ParseDocoptArgs(
    {
    case ProgramMode::ProgramModeA:
    {
-      args = _programModeAArgsParser->ParseDocoptArgs(tradeTicksAnalyzerArgMaps.docoptArgs_program_mode_a);
+      args = _programModeAArgsParser->ParseDocoptArgs(tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latencies);
       break;
    }
    case ProgramMode::ProgramModeB:
    {
-      args = _programModeBArgsParser->ParseDocoptArgs(tradeTicksAnalyzerArgMaps.docoptArgs_program_mode_b);
+      args = _programModeBArgsParser->ParseDocoptArgs(tradeTicksAnalyzerArgMaps.docoptArgs_find_possible_bad_trade_ticks);
       break;
    }
    default:

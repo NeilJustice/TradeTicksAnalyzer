@@ -33,7 +33,7 @@ TEST(ParseDocoptArgs_ProgramModeA_DoesSo)
    const TradeTicksAnalyzerArgs returnedArgs = _programModeSpecificArgsParserDispatcher.ParseDocoptArgs(tradeTicksAnalyzerArgMaps);
    //
    METALMOCKTHEN(_programModeDeterminerMock->DetermineProgramModeMock.CalledOnceWith(tradeTicksAnalyzerArgMaps)).Then(
-   METALMOCKTHEN(_programModeAArgsParserMock->ParseDocoptArgsMock.CalledOnceWith(tradeTicksAnalyzerArgMaps.docoptArgs_program_mode_a)));
+   METALMOCKTHEN(_programModeAArgsParserMock->ParseDocoptArgsMock.CalledOnceWith(tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latencies)));
    ARE_EQUAL(args, returnedArgs);
 }
 
@@ -46,7 +46,7 @@ TEST(ParseDocoptArgs_ProgramModeB_DoesSo)
    const TradeTicksAnalyzerArgs returnedArgs = _programModeSpecificArgsParserDispatcher.ParseDocoptArgs(tradeTicksAnalyzerArgMaps);
    //
    METALMOCKTHEN(_programModeDeterminerMock->DetermineProgramModeMock.CalledOnceWith(tradeTicksAnalyzerArgMaps)).Then(
-   METALMOCKTHEN(_programModeBArgsParserMock->ParseDocoptArgsMock.CalledOnceWith(tradeTicksAnalyzerArgMaps.docoptArgs_program_mode_b)));
+   METALMOCKTHEN(_programModeBArgsParserMock->ParseDocoptArgsMock.CalledOnceWith(tradeTicksAnalyzerArgMaps.docoptArgs_find_possible_bad_trade_ticks)));
    ARE_EQUAL(args, returnedArgs);
 }
 

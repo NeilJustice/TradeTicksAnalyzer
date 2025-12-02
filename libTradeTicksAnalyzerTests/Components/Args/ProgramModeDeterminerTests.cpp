@@ -12,7 +12,7 @@ ProgramModeDeterminer _programModeDeterminer;
 TEST(DetermineProgramMode_ProgramModeA)
 {
    TradeTicksAnalyzerArgMaps tradeTicksAnalyzerArgMaps;
-   tradeTicksAnalyzerArgMaps.docoptArgs_program_mode_a = ZenUnit::RandomNonEmptyOrderedMap<string, docopt::Value>();
+   tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latencies = ZenUnit::RandomNonEmptyOrderedMap<string, docopt::Value>();
    //
    const ProgramMode programMode = _programModeDeterminer.DetermineProgramMode(tradeTicksAnalyzerArgMaps);
    //
@@ -22,7 +22,7 @@ TEST(DetermineProgramMode_ProgramModeA)
 TEST(DetermineProgramMode_ProgramModeB)
 {
    TradeTicksAnalyzerArgMaps tradeTicksAnalyzerArgMaps;
-   tradeTicksAnalyzerArgMaps.docoptArgs_program_mode_b = ZenUnit::RandomNonEmptyOrderedMap<string, docopt::Value>();
+   tradeTicksAnalyzerArgMaps.docoptArgs_find_possible_bad_trade_ticks = ZenUnit::RandomNonEmptyOrderedMap<string, docopt::Value>();
    //
    const ProgramMode programMode = _programModeDeterminer.DetermineProgramMode(tradeTicksAnalyzerArgMaps);
    //

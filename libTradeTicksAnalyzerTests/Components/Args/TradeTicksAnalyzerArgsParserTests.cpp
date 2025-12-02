@@ -38,11 +38,11 @@ TEST(ParseStringArgs_DoesSo)
 {
    _preamblePrinterMock->PrintPreambleMock.ReturnRandom();
 
-   const map<string, docopt::Value> docoptArgs_program_mode_a = ZenUnit::RandomNonEmptyOrderedMap<string, docopt::Value>();
-   const map<string, docopt::Value> docoptArgs_program_mode_b = ZenUnit::RandomNonEmptyOrderedMap<string, docopt::Value>();
+   const map<string, docopt::Value> docoptArgs_calculate_trade_tick_latencies = ZenUnit::RandomNonEmptyOrderedMap<string, docopt::Value>();
+   const map<string, docopt::Value> docoptArgs_find_possible_bad_trade_ticks = ZenUnit::RandomNonEmptyOrderedMap<string, docopt::Value>();
    _docoptParserMock->ParseStringArgsMock.ReturnValues(
-      docoptArgs_program_mode_a,
-      docoptArgs_program_mode_b);
+      docoptArgs_calculate_trade_tick_latencies,
+      docoptArgs_find_possible_bad_trade_ticks);
 
    const TradeTicksAnalyzerArgs args = _programModeSpecificArgsParserDispatcherMock->ParseDocoptArgsMock.ReturnRandom();
 
@@ -52,8 +52,8 @@ TEST(ParseStringArgs_DoesSo)
    //
    const TradeTicksAnalyzerArgMaps expectedTradeTicksAnalyzerArgMaps
    {
-      docoptArgs_program_mode_a,
-      docoptArgs_program_mode_b
+      docoptArgs_calculate_trade_tick_latencies,
+      docoptArgs_find_possible_bad_trade_ticks
    };
    METALMOCK(_docoptParserMock->ParseStringArgsMock.CalledNTimes(2));
 
@@ -61,10 +61,10 @@ TEST(ParseStringArgs_DoesSo)
       stringArgs, _consoleMock)).Then(
 
    METALMOCKTHEN(_docoptParserMock->ParseStringArgsMock.CalledWith(
-      TradeTicksAnalyzerArgs::CommandLineUsage_program_mode_a, stringArgs, false))).Then(
+      TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latencies, stringArgs, false))).Then(
 
    METALMOCKTHEN(_docoptParserMock->ParseStringArgsMock.CalledWith(
-      TradeTicksAnalyzerArgs::CommandLineUsage_program_mode_b, stringArgs, false))).Then(
+      TradeTicksAnalyzerArgs::CommandLineUsage_find_possible_bad_trade_ticks, stringArgs, false))).Then(
 
    METALMOCKTHEN(_programModeSpecificArgsParserDispatcherMock->ParseDocoptArgsMock.CalledOnceWith(
       expectedTradeTicksAnalyzerArgMaps)));

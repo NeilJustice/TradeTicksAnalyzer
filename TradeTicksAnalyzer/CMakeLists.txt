@@ -28,4 +28,4 @@ elseif(MSVC)
    IfMSVCDisableDebugSymbolsIfJenkins()
 endif()
 
-SetBinaryOutputNames(TradeTicksAnalyzer programname)
+SetBinaryOutputNames(TradeTicksAnalyzer TradeTicksAnalyzer)

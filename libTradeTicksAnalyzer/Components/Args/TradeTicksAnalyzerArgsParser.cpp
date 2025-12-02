@@ -23,16 +23,16 @@ TradeTicksAnalyzerArgs TradeTicksAnalyzerArgsParser::ParseStringArgs(const vecto
 {
    _preamblePrinter->PrintPreamble(stringArgs, _console.get());
 
-   const map<string, docopt::Value> docoptArgs_program_mode_a =
-      _docoptParser->ParseStringArgs(TradeTicksAnalyzerArgs::CommandLineUsage_program_mode_a, stringArgs, false);
+   const map<string, docopt::Value> docoptArgs_calculate_trade_tick_latencies =
+      _docoptParser->ParseStringArgs(TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latencies, stringArgs, false);
 
-   const map<string, docopt::Value> docoptArgs_program_mode_b =
-      _docoptParser->ParseStringArgs(TradeTicksAnalyzerArgs::CommandLineUsage_program_mode_b, stringArgs, false);
+   const map<string, docopt::Value> docoptArgs_find_possible_bad_trade_ticks =
+      _docoptParser->ParseStringArgs(TradeTicksAnalyzerArgs::CommandLineUsage_find_possible_bad_trade_ticks, stringArgs, false);
 
    const TradeTicksAnalyzerArgMaps tradeTicksAnalyzerArgMaps
    {
-      docoptArgs_program_mode_a,
-      docoptArgs_program_mode_b
+      docoptArgs_calculate_trade_tick_latencies,
+      docoptArgs_find_possible_bad_trade_ticks
    };
    TradeTicksAnalyzerArgs args = _programModeSpecificArgsParserDispatcher->ParseDocoptArgs(tradeTicksAnalyzerArgMaps);
    return args;

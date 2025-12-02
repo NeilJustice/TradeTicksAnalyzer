@@ -7,15 +7,15 @@ namespace ZenUnit
       const TradeTicksAnalyzerArgMaps& expectedTradeTicksAnalyzerArgMaps,
       const TradeTicksAnalyzerArgMaps& actualTradeTicksAnalyzerArgMaps)
    {
-      FIELDS_ARE_EQUAL(expectedTradeTicksAnalyzerArgMaps, actualTradeTicksAnalyzerArgMaps, docoptArgs_program_mode_a);
-      FIELDS_ARE_EQUAL(expectedTradeTicksAnalyzerArgMaps, actualTradeTicksAnalyzerArgMaps, docoptArgs_program_mode_b);
+      FIELDS_ARE_EQUAL(expectedTradeTicksAnalyzerArgMaps, actualTradeTicksAnalyzerArgMaps, docoptArgs_calculate_trade_tick_latencies);
+      FIELDS_ARE_EQUAL(expectedTradeTicksAnalyzerArgMaps, actualTradeTicksAnalyzerArgMaps, docoptArgs_find_possible_bad_trade_ticks);
    }
 
    TradeTicksAnalyzerArgMaps TestableRandomTradeTicksAnalyzerArgMaps()
    {
       TradeTicksAnalyzerArgMaps randomTradeTicksAnalyzerArgMaps;
-      randomTradeTicksAnalyzerArgMaps.docoptArgs_program_mode_a[ZenUnit::Random<string>()] = docopt::Value{};
-      randomTradeTicksAnalyzerArgMaps.docoptArgs_program_mode_b[ZenUnit::Random<string>()] = docopt::Value{};
+      randomTradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latencies[ZenUnit::Random<string>()] = docopt::Value{};
+      randomTradeTicksAnalyzerArgMaps.docoptArgs_find_possible_bad_trade_ticks[ZenUnit::Random<string>()] = docopt::Value{};
       return randomTradeTicksAnalyzerArgMaps;
    }
 

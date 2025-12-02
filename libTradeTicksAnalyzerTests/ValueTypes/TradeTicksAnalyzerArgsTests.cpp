@@ -3,8 +3,8 @@
 
 TESTS(TradeTicksAnalyzerArgsTests)
 AFACT(DefaultConstructor_SetsFieldsToDefaultValues)
-AFACT(CommandLineUsage_program_mode_a_AreExpectedStrings)
-AFACT(CommandLineUsage_program_mode_b_AreExpectedStrings)
+AFACT(CommandLineUsage_calculate_trade_tick_latencies_AreExpectedStrings)
+AFACT(CommandLineUsage_find_possible_bad_trade_ticks_AreExpectedStrings)
 AFACT(CommandLineUsage_IsExpectedString)
 EVIDENCE
 
@@ -18,32 +18,32 @@ TEST(DefaultConstructor_SetsFieldsToDefaultValues)
    ARE_EQUAL(expectedDefaultArgs, defaultArgs);
 }
 
-TEST(CommandLineUsage_program_mode_a_AreExpectedStrings)
+TEST(CommandLineUsage_calculate_trade_tick_latencies_AreExpectedStrings)
 {
    const string expectedArgs =
-R"(programname program-mode-a
+R"(TradeTicksAnalyzer calculate-trade-tick-latencies
       --required-string=<String>
       [--parallel])";
-   ARE_EQUAL(expectedArgs, TradeTicksAnalyzerArgs::CommandLineUsage_program_mode_a_args);
+   ARE_EQUAL(expectedArgs, TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latencies_args);
 
 const string expectedUsage =
 R"(Usage:
-   )" + TradeTicksAnalyzerArgs::CommandLineUsage_program_mode_a_args;
-   ARE_EQUAL(expectedUsage, TradeTicksAnalyzerArgs::CommandLineUsage_program_mode_a);
+   )" + TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latencies_args;
+   ARE_EQUAL(expectedUsage, TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latencies);
 }
 
-TEST(CommandLineUsage_program_mode_b_AreExpectedStrings)
+TEST(CommandLineUsage_find_possible_bad_trade_ticks_AreExpectedStrings)
 {
 const string expectedArgs =
-R"(programname program-mode-b
+R"(TradeTicksAnalyzer find-possible-bad-trade-ticks
       --required-string=<String>
       [--parallel])";
-   ARE_EQUAL(expectedArgs, TradeTicksAnalyzerArgs::CommandLineUsage_program_mode_b_args);
+   ARE_EQUAL(expectedArgs, TradeTicksAnalyzerArgs::CommandLineUsage_find_possible_bad_trade_ticks_args);
 
 const string expectedUsage =
 R"(Usage:
-   )" + TradeTicksAnalyzerArgs::CommandLineUsage_program_mode_b_args;
-   ARE_EQUAL(expectedUsage, TradeTicksAnalyzerArgs::CommandLineUsage_program_mode_b);
+   )" + TradeTicksAnalyzerArgs::CommandLineUsage_find_possible_bad_trade_ticks_args;
+   ARE_EQUAL(expectedUsage, TradeTicksAnalyzerArgs::CommandLineUsage_find_possible_bad_trade_ticks);
 }
 
 TEST(CommandLineUsage_IsExpectedString)
@@ -51,10 +51,10 @@ TEST(CommandLineUsage_IsExpectedString)
    ARE_EQUAL(R"(TradeTicksAnalyzer
 
 Usage:
-   programname program-mode-a
+   TradeTicksAnalyzer calculate-trade-tick-latencies
       --required-string=<String>
       [--parallel]
-   programname program-mode-b
+   TradeTicksAnalyzer find-possible-bad-trade-ticks
       --required-string=<String>
       [--parallel])", TradeTicksAnalyzerArgs::CommandLineUsage);
 }
