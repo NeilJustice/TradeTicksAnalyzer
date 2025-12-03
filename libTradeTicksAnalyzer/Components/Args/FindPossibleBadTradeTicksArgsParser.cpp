@@ -18,5 +18,7 @@ TradeTicksAnalyzerArgs FindPossibleBadTradeTicksArgsParser::ParseDocoptArgs(cons
    args.runNumber = p_docoptParser->GetRequiredUnsigned(docoptArgs, "--run-number");
    args.outputFolderPath = p_docoptParser->GetRequiredFolderPathWhichNeedNotExist(docoptArgs, "--output-folder");
    args.parallel = p_docoptParser->GetOptionalBool(docoptArgs, "--parallel");
+   // Calculated Fields
+
    return args;
 }

@@ -16,4 +16,6 @@ struct TradeTicksAnalyzerArgs
    unsigned runNumber = 0;
    fs::path outputFolderPath;
    bool parallel = false;
+   // Calculated Fields
+   fs::path tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks;
 };
