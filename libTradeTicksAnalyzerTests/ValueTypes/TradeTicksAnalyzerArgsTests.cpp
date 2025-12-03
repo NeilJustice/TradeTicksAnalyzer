@@ -21,8 +21,9 @@ TEST(DefaultConstructor_SetsFieldsToDefaultValues)
 TEST(CommandLineUsage_calculate_trade_tick_latencies_AreExpectedStrings)
 {
    const string expectedArgs =
-R"(TradeTicksAnalyzer calculate-trade-tick-latencies
-      --required-string=<String>
+R"(TradeTicksAnalyzer calculate-trade-tick-latency-statistics
+      --trading-logs-folder=<InputFolderPath>
+      --date=<YYYY-MM-DDW>
       [--parallel])";
    ARE_EQUAL(expectedArgs, TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latencies_args);
 
@@ -36,7 +37,8 @@ TEST(CommandLineUsage_find_possible_bad_trade_ticks_AreExpectedStrings)
 {
 const string expectedArgs =
 R"(TradeTicksAnalyzer find-possible-bad-trade-ticks
-      --required-string=<String>
+      --trading-logs-folder=<InputFolderPath>
+      --date=<YYYY-MM-DDW>
       [--parallel])";
    ARE_EQUAL(expectedArgs, TradeTicksAnalyzerArgs::CommandLineUsage_find_possible_bad_trade_ticks_args);
 
@@ -51,11 +53,13 @@ TEST(CommandLineUsage_IsExpectedString)
    ARE_EQUAL(R"(TradeTicksAnalyzer
 
 Usage:
-   TradeTicksAnalyzer calculate-trade-tick-latencies
-      --required-string=<String>
+   TradeTicksAnalyzer calculate-trade-tick-latency-statistics
+      --trading-logs-folder=<InputFolderPath>
+      --date=<YYYY-MM-DDW>
       [--parallel]
    TradeTicksAnalyzer find-possible-bad-trade-ticks
-      --required-string=<String>
+      --trading-logs-folder=<InputFolderPath>
+      --date=<YYYY-MM-DDW>
       [--parallel])", TradeTicksAnalyzerArgs::CommandLineUsage);
 }
 

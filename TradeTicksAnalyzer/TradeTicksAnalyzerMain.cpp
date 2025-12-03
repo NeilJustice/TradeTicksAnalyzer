@@ -5,9 +5,9 @@
 using namespace std;
 #include "libTradeTicksAnalyzer/Components/TradeTicksAnalyzerProgram.h"
 
-// calculate-trade-tick-latencies --required-string=String --parallel
-
-// find-possible-bad-trade-ticks --required-string=String --parallel
+// Production Args
+// ===============
+// find-possible-bad-trade-ticks --trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogs --date=2025-12-02T --run-number=12 --output-folder=X:\Trading\TradingProgram\PaperTradingLogs
 
 // Acceptance Tests
 // ================

@@ -2,8 +2,9 @@
 #include "libTradeTicksAnalyzer/ValueTypes/TradeTicksAnalyzerArgs.h"
 
 const string TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latencies_args =
-R"(TradeTicksAnalyzer calculate-trade-tick-latencies
-      --required-string=<String>
+R"(TradeTicksAnalyzer calculate-trade-tick-latency-statistics
+      --trading-logs-folder=<InputFolderPath>
+      --date=<YYYY-MM-DDW>
       [--parallel])";
 const string TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latencies =
 R"(Usage:
@@ -11,7 +12,8 @@ R"(Usage:
 
 const string TradeTicksAnalyzerArgs::CommandLineUsage_find_possible_bad_trade_ticks_args =
 R"(TradeTicksAnalyzer find-possible-bad-trade-ticks
-      --required-string=<String>
+      --trading-logs-folder=<InputFolderPath>
+      --date=<YYYY-MM-DDW>
       [--parallel])";
 const string TradeTicksAnalyzerArgs::CommandLineUsage_find_possible_bad_trade_ticks =
 R"(Usage:
