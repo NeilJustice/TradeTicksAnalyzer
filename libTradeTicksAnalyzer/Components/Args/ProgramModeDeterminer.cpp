@@ -15,11 +15,11 @@ ProgramMode ProgramModeDeterminer::DetermineProgramMode(const TradeTicksAnalyzer
 {
    if (!tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latency_statistics.empty())
    {
-      return ProgramMode::FindPossibleBadTradeTicks;
+      return ProgramMode::CalculateTradeTickLatencyStatistics;
    }
    if (!tradeTicksAnalyzerArgMaps.docoptArgs_find_possible_bad_trade_ticks.empty())
    {
-      return ProgramMode::ProgramModeB;
+      return ProgramMode::FindPossibleBadTradeTicks;
    }
    return ProgramMode::Invalid;
 }

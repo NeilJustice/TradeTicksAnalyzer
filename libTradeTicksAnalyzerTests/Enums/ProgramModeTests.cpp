@@ -15,8 +15,8 @@ static void AssertEnumAsString(ProgramMode programMode, string_view expectedProg
 TEST(ENUM_AS_STRING_ReturnsEnumAsString)
 {
    AssertEnumAsString(ProgramMode::Unset, "Unset");
+   AssertEnumAsString(ProgramMode::CalculateTradeTickLatencyStatistics, "CalculateTradeTickLatencyStatistics");
    AssertEnumAsString(ProgramMode::FindPossibleBadTradeTicks, "FindPossibleBadTradeTicks");
-   AssertEnumAsString(ProgramMode::ProgramModeB, "ProgramModeB");
    AssertEnumAsString(ProgramMode::Invalid, "Invalid");
    AssertEnumAsString(ProgramMode::MaxValue, "MaxValue");
 }

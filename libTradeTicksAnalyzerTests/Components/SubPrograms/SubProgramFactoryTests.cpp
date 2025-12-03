@@ -1,27 +1,20 @@
 #include "pch.h"
 #include "libTradeTicksAnalyzer/Components/SubPrograms/FindPossibleBadTradeTicksSubProgram.h"
-#include "libTradeTicksAnalyzer/Components/SubPrograms/ProgramModeBSubProgram.h"
+#include "libTradeTicksAnalyzer/Components/SubPrograms/CalculateTradeTickLatencyStatisticsSubProgram.h"
 #include "libTradeTicksAnalyzer/Components/SubPrograms/SubProgram.h"
 #include "libTradeTicksAnalyzer/Components/SubPrograms/SubProgramFactory.h"
 
 TESTS(SubProgramFactoryTests)
-AFACT(NewSubProgram_FindPossibleBadTradeTicks_ReturnsFindPossibleBadTradeTicksSubProgram)
-AFACT(NewSubProgram_ProgramModeB_ReturnsProgramModeBSubProgram)
+AFACT(NewSubProgram_ValidProgramMode_DoesSo)
 FACTS(NewSubProgram_InvalidProgramMode_ThrowsInvalidArgument)
 EVIDENCE
 
 SubProgramFactory _subProgramFactory;
 
-TEST(NewSubProgram_FindPossibleBadTradeTicks_ReturnsFindPossibleBadTradeTicksSubProgram)
+TEST(NewSubProgram_ValidProgramMode_DoesSo)
 {
-   const shared_ptr<SubProgram> subProgram = _subProgramFactory.NewSubProgram(ProgramMode::FindPossibleBadTradeTicks);
-   POINTEE_IS_EXACT_TYPE(FindPossibleBadTradeTicksSubProgram, subProgram);
-}
-
-TEST(NewSubProgram_ProgramModeB_ReturnsProgramModeBSubProgram)
-{
-   const shared_ptr<SubProgram> subProgram = _subProgramFactory.NewSubProgram(ProgramMode::ProgramModeB);
-   POINTEE_IS_EXACT_TYPE(ProgramModeBSubProgram, subProgram);
+   POINTEE_IS_EXACT_TYPE(CalculateTradeTickLatencyStatisticsSubProgram, _subProgramFactory.NewSubProgram(ProgramMode::CalculateTradeTickLatencyStatistics));
+   POINTEE_IS_EXACT_TYPE(FindPossibleBadTradeTicksSubProgram, _subProgramFactory.NewSubProgram(ProgramMode::FindPossibleBadTradeTicks));
 }
 
 TEST1X1(NewSubProgram_InvalidProgramMode_ThrowsInvalidArgument,
