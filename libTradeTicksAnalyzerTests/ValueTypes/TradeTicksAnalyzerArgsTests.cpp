@@ -28,7 +28,7 @@ R"(TradeTicksAnalyzer calculate-trade-tick-latency-statistics
       --trading-logs-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
-      --output-folder=<OutputFolderPath>
+      --output-trading-logs-folder=<OutputFolderPath>
       [--parallel])";
    ARE_EQUAL(expectedArgs, TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latency_statistics_args);
 
@@ -45,7 +45,7 @@ R"(TradeTicksAnalyzer find-possible-bad-trade-ticks
       --trading-logs-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
-      --output-folder=<OutputFolderPath>
+      --output-trading-logs-folder=<OutputFolderPath>
       [--parallel])";
    ARE_EQUAL(expectedArgs, TradeTicksAnalyzerArgs::CommandLineUsage_find_possible_bad_trade_ticks_args);
 
@@ -64,13 +64,13 @@ Usage:
       --trading-logs-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
-      --output-folder=<OutputFolderPath>
+      --output-trading-logs-folder=<OutputFolderPath>
       [--parallel]
    TradeTicksAnalyzer find-possible-bad-trade-ticks
       --trading-logs-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
-      --output-folder=<OutputFolderPath>
+      --output-trading-logs-folder=<OutputFolderPath>
       [--parallel])", TradeTicksAnalyzerArgs::CommandLineUsage);
 }
 

@@ -11,12 +11,12 @@ Usage:
       --trading-logs-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
-      --output-folder=<OutputFolderPath>
+      --output-trading-logs-folder=<OutputFolderPath>
       \[--parallel\]
    TradeTicksAnalyzer find-possible-bad-trade-ticks
       --trading-logs-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
-      --output-folder=<OutputFolderPath>
+      --output-trading-logs-folder=<OutputFolderPath>
       \[--parallel\]
 \[TradeTicksAnalyzer #DATETODAY# \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] ExitCode: 1
