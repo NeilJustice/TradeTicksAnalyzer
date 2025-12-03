@@ -2,7 +2,7 @@
 #include "libTradeTicksAnalyzer/ValueTypes/TradeTicksAnalyzerArgs.h"
 
 const string TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latency_statistics_args =
-R"(TradeTicksAnalyzer calculate-trade-tick-latency-statistics
+R"(TradeTicksAnalyzer find-possible-bad-binary-trade-ticks
       --trading-logs-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>

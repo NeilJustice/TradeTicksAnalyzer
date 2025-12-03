@@ -1,6 +1,6 @@
 #pragma once
 class FindPossibleBadTextTradeTicksArgsParser;
-class CalculateTradeTickLatencyStatisticsArgsParser;
+class FindPossibleBadBinaryTradeTicksArgsParser;
 class ProgramModeDeterminer;
 
 class ProgramModeSpecificArgsParserDispatcher
@@ -9,7 +9,7 @@ class ProgramModeSpecificArgsParserDispatcher
 private:
    // Constant Components
    unique_ptr<const FindPossibleBadTextTradeTicksArgsParser> _findPossibleBadTextTradeTicksArgsParser;
-   unique_ptr<const CalculateTradeTickLatencyStatisticsArgsParser> _calculateTradeTickLatencyStatisticsArgsParser;
+   unique_ptr<const FindPossibleBadBinaryTradeTicksArgsParser> _findPossibleBadBinaryTradeTicksArgsParser;
    unique_ptr<const ProgramModeDeterminer> _programModeDeterminer;
 public:
    ProgramModeSpecificArgsParserDispatcher();

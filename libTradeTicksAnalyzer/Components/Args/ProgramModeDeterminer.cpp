@@ -15,7 +15,7 @@ ProgramMode ProgramModeDeterminer::DetermineProgramMode(const TradeTicksAnalyzer
 {
    if (!tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latency_statistics.empty())
    {
-      return ProgramMode::CalculateTradeTickLatencyStatistics;
+      return ProgramMode::FindPossibleBadBinaryTradeTicks;
    }
    if (!tradeTicksAnalyzerArgMaps.docoptArgs_find_possible_bad_trade_ticks.empty())
    {

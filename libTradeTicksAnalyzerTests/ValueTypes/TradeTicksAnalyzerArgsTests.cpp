@@ -26,7 +26,7 @@ TEST(DefaultConstructor_SetsFieldsToDefaultValues)
 TEST(CommandLineUsage_calculate_trade_tick_latency_statistics_AreExpectedStrings)
 {
    const string expectedArgs =
-R"(TradeTicksAnalyzer calculate-trade-tick-latency-statistics
+R"(TradeTicksAnalyzer find-possible-bad-binary-trade-ticks
       --trading-logs-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
@@ -62,7 +62,7 @@ TEST(CommandLineUsage_IsExpectedString)
    ARE_EQUAL(R"(TradeTicksAnalyzer
 
 Usage:
-   TradeTicksAnalyzer calculate-trade-tick-latency-statistics
+   TradeTicksAnalyzer find-possible-bad-binary-trade-ticks
       --trading-logs-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
