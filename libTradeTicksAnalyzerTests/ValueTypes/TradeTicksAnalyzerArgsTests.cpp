@@ -14,7 +14,7 @@ TEST(DefaultConstructor_SetsFieldsToDefaultValues)
    TradeTicksAnalyzerArgs expectedDefaultArgs;
    expectedDefaultArgs.programMode = ProgramMode::Unset;
    expectedDefaultArgs.tradingLogsInputFolderPath = fs::path();
-   expectedDefaultArgs.date = Time::Date{};
+   expectedDefaultArgs.dateWithDayOfWeek = Time::DateWithDayOfWeek{};
    expectedDefaultArgs.runNumber = 0;
    expectedDefaultArgs.outputFolderPath = fs::path();
    expectedDefaultArgs.parallel = false;

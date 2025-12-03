@@ -12,7 +12,7 @@ struct TradeTicksAnalyzerArgs
 
    ProgramMode programMode = ProgramMode::Unset;
    fs::path tradingLogsInputFolderPath;
-   Time::Date date;
+   Time::DateWithDayOfWeek dateWithDayOfWeek;
    unsigned runNumber = 0;
    fs::path outputFolderPath;
    bool parallel = false;

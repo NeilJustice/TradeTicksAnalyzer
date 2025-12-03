@@ -19,7 +19,7 @@ TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTradeTicksrgs_ReturnsArgs)
 {
    const fs::path tradingLogsInputFolderPath = p_docoptParserMock->GetRequiredFolderPathWhichMustExistMock.ReturnRandom();
 
-   const Time::Date date = p_docoptParserMock->GetRequiredDateWhichNeedNotBeValidMock.ReturnRandom();
+   const Time::DateWithDayOfWeek dateWithDayOfWeek = p_docoptParserMock->GetRequiredDateWithDayOfWeekWhichNeedNotBeValidMock.ReturnRandom();
 
    const unsigned runNumber = p_docoptParserMock->GetRequiredUnsignedMock.ReturnRandom();
 
@@ -32,14 +32,14 @@ TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTradeTicksrgs_ReturnsArgs)
    const TradeTicksAnalyzerArgs args = _findPossibleBadTradeTicksArgsParser.ParseDocoptArgs(docoptArgs);
    //
    METALMOCKTHEN(p_docoptParserMock->GetRequiredFolderPathWhichMustExistMock.CalledOnceWith(docoptArgs, "--trading-logs-folder")).Then(
-   METALMOCKTHEN(p_docoptParserMock->GetRequiredDateWhichNeedNotBeValidMock.CalledOnceWith(docoptArgs, "--date"))).Then(
+   METALMOCKTHEN(p_docoptParserMock->GetRequiredDateWithDayOfWeekWhichNeedNotBeValidMock.CalledOnceWith(docoptArgs, "--date"))).Then(
    METALMOCKTHEN(p_docoptParserMock->GetRequiredUnsignedMock.CalledOnceWith(docoptArgs, "--run-number"))).Then(
    METALMOCKTHEN(p_docoptParserMock->GetRequiredFolderPathWhichNeedNotExistMock.CalledOnceWith(docoptArgs, "--output-folder"))).Then(
    METALMOCKTHEN(p_docoptParserMock->GetOptionalBoolMock.CalledOnceWith(docoptArgs, "--parallel")));
    TradeTicksAnalyzerArgs expectedArgs;
    expectedArgs.programMode = ProgramMode::FindPossibleBadTradeTicks;
    expectedArgs.tradingLogsInputFolderPath = tradingLogsInputFolderPath;
-   expectedArgs.date = date;
+   expectedArgs.dateWithDayOfWeek = dateWithDayOfWeek;
    expectedArgs.runNumber = runNumber;
    expectedArgs.outputFolderPath = outputFolderPath;
    expectedArgs.parallel = parallel;

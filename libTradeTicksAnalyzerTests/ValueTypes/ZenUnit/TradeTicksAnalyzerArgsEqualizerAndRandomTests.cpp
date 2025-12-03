@@ -11,7 +11,7 @@ TEST(ZenUnitEqualizer_ThrowsIfAnyFieldsNotEqual)
    ZENUNIT_EQUALIZER_TEST_SETUP(TradeTicksAnalyzerArgs);
    ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, programMode, ProgramMode::FindPossibleBadTradeTicks);
    ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, tradingLogsInputFolderPath, ZenUnit::Random<fs::path>());
-   ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, date, ZenUnit::Random<Time::Date>());
+   ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, dateWithDayOfWeek, ZenUnit::Random<Time::DateWithDayOfWeek>());
    ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, runNumber, ZenUnit::RandomNon0<unsigned>());
    ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, parallel, true);
 }
@@ -26,7 +26,7 @@ TEST(TestableRandomTradeTicksAnalyzerArgs_ReturnsAllNonDefaultFields)
 
    const fs::path tradingLogsInputFolderPath = randomGeneratorMock.FilesystemPathMock.ReturnRandom();
 
-   const Time::Date date = timeRandomGeneratorMock.RandomDateMock.ReturnRandom();
+   const Time::DateWithDayOfWeek dateWithDayOfWeek = timeRandomGeneratorMock.RandomDateWithDayOfWeekMock.ReturnRandom();
 
    const unsigned runNumber = randomGeneratorMock.UnsignedMock.ReturnRandom();
 
@@ -39,13 +39,13 @@ TEST(TestableRandomTradeTicksAnalyzerArgs_ReturnsAllNonDefaultFields)
    //
    METALMOCKTHEN(tradeTicksAnalyzerRandomGeneratorMock.RandomProgramModeMock.CalledOnce()).Then(
    METALMOCKTHEN(randomGeneratorMock.FilesystemPathMock.Called())).Then(
-   METALMOCKTHEN(timeRandomGeneratorMock.RandomDateMock.CalledOnce())).Then(
+   METALMOCKTHEN(timeRandomGeneratorMock.RandomDateWithDayOfWeekMock.CalledOnce())).Then(
    METALMOCKTHEN(randomGeneratorMock.UnsignedMock.CalledOnce())).Then(
    METALMOCKTHEN(randomGeneratorMock.BoolMock.CalledOnce()));
    TradeTicksAnalyzerArgs expectedRandomArgs;
    expectedRandomArgs.programMode = programMode;
    expectedRandomArgs.tradingLogsInputFolderPath = tradingLogsInputFolderPath;
-   expectedRandomArgs.date = date;
+   expectedRandomArgs.dateWithDayOfWeek = dateWithDayOfWeek;
    expectedRandomArgs.runNumber = runNumber;
    expectedRandomArgs.parallel = parallel;
    ARE_EQUAL(expectedRandomArgs, randomArgs);
