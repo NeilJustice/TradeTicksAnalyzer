@@ -1,4 +1,4 @@
-\[TradeTicksAnalyzer #DATETODAY# \d\d:\d\d:\d\d (AM|PM) T\d+\s*\]   Running: TradeTicksAnalyzer\.exe invalid_program_mode
+\[TradeTicksAnalyzer #DATETODAY# \d\d:\d\d:\d\d (AM|PM) T\d+\s*\]   Running: .* invalid_program_mode
 \[TradeTicksAnalyzer #DATETODAY# \d\d:\d\d:\d\d (AM|PM) T\d+\s*\]   Machine: .*
 \[TradeTicksAnalyzer #DATETODAY# \d\d:\d\d:\d\d (AM|PM) T\d+\s*\]      User: .*
 \[TradeTicksAnalyzer #DATETODAY# \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] Directory: .*\\AcceptanceTests\\InvalidCommandLineArguments
@@ -7,10 +7,16 @@
 TradeTicksAnalyzer
 
 Usage:
-   programname program-mode-a
-      --required-string=<String>
+   TradeTicksAnalyzer calculate-trade-tick-latency-statistics
+      --trading-logs-folder=<InputFolderPath>
+      --date=<YYYY-MM-DDW>
+      --run-number=<Unsigned>
+      --output-folder=<OutputFolderPath>
       \[--parallel\]
-   programname program-mode-b
-      --required-string=<String>
+   TradeTicksAnalyzer find-possible-bad-trade-ticks
+      --trading-logs-folder=<InputFolderPath>
+      --date=<YYYY-MM-DDW>
+      --run-number=<Unsigned>
+      --output-folder=<OutputFolderPath>
       \[--parallel\]
 \[TradeTicksAnalyzer #DATETODAY# \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] ExitCode: 1

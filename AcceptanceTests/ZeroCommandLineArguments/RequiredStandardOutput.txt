@@ -1,5 +1,15 @@
 TradeTicksAnalyzer
 
 Usage:
-   programname program-mode-a --required-string=<String> \[--parallel\]
-   programname program-mode-b --required-string=<String> \[--parallel\]
+   TradeTicksAnalyzer calculate-trade-tick-latency-statistics
+      --trading-logs-folder=<InputFolderPath>
+      --date=<YYYY-MM-DDW>
+      --run-number=<Unsigned>
+      --output-folder=<OutputFolderPath>
+      \[--parallel\]
+   TradeTicksAnalyzer find-possible-bad-trade-ticks
+      --trading-logs-folder=<InputFolderPath>
+      --date=<YYYY-MM-DDW>
+      --run-number=<Unsigned>
+      --output-folder=<OutputFolderPath>
+      \[--parallel\]
