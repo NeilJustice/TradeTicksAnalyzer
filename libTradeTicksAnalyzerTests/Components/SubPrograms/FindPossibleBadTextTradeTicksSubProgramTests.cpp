@@ -28,7 +28,7 @@ TEST(Run_Returns0)
    const int exitCode = _findPossibleBadTextTradeTicksSubProgram.Run();
    //
    METALMOCK(_textTradeTicksFileReaderMock->ReadRealTimeTextTradeTicksFileMock.CalledOnceWith(
-      R"(X:\Trading\TradingProgram\PaperTradingLogs\2025-12-03W-1\Polygon\AllRealTimeTextTradeTicks\ABBV-TradeTicks.txt)"));
+      R"(X:\Trading\TradingProgram\PaperTradingLogs\2025-12-03W-1\Polygon\AllRealTimeTextTradeTicks\ABBV-RealTimeTradeTicks.txt)"));
    IS_ZERO(exitCode);
 }
 
