@@ -15,7 +15,7 @@ using namespace std;
 
 // Acceptance Tests
 // ================
-// TradeTicksAnalyzer-AT-InvalidCommandLineArguments
+// InvalidCommandLineArguments
 // invalid_program_mode
 // C:\Code\TradeTicksAnalyzer\AcceptanceTests\InvalidCommandLineArguments
 
