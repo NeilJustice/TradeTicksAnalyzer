@@ -21,3 +21,6 @@ using namespace std;
 #include "libTradeTicksAnalyzerTests/ValueTypes/ZenUnit/TradeTicksAnalyzerArgMapsEqualizerAndRandom.h"
 // libTradeTicksAnalyzer Components
 #include "libTradeTicksAnalyzerTests/Components/Testing/MetalMock/TradeTicksAnalyzerRandomGeneratorMock.h"
+
+// libTickData ValueTypes
+#include "libTickData/ValueTypes/ZenUnit/TradeTicksFileContentEqualizerAndRandom.h"
