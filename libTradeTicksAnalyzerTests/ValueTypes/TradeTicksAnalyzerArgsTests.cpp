@@ -16,8 +16,10 @@ TEST(DefaultConstructor_SetsFieldsToDefaultValues)
    expectedDefaultArgs.tradingLogsInputFolderPath = fs::path();
    expectedDefaultArgs.dateWithDayOfWeek = Time::DateWithDayOfWeek{};
    expectedDefaultArgs.runNumber = 0;
-   expectedDefaultArgs.outputTradingLogsFolderPath = fs::path();
+   expectedDefaultArgs.tradingLogsOutputFolderPath = fs::path();
    expectedDefaultArgs.parallel = false;
+   // Calculated Fields
+   expectedDefaultArgs.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = fs::path();
    ARE_EQUAL(expectedDefaultArgs, defaultArgs);
 }
 

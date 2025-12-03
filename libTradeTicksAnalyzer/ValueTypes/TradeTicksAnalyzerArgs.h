@@ -14,7 +14,7 @@ struct TradeTicksAnalyzerArgs
    fs::path tradingLogsInputFolderPath;
    Time::DateWithDayOfWeek dateWithDayOfWeek;
    unsigned runNumber = 0;
-   fs::path outputTradingLogsFolderPath;
+   fs::path tradingLogsOutputFolderPath;
    bool parallel = false;
    // Calculated Fields
    fs::path tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks;

@@ -23,7 +23,7 @@ TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTradeTicksrgs_ReturnsArgs)
 
    const unsigned runNumber = p_docoptParserMock->GetRequiredUnsignedMock.ReturnRandom();
 
-   const fs::path outputTradingLogsFolderPath = p_docoptParserMock->GetRequiredFolderPathWhichNeedNotExistMock.ReturnRandom();
+   const fs::path tradingLogsOutputFolderPath = p_docoptParserMock->GetRequiredFolderPathWhichNeedNotExistMock.ReturnRandom();
 
    const bool parallel = p_docoptParserMock->GetOptionalBoolMock.ReturnRandom();
 
@@ -41,7 +41,7 @@ TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTradeTicksrgs_ReturnsArgs)
    expectedArgs.tradingLogsInputFolderPath = tradingLogsInputFolderPath;
    expectedArgs.dateWithDayOfWeek = dateWithDayOfWeek;
    expectedArgs.runNumber = runNumber;
-   expectedArgs.outputTradingLogsFolderPath = outputTradingLogsFolderPath;
+   expectedArgs.tradingLogsOutputFolderPath = tradingLogsOutputFolderPath;
    expectedArgs.parallel = parallel;
    ARE_EQUAL(expectedArgs, args);
 }
