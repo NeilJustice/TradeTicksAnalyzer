@@ -22,14 +22,16 @@ TradeTicksAnalyzerArgs ProgramModeSpecificArgsParserDispatcher::ParseDocoptArgs(
    TradeTicksAnalyzerArgs args;
    switch (programMode)
    {
-   case ProgramMode::FindPossibleBadTradeTicks:
-   {
-      args = _findPossibleBadTradeTicksArgsParser->ParseDocoptArgs(tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latency_statistics);
-      break;
-   }
    case ProgramMode::CalculateTradeTickLatencyStatistics:
    {
-      args = _calculateTradeTickLatencyStatisticsArgsParser->ParseDocoptArgs(tradeTicksAnalyzerArgMaps.docoptArgs_find_possible_bad_trade_ticks);
+      args = _calculateTradeTickLatencyStatisticsArgsParser->ParseDocoptArgs(
+         tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latency_statistics);
+      break;
+   }
+   case ProgramMode::FindPossibleBadTradeTicks:
+   {
+      args = _findPossibleBadTradeTicksArgsParser->ParseDocoptArgs(
+         tradeTicksAnalyzerArgMaps.docoptArgs_find_possible_bad_trade_ticks);
       break;
    }
    default:

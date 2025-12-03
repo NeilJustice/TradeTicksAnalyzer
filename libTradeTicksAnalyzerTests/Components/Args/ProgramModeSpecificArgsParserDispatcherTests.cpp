@@ -1,12 +1,12 @@
 #include "pch.h"
 #include "libTradeTicksAnalyzer/Components/Args/ProgramModeSpecificArgsParserDispatcher.h"
-#include "libTradeTicksAnalyzerTests/Components/Args/MetalMock/FindPossibleBadTradeTicksArgsParserMock.h"
 #include "libTradeTicksAnalyzerTests/Components/Args/MetalMock/CalculateTradeTickLatencyStatisticsArgsParserMock.h"
+#include "libTradeTicksAnalyzerTests/Components/Args/MetalMock/FindPossibleBadTradeTicksArgsParserMock.h"
 #include "libTradeTicksAnalyzerTests/Components/Args/MetalMock/ProgramModeDeterminerMock.h"
 
 TESTS(ProgramModeSpecificArgsParserDispatcherTests)
-AFACT(ParseDocoptArgs_FindPossibleBadTradeTicks_DoesSo)
 AFACT(ParseDocoptArgs_CalculateTradeTickLatencyStatistics_DoesSo)
+AFACT(ParseDocoptArgs_FindPossibleBadTradeTicks_DoesSo)
 AFACT(ParseDocoptArgs_InvalidProgramMode_ThrowsInvalidArgument)
 EVIDENCE
 
@@ -24,19 +24,6 @@ STARTUP
    _programModeSpecificArgsParserDispatcher._programModeDeterminer.reset(_programModeDeterminerMock = new ProgramModeDeterminerMock);
 }
 
-TEST(ParseDocoptArgs_FindPossibleBadTradeTicks_DoesSo)
-{
-   _programModeDeterminerMock->DetermineProgramModeMock.Return(ProgramMode::FindPossibleBadTradeTicks);
-   const TradeTicksAnalyzerArgs args = _findPossibleBadTradeTicksArgsParserMock->ParseDocoptArgsMock.ReturnRandom();
-   const TradeTicksAnalyzerArgMaps tradeTicksAnalyzerArgMaps = ZenUnit::Random<TradeTicksAnalyzerArgMaps>();
-   //
-   const TradeTicksAnalyzerArgs returnedArgs = _programModeSpecificArgsParserDispatcher.ParseDocoptArgs(tradeTicksAnalyzerArgMaps);
-   //
-   METALMOCKTHEN(_programModeDeterminerMock->DetermineProgramModeMock.CalledOnceWith(tradeTicksAnalyzerArgMaps)).Then(
-   METALMOCKTHEN(_findPossibleBadTradeTicksArgsParserMock->ParseDocoptArgsMock.CalledOnceWith(tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latency_statistics)));
-   ARE_EQUAL(args, returnedArgs);
-}
-
 TEST(ParseDocoptArgs_CalculateTradeTickLatencyStatistics_DoesSo)
 {
    _programModeDeterminerMock->DetermineProgramModeMock.Return(ProgramMode::CalculateTradeTickLatencyStatistics);
@@ -46,7 +33,22 @@ TEST(ParseDocoptArgs_CalculateTradeTickLatencyStatistics_DoesSo)
    const TradeTicksAnalyzerArgs returnedArgs = _programModeSpecificArgsParserDispatcher.ParseDocoptArgs(tradeTicksAnalyzerArgMaps);
    //
    METALMOCKTHEN(_programModeDeterminerMock->DetermineProgramModeMock.CalledOnceWith(tradeTicksAnalyzerArgMaps)).Then(
-   METALMOCKTHEN(_calculateTradeTickLatencyStatisticsArgsParserMock->ParseDocoptArgsMock.CalledOnceWith(tradeTicksAnalyzerArgMaps.docoptArgs_find_possible_bad_trade_ticks)));
+   METALMOCKTHEN(_calculateTradeTickLatencyStatisticsArgsParserMock->ParseDocoptArgsMock.CalledOnceWith(
+      tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latency_statistics)));
+   ARE_EQUAL(args, returnedArgs);
+}
+
+TEST(ParseDocoptArgs_FindPossibleBadTradeTicks_DoesSo)
+{
+   _programModeDeterminerMock->DetermineProgramModeMock.Return(ProgramMode::FindPossibleBadTradeTicks);
+   const TradeTicksAnalyzerArgs args = _findPossibleBadTradeTicksArgsParserMock->ParseDocoptArgsMock.ReturnRandom();
+   const TradeTicksAnalyzerArgMaps tradeTicksAnalyzerArgMaps = ZenUnit::Random<TradeTicksAnalyzerArgMaps>();
+   //
+   const TradeTicksAnalyzerArgs returnedArgs = _programModeSpecificArgsParserDispatcher.ParseDocoptArgs(tradeTicksAnalyzerArgMaps);
+   //
+   METALMOCKTHEN(_programModeDeterminerMock->DetermineProgramModeMock.CalledOnceWith(tradeTicksAnalyzerArgMaps)).Then(
+   METALMOCKTHEN(_findPossibleBadTradeTicksArgsParserMock->ParseDocoptArgsMock.CalledOnceWith(
+      tradeTicksAnalyzerArgMaps.docoptArgs_find_possible_bad_trade_ticks)));
    ARE_EQUAL(args, returnedArgs);
 }
 
