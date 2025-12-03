@@ -3,7 +3,7 @@
 
 TESTS(TradeTicksAnalyzerArgsTests)
 AFACT(DefaultConstructor_SetsFieldsToDefaultValues)
-AFACT(CommandLineUsage_calculate_trade_tick_latencies_AreExpectedStrings)
+AFACT(CommandLineUsage_calculate_trade_tick_latency_statistics_AreExpectedStrings)
 AFACT(CommandLineUsage_find_possible_bad_trade_ticks_AreExpectedStrings)
 AFACT(CommandLineUsage_IsExpectedString)
 EVIDENCE
@@ -18,19 +18,19 @@ TEST(DefaultConstructor_SetsFieldsToDefaultValues)
    ARE_EQUAL(expectedDefaultArgs, defaultArgs);
 }
 
-TEST(CommandLineUsage_calculate_trade_tick_latencies_AreExpectedStrings)
+TEST(CommandLineUsage_calculate_trade_tick_latency_statistics_AreExpectedStrings)
 {
    const string expectedArgs =
 R"(TradeTicksAnalyzer calculate-trade-tick-latency-statistics
       --trading-logs-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       [--parallel])";
-   ARE_EQUAL(expectedArgs, TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latencies_args);
+   ARE_EQUAL(expectedArgs, TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latency_statistics_args);
 
 const string expectedUsage =
 R"(Usage:
-   )" + TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latencies_args;
-   ARE_EQUAL(expectedUsage, TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latencies);
+   )" + TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latency_statistics_args;
+   ARE_EQUAL(expectedUsage, TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latency_statistics);
 }
 
 TEST(CommandLineUsage_find_possible_bad_trade_ticks_AreExpectedStrings)

@@ -13,7 +13,7 @@ ProgramModeDeterminer::~ProgramModeDeterminer()
 
 ProgramMode ProgramModeDeterminer::DetermineProgramMode(const TradeTicksAnalyzerArgMaps& tradeTicksAnalyzerArgMaps) const
 {
-   if (!tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latencies.empty())
+   if (!tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latency_statistics.empty())
    {
       return ProgramMode::ProgramModeA;
    }

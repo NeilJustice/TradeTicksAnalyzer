@@ -7,7 +7,11 @@ using namespace std;
 
 // Production Args
 // ===============
+// calculate-trade-tick-latency-statistics --trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogs --date=2025-12-02T
+// calculate-trade-tick-latency-statistics --trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogs --date=2025-12-02T --parallel
+
 // find-possible-bad-trade-ticks --trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogs --date=2025-12-02T --run-number=12 --output-folder=X:\Trading\TradingProgram\PaperTradingLogs
+// find-possible-bad-trade-ticks --trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogs --date=2025-12-02T --run-number=12 --output-folder=X:\Trading\TradingProgram\PaperTradingLogs --parallel
 
 // Acceptance Tests
 // ================

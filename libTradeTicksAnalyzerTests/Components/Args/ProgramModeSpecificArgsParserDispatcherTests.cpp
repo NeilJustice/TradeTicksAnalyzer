@@ -33,7 +33,7 @@ TEST(ParseDocoptArgs_ProgramModeA_DoesSo)
    const TradeTicksAnalyzerArgs returnedArgs = _programModeSpecificArgsParserDispatcher.ParseDocoptArgs(tradeTicksAnalyzerArgMaps);
    //
    METALMOCKTHEN(_programModeDeterminerMock->DetermineProgramModeMock.CalledOnceWith(tradeTicksAnalyzerArgMaps)).Then(
-   METALMOCKTHEN(_programModeAArgsParserMock->ParseDocoptArgsMock.CalledOnceWith(tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latencies)));
+   METALMOCKTHEN(_programModeAArgsParserMock->ParseDocoptArgsMock.CalledOnceWith(tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latency_statistics)));
    ARE_EQUAL(args, returnedArgs);
 }
 

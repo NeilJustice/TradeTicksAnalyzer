@@ -24,7 +24,7 @@ TradeTicksAnalyzerArgs ProgramModeSpecificArgsParserDispatcher::ParseDocoptArgs(
    {
    case ProgramMode::ProgramModeA:
    {
-      args = _programModeAArgsParser->ParseDocoptArgs(tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latencies);
+      args = _programModeAArgsParser->ParseDocoptArgs(tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latency_statistics);
       break;
    }
    case ProgramMode::ProgramModeB:
