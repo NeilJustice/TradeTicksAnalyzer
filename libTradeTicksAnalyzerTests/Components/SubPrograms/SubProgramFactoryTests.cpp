@@ -1,21 +1,21 @@
 #include "pch.h"
-#include "libTradeTicksAnalyzer/Components/SubPrograms/ProgramModeASubProgram.h"
+#include "libTradeTicksAnalyzer/Components/SubPrograms/FindPossibleBadTradeTicksSubProgram.h"
 #include "libTradeTicksAnalyzer/Components/SubPrograms/ProgramModeBSubProgram.h"
 #include "libTradeTicksAnalyzer/Components/SubPrograms/SubProgram.h"
 #include "libTradeTicksAnalyzer/Components/SubPrograms/SubProgramFactory.h"
 
 TESTS(SubProgramFactoryTests)
-AFACT(NewSubProgram_ProgramModeA_ReturnsProgramModeASubProgram)
+AFACT(NewSubProgram_FindPossibleBadTradeTicks_ReturnsFindPossibleBadTradeTicksSubProgram)
 AFACT(NewSubProgram_ProgramModeB_ReturnsProgramModeBSubProgram)
 FACTS(NewSubProgram_InvalidProgramMode_ThrowsInvalidArgument)
 EVIDENCE
 
 SubProgramFactory _subProgramFactory;
 
-TEST(NewSubProgram_ProgramModeA_ReturnsProgramModeASubProgram)
+TEST(NewSubProgram_FindPossibleBadTradeTicks_ReturnsFindPossibleBadTradeTicksSubProgram)
 {
-   const shared_ptr<SubProgram> subProgram = _subProgramFactory.NewSubProgram(ProgramMode::ProgramModeA);
-   POINTEE_IS_EXACT_TYPE(ProgramModeASubProgram, subProgram);
+   const shared_ptr<SubProgram> subProgram = _subProgramFactory.NewSubProgram(ProgramMode::FindPossibleBadTradeTicks);
+   POINTEE_IS_EXACT_TYPE(FindPossibleBadTradeTicksSubProgram, subProgram);
 }
 
 TEST(NewSubProgram_ProgramModeB_ReturnsProgramModeBSubProgram)

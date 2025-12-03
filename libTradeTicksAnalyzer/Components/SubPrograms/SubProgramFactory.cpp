@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "libTradeTicksAnalyzer/Components/SubPrograms/ProgramModeASubProgram.h"
+#include "libTradeTicksAnalyzer/Components/SubPrograms/FindPossibleBadTradeTicksSubProgram.h"
 #include "libTradeTicksAnalyzer/Components/SubPrograms/ProgramModeBSubProgram.h"
 #include "libTradeTicksAnalyzer/Components/SubPrograms/SubProgramFactory.h"
 
@@ -7,9 +7,9 @@ shared_ptr<SubProgram> SubProgramFactory::NewSubProgram(ProgramMode programMode)
 {
    switch (programMode)
    {
-   case ProgramMode::ProgramModeA:
+   case ProgramMode::FindPossibleBadTradeTicks:
    {
-      return make_shared<ProgramModeASubProgram>();
+      return make_shared<FindPossibleBadTradeTicksSubProgram>();
    }
    case ProgramMode::ProgramModeB:
    {

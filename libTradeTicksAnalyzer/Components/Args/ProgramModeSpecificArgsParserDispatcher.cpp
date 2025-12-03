@@ -1,12 +1,12 @@
 #include "pch.h"
-#include "libTradeTicksAnalyzer/Components/Args/ProgramModeAArgsParser.h"
+#include "libTradeTicksAnalyzer/Components/Args/FindPossibleBadTradeTicksArgsParser.h"
 #include "libTradeTicksAnalyzer/Components/Args/ProgramModeBArgsParser.h"
 #include "libTradeTicksAnalyzer/Components/Args/ProgramModeDeterminer.h"
 #include "libTradeTicksAnalyzer/Components/Args/ProgramModeSpecificArgsParserDispatcher.h"
 
 ProgramModeSpecificArgsParserDispatcher::ProgramModeSpecificArgsParserDispatcher()
    // Constant Components
-   : _programModeAArgsParser(make_unique<ProgramModeAArgsParser>())
+   : _findPossibleBadTradeTicksArgsParser(make_unique<FindPossibleBadTradeTicksArgsParser>())
    , _programModeBArgsParser(make_unique<ProgramModeBArgsParser>())
    , _programModeDeterminer(make_unique<ProgramModeDeterminer>())
 {
@@ -22,9 +22,9 @@ TradeTicksAnalyzerArgs ProgramModeSpecificArgsParserDispatcher::ParseDocoptArgs(
    TradeTicksAnalyzerArgs args;
    switch (programMode)
    {
-   case ProgramMode::ProgramModeA:
+   case ProgramMode::FindPossibleBadTradeTicks:
    {
-      args = _programModeAArgsParser->ParseDocoptArgs(tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latency_statistics);
+      args = _findPossibleBadTradeTicksArgsParser->ParseDocoptArgs(tradeTicksAnalyzerArgMaps.docoptArgs_calculate_trade_tick_latency_statistics);
       break;
    }
    case ProgramMode::ProgramModeB:

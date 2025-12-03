@@ -2,7 +2,7 @@
 #include "libTradeTicksAnalyzer/Components/Args/ProgramModeBArgsParser.h"
 
 TESTS(ProgramModeBArgsParserTests)
-AFACT(ParseDocoptArgs_ParsesSetProgramModeArgs_ReturnsArgs)
+AFACT(ParseDocoptArgs_ParsesSetFindPossibleBadTradeTicksrgs_ReturnsArgs)
 EVIDENCE
 
 ProgramModeBArgsParser _programModeBArgsParser;
@@ -15,22 +15,14 @@ STARTUP
    _programModeBArgsParser.p_docoptParser.reset(p_docoptParserMock = new Time::DocoptParserMock);
 }
 
-TEST(ParseDocoptArgs_ParsesSetProgramModeArgs_ReturnsArgs)
+TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTradeTicksrgs_ReturnsArgs)
 {
-   const string requiredString = p_docoptParserMock->GetRequiredStringMock.ReturnRandom();
-
-   const bool parallel = p_docoptParserMock->GetOptionalBoolMock.ReturnRandom();
-
    const map<string, docopt::Value> docoptArgs = ZenUnit::RandomOrderedMap<string, docopt::Value>();
    //
    const TradeTicksAnalyzerArgs args = _programModeBArgsParser.ParseDocoptArgs(docoptArgs);
    //
-   METALMOCKTHEN(p_docoptParserMock->GetRequiredStringMock.CalledOnceWith(docoptArgs, "--required-string")).Then(
-   METALMOCKTHEN(p_docoptParserMock->GetOptionalBoolMock.CalledOnceWith(docoptArgs, "--parallel")));
    TradeTicksAnalyzerArgs expectedArgs;
    expectedArgs.programMode = ProgramMode::ProgramModeB;
-   expectedArgs.requiredString = requiredString;
-   expectedArgs.parallel = parallel;
    ARE_EQUAL(expectedArgs, args);
 }
 

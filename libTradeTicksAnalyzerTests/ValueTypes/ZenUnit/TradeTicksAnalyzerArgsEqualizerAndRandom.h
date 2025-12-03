@@ -1,6 +1,10 @@
 #pragma once
 #include "libTradeTicksAnalyzer/ValueTypes/TradeTicksAnalyzerArgs.h"
 #include "libTradeTicksAnalyzerTests/Components/Testing/TradeTicksAnalyzerRandomGenerator.h"
+namespace Time
+{
+   class TimeRandomGenerator;
+}
 
 namespace ZenUnit
 {
@@ -12,7 +16,9 @@ namespace ZenUnit
    };
 
    TradeTicksAnalyzerArgs TestableRandomTradeTicksAnalyzerArgs(
-      const RandomGenerator* randomGenerator, const TradeTicksAnalyzerRandomGenerator* tradeTicksAnalyzerRandomGenerator);
+      const RandomGenerator* randomGenerator,
+      const Time::TimeRandomGenerator* timeRandomGenerator,
+      const TradeTicksAnalyzerRandomGenerator* tradeTicksAnalyzerRandomGenerator);
 
    template<>
    TradeTicksAnalyzerArgs Random();

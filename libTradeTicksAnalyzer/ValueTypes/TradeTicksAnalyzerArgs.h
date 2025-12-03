@@ -11,6 +11,9 @@ struct TradeTicksAnalyzerArgs
    static const string CommandLineUsage;
 
    ProgramMode programMode = ProgramMode::Unset;
-   string requiredString;
+   fs::path tradingLogsInputFolderPath;
+   Time::Date date;
+   unsigned runNumber = 0;
+   fs::path outputFolderPath;
    bool parallel = false;
 };

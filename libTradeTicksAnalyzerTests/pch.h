@@ -12,6 +12,7 @@ using namespace std;
 // libDateTime Components
 #include "libDateTime/Components/Args/MetalMock/DocoptParserMock.h"
 #include "libDateTime/Components/Console/MetalMock/ConsoleMock.h"
+#include "libDateTime/Components/Random/MetalMock/TimeRandomGeneratorMock.h"
 
 // libTradeTicksAnalyzer Enums
 #include "libTradeTicksAnalyzer/Enums/ProgramMode.h"

@@ -13,7 +13,10 @@ TEST(DefaultConstructor_SetsFieldsToDefaultValues)
    const TradeTicksAnalyzerArgs defaultArgs;
    TradeTicksAnalyzerArgs expectedDefaultArgs;
    expectedDefaultArgs.programMode = ProgramMode::Unset;
-   expectedDefaultArgs.requiredString = "";
+   expectedDefaultArgs.tradingLogsInputFolderPath = fs::path();
+   expectedDefaultArgs.date = Time::Date{};
+   expectedDefaultArgs.runNumber = 0;
+   expectedDefaultArgs.outputFolderPath = fs::path();
    expectedDefaultArgs.parallel = false;
    ARE_EQUAL(expectedDefaultArgs, defaultArgs);
 }
