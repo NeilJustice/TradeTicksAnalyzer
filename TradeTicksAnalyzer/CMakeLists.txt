@@ -19,13 +19,16 @@ target_link_libraries(
    libTradeTicksAnalyzer
    ${libCppUtilsLibPath}
    ${libDateTimeLibPath}
-   ${libFunctionalLibPath})
+   ${libFunctionalLibPath}
+   ${libSymbologyLibPath}
+   ${libTickDataLibPath})
 if(UNIX)
    target_link_libraries(TradeTicksAnalyzer TBB::tbb)
    set_property(TARGET TradeTicksAnalyzer PROPERTY LINKER_TYPE LLD)
 elseif(MSVC)
    IfMSVCSetOptimizationFlags()
    IfMSVCDisableDebugSymbolsIfJenkins()
+   IfMSVCLinkIntelOneApiFolder(TradeTicksAnalyzer)
 endif()
 
 SetBinaryOutputNames(TradeTicksAnalyzer TradeTicksAnalyzer)

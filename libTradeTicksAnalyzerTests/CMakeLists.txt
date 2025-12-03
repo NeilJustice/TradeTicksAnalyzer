@@ -11,6 +11,8 @@ include_directories(
    ${libCppUtilsIncludeDirectory}
    ${libDateTimeIncludeDirectory}
    ${libFunctionalIncludeDirectory}
+   ${libSymbologyIncludeDirectory}
+   ${libTickDataIncludeDirectory}
    ${ZenUnitAndMetalMockIncludeDirectory})
 
 folder_source_group(Components)
@@ -33,7 +35,9 @@ target_link_libraries(
    libTradeTicksAnalyzer
    ${libCppUtilsLibPath}
    ${libDateTimeLibPath}
-   ${libFunctionalLibPath})
+   ${libFunctionalLibPath}
+   ${libSymbologyLibPath}
+   ${libTickDataLibPath})
 if(UNIX)
    IfUNIXEnablePrecompiledHeaderAndPossiblyUnityBuildIfNotIncludeWhatYouUseMode(libTradeTicksAnalyzerTests 2)
    target_link_libraries(libTradeTicksAnalyzerTests TBB::tbb)
@@ -43,4 +47,5 @@ elseif(MSVC)
    IfMSVCDisableDebugSymbolsIfJenkins()
    IfMSVCAddRunTestsPostBuildStep()
    IfMSVCEnablePrecompiledHeaderAndPossiblyUnityBuild(libTradeTicksAnalyzerTests 2)
+   IfMSVCLinkIntelOneApiFolder(libTradeTicksAnalyzerTests)
 endif()

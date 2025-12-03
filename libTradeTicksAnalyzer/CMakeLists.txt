@@ -7,6 +7,8 @@ include_directories(
    ${libCppUtilsIncludeDirectory}
    ${libDateTimeIncludeDirectory}
    ${libFunctionalIncludeDirectory}
+   ${libSymbologyIncludeDirectory}
+   ${libTickDataIncludeDirectory}
    ${ZenUnitAndMetalMockIncludeDirectory})
 
 folder_source_group(Components)
