@@ -16,7 +16,7 @@ TEST(DefaultConstructor_SetsFieldsToDefaultValues)
    expectedDefaultArgs.tradingLogsInputFolderPath = fs::path();
    expectedDefaultArgs.dateWithDayOfWeek = Time::DateWithDayOfWeek{};
    expectedDefaultArgs.runNumber = 0;
-   expectedDefaultArgs.outputFolderPath = fs::path();
+   expectedDefaultArgs.outputTradingLogsFolderPath = fs::path();
    expectedDefaultArgs.parallel = false;
    ARE_EQUAL(expectedDefaultArgs, defaultArgs);
 }

@@ -16,7 +16,7 @@ TradeTicksAnalyzerArgs FindPossibleBadTradeTicksArgsParser::ParseDocoptArgs(cons
    args.tradingLogsInputFolderPath = p_docoptParser->GetRequiredFolderPathWhichMustExist(docoptArgs, "--trading-logs-folder");
    args.dateWithDayOfWeek = p_docoptParser->GetRequiredDateWithDayOfWeekWhichNeedNotBeValid(docoptArgs, "--date");
    args.runNumber = p_docoptParser->GetRequiredUnsigned(docoptArgs, "--run-number");
-   args.outputFolderPath = p_docoptParser->GetRequiredFolderPathWhichNeedNotExist(docoptArgs, "--output-folder");
+   args.outputTradingLogsFolderPath = p_docoptParser->GetRequiredFolderPathWhichNeedNotExist(docoptArgs, "--output-folder");
    args.parallel = p_docoptParser->GetOptionalBool(docoptArgs, "--parallel");
    // Calculated Fields
 
