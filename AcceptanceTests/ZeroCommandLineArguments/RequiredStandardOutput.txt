@@ -7,7 +7,7 @@ Usage:
       --run-number=<Unsigned>
       --output-trading-logs-folder=<OutputFolderPath>
       \[--parallel\]
-   TradeTicksAnalyzer find-possible-bad-trade-ticks
+   TradeTicksAnalyzer find-possible-bad-text-trade-ticks
       --trading-logs-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>

@@ -13,7 +13,7 @@ R"(Usage:
    )" + TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latency_statistics_args;
 
 const string TradeTicksAnalyzerArgs::CommandLineUsage_find_possible_bad_trade_ticks_args =
-R"(TradeTicksAnalyzer find-possible-bad-trade-ticks
+R"(TradeTicksAnalyzer find-possible-bad-text-trade-ticks
       --trading-logs-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>

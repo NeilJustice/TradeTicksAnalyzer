@@ -10,8 +10,8 @@ using namespace std;
 // calculate-trade-tick-latency-statistics --trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogs --date=2025-12-02T --output-trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogs
 // calculate-trade-tick-latency-statistics --trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogs --date=2025-12-02T --output-trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogs --parallel
 
-// find-possible-bad-trade-ticks --trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --date=2025-12-02T --run-number=12 --output-trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay
-// find-possible-bad-trade-ticks --trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --date=2025-12-02T --run-number=12 --output-trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --parallel
+// find-possible-bad-text-trade-ticks --trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --date=2025-12-02T --run-number=12 --output-trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay
+// find-possible-bad-text-trade-ticks --trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --date=2025-12-02T --run-number=12 --output-trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --parallel
 
 // Acceptance Tests
 // ================

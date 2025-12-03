@@ -43,7 +43,7 @@ R"(Usage:
 TEST(CommandLineUsage_find_possible_bad_trade_ticks_AreExpectedStrings)
 {
 const string expectedArgs =
-R"(TradeTicksAnalyzer find-possible-bad-trade-ticks
+R"(TradeTicksAnalyzer find-possible-bad-text-trade-ticks
       --trading-logs-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
@@ -68,7 +68,7 @@ Usage:
       --run-number=<Unsigned>
       --output-trading-logs-folder=<OutputFolderPath>
       [--parallel]
-   TradeTicksAnalyzer find-possible-bad-trade-ticks
+   TradeTicksAnalyzer find-possible-bad-text-trade-ticks
       --trading-logs-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
