@@ -23,12 +23,12 @@ STARTUP
 TEST(Run_Returns0)
 {
    const TickData::TradeTicksFileContent tradeTicksFileContent =
-      _textTradeTicksFileReaderMock->ReadTextTradeTicksFileMock.ReturnRandom();
+      _textTradeTicksFileReaderMock->ReadHistoricalTextTradeTicksFileMock.ReturnRandom();
    //
    const int exitCode = _findPossibleBadTextTradeTicksSubProgram.Run();
    //
-   METALMOCK(_textTradeTicksFileReaderMock->ReadTextTradeTicksFileMock.CalledOnceWith(
-      R"(X:\Trading\TradingProgram\PaperTradingLogs\2025-12-03W-1\Polygon\AllRealTimeTextTradeTicks\ABBV-RealTimeTradeTicks.txt)",
+   METALMOCK(_textTradeTicksFileReaderMock->ReadHistoricalTextTradeTicksFileMock.CalledOnceWith(
+      R"(X:\Trading\TradingProgram\PaperTradingLogs\2025-12-03W-1\Polygon\AllRealTimeTextTradeTicks\ABBV-TradeTicks.txt)",
       0,
       false));
    IS_ZERO(exitCode);

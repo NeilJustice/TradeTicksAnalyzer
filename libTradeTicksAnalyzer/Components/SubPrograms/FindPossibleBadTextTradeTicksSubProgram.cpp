@@ -15,8 +15,8 @@ FindPossibleBadTextTradeTicksSubProgram::~FindPossibleBadTextTradeTicksSubProgra
 int FindPossibleBadTextTradeTicksSubProgram::Run() const
 {
    const TickData::TradeTicksFileContent tradeTicksFileContent =
-      _textTradeTicksFileReader->ReadTextTradeTicksFile(
-         R"(X:\Trading\TradingProgram\PaperTradingLogs\2025-12-03W-1\Polygon\AllRealTimeTextTradeTicks\ABBV-RealTimeTradeTicks.txt)",
+      _textTradeTicksFileReader->ReadHistoricalTextTradeTicksFile(
+         R"(X:\Trading\TradingProgram\PaperTradingLogs\2025-12-03W-1\Polygon\AllRealTimeTextTradeTicks\ABBV-TradeTicks.txt)",
          0,
          false);
    return 0;
