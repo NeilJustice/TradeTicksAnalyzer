@@ -3,7 +3,7 @@
 
 TESTS(ProgramModeDeterminerTests)
 AFACT(DetermineProgramMode_CalculateTradeTickLatencyStatistics)
-AFACT(DetermineProgramMode_FindPossibleBadTradeTicks)
+AFACT(DetermineProgramMode_FindPossibleBadTextTradeTicks)
 AFACT(DetermineProgramMode_Unset)
 EVIDENCE
 
@@ -19,14 +19,14 @@ TEST(DetermineProgramMode_CalculateTradeTickLatencyStatistics)
    ARE_EQUAL(ProgramMode::CalculateTradeTickLatencyStatistics, programMode);
 }
 
-TEST(DetermineProgramMode_FindPossibleBadTradeTicks)
+TEST(DetermineProgramMode_FindPossibleBadTextTradeTicks)
 {
    TradeTicksAnalyzerArgMaps tradeTicksAnalyzerArgMaps;
    tradeTicksAnalyzerArgMaps.docoptArgs_find_possible_bad_trade_ticks = ZenUnit::RandomNonEmptyOrderedMap<string, docopt::Value>();
    //
    const ProgramMode programMode = _programModeDeterminer.DetermineProgramMode(tradeTicksAnalyzerArgMaps);
    //
-   ARE_EQUAL(ProgramMode::FindPossibleBadTradeTicks, programMode);
+   ARE_EQUAL(ProgramMode::FindPossibleBadTextTradeTicks, programMode);
 }
 
 TEST(DetermineProgramMode_Unset)

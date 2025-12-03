@@ -1,21 +1,21 @@
 #include "pch.h"
-#include "libTradeTicksAnalyzer/Components/Args/FindPossibleBadTradeTicksArgsParser.h"
+#include "libTradeTicksAnalyzer/Components/Args/FindPossibleBadTextTradeTicksArgsParser.h"
 
-TESTS(FindPossibleBadTradeTicksArgsParserTests)
-AFACT(ParseDocoptArgs_ParsesSetFindPossibleBadTradeTicksrgs_ReturnsArgs)
+TESTS(FindPossibleBadTextTradeTicksArgsParserTests)
+AFACT(ParseDocoptArgs_ParsesSetFindPossibleBadTextTradeTicksrgs_ReturnsArgs)
 EVIDENCE
 
-FindPossibleBadTradeTicksArgsParser _findPossibleBadTradeTicksArgsParser;
+FindPossibleBadTextTradeTicksArgsParser _findPossibleBadTextTradeTicksArgsParser;
 // Base Constant Components
 Time::DocoptParserMock* p_docoptParserMock = nullptr;
 
 STARTUP
 {
    // Base Constant Components
-   _findPossibleBadTradeTicksArgsParser.p_docoptParser.reset(p_docoptParserMock = new Time::DocoptParserMock);
+   _findPossibleBadTextTradeTicksArgsParser.p_docoptParser.reset(p_docoptParserMock = new Time::DocoptParserMock);
 }
 
-TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTradeTicksrgs_ReturnsArgs)
+TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTextTradeTicksrgs_ReturnsArgs)
 {
    const fs::path tradingLogsInputFolderPath = p_docoptParserMock->GetRequiredFolderPathWhichMustExistMock.ReturnRandom();
 
@@ -29,7 +29,7 @@ TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTradeTicksrgs_ReturnsArgs)
 
    const map<string, docopt::Value> docoptArgs = ZenUnit::RandomOrderedMap<string, docopt::Value>();
    //
-   const TradeTicksAnalyzerArgs args = _findPossibleBadTradeTicksArgsParser.ParseDocoptArgs(docoptArgs);
+   const TradeTicksAnalyzerArgs args = _findPossibleBadTextTradeTicksArgsParser.ParseDocoptArgs(docoptArgs);
    //
    METALMOCKTHEN(p_docoptParserMock->GetRequiredFolderPathWhichMustExistMock.CalledOnceWith(docoptArgs, "--trading-logs-folder")).Then(
    METALMOCKTHEN(p_docoptParserMock->GetRequiredDateWithDayOfWeekWhichNeedNotBeValidMock.CalledOnceWith(docoptArgs, "--date"))).Then(
@@ -37,7 +37,7 @@ TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTradeTicksrgs_ReturnsArgs)
    METALMOCKTHEN(p_docoptParserMock->GetRequiredFolderPathWhichNeedNotExistMock.CalledOnceWith(docoptArgs, "--output-folder"))).Then(
    METALMOCKTHEN(p_docoptParserMock->GetOptionalBoolMock.CalledOnceWith(docoptArgs, "--parallel")));
    TradeTicksAnalyzerArgs expectedArgs;
-   expectedArgs.programMode = ProgramMode::FindPossibleBadTradeTicks;
+   expectedArgs.programMode = ProgramMode::FindPossibleBadTextTradeTicks;
    expectedArgs.tradingLogsInputFolderPath = tradingLogsInputFolderPath;
    expectedArgs.dateWithDayOfWeek = dateWithDayOfWeek;
    expectedArgs.runNumber = runNumber;
@@ -46,4 +46,4 @@ TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTradeTicksrgs_ReturnsArgs)
    ARE_EQUAL(expectedArgs, args);
 }
 
-RUN_TESTS(FindPossibleBadTradeTicksArgsParserTests)
+RUN_TESTS(FindPossibleBadTextTradeTicksArgsParserTests)

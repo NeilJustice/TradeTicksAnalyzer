@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "libTradeTicksAnalyzer/Components/SubPrograms/FindPossibleBadTradeTicksSubProgram.h"
+#include "libTradeTicksAnalyzer/Components/SubPrograms/FindPossibleBadTextTradeTicksSubProgram.h"
 #include "libTradeTicksAnalyzer/Components/SubPrograms/CalculateTradeTickLatencyStatisticsSubProgram.h"
 #include "libTradeTicksAnalyzer/Components/SubPrograms/SubProgram.h"
 #include "libTradeTicksAnalyzer/Components/SubPrograms/SubProgramFactory.h"
@@ -14,7 +14,7 @@ SubProgramFactory _subProgramFactory;
 TEST(NewSubProgram_ValidProgramMode_DoesSo)
 {
    POINTEE_IS_EXACT_TYPE(CalculateTradeTickLatencyStatisticsSubProgram, _subProgramFactory.NewSubProgram(ProgramMode::CalculateTradeTickLatencyStatistics));
-   POINTEE_IS_EXACT_TYPE(FindPossibleBadTradeTicksSubProgram, _subProgramFactory.NewSubProgram(ProgramMode::FindPossibleBadTradeTicks));
+   POINTEE_IS_EXACT_TYPE(FindPossibleBadTextTradeTicksSubProgram, _subProgramFactory.NewSubProgram(ProgramMode::FindPossibleBadTextTradeTicks));
 }
 
 TEST1X1(NewSubProgram_InvalidProgramMode_ThrowsInvalidArgument,

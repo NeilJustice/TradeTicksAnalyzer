@@ -1,18 +1,18 @@
 #include "pch.h"
-#include "libTradeTicksAnalyzer/Components/Args/FindPossibleBadTradeTicksArgsParser.h"
+#include "libTradeTicksAnalyzer/Components/Args/FindPossibleBadTextTradeTicksArgsParser.h"
 
-FindPossibleBadTradeTicksArgsParser::FindPossibleBadTradeTicksArgsParser()
+FindPossibleBadTextTradeTicksArgsParser::FindPossibleBadTextTradeTicksArgsParser()
 {
 }
 
-FindPossibleBadTradeTicksArgsParser::~FindPossibleBadTradeTicksArgsParser()
+FindPossibleBadTextTradeTicksArgsParser::~FindPossibleBadTextTradeTicksArgsParser()
 {
 }
 
-TradeTicksAnalyzerArgs FindPossibleBadTradeTicksArgsParser::ParseDocoptArgs(const map<string, docopt::Value>& docoptArgs) const
+TradeTicksAnalyzerArgs FindPossibleBadTextTradeTicksArgsParser::ParseDocoptArgs(const map<string, docopt::Value>& docoptArgs) const
 {
    TradeTicksAnalyzerArgs args;
-   args.programMode = ProgramMode::FindPossibleBadTradeTicks;
+   args.programMode = ProgramMode::FindPossibleBadTextTradeTicks;
    args.tradingLogsInputFolderPath = p_docoptParser->GetRequiredFolderPathWhichMustExist(docoptArgs, "--trading-logs-folder");
    args.dateWithDayOfWeek = p_docoptParser->GetRequiredDateWithDayOfWeekWhichNeedNotBeValid(docoptArgs, "--date");
    args.runNumber = p_docoptParser->GetRequiredUnsigned(docoptArgs, "--run-number");

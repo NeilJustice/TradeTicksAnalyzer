@@ -16,7 +16,7 @@ TEST(ENUM_AS_STRING_ReturnsEnumAsString)
 {
    AssertEnumAsString(ProgramMode::Unset, "Unset");
    AssertEnumAsString(ProgramMode::CalculateTradeTickLatencyStatistics, "CalculateTradeTickLatencyStatistics");
-   AssertEnumAsString(ProgramMode::FindPossibleBadTradeTicks, "FindPossibleBadTradeTicks");
+   AssertEnumAsString(ProgramMode::FindPossibleBadTextTradeTicks, "FindPossibleBadTextTradeTicks");
    AssertEnumAsString(ProgramMode::Invalid, "Invalid");
    AssertEnumAsString(ProgramMode::MaxValue, "MaxValue");
 }

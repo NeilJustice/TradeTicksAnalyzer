@@ -9,7 +9,7 @@ EVIDENCE
 TEST(ZenUnitEqualizer_ThrowsIfAnyFieldsNotEqual)
 {
    ZENUNIT_EQUALIZER_TEST_SETUP(TradeTicksAnalyzerArgs);
-   ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, programMode, ProgramMode::FindPossibleBadTradeTicks);
+   ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, programMode, ProgramMode::FindPossibleBadTextTradeTicks);
    ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, tradingLogsInputFolderPath, ZenUnit::Random<fs::path>());
    ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, dateWithDayOfWeek, ZenUnit::Random<Time::DateWithDayOfWeek>());
    ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, runNumber, ZenUnit::RandomNon0<unsigned>());

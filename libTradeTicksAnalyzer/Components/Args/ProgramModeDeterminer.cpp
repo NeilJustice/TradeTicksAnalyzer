@@ -19,7 +19,7 @@ ProgramMode ProgramModeDeterminer::DetermineProgramMode(const TradeTicksAnalyzer
    }
    if (!tradeTicksAnalyzerArgMaps.docoptArgs_find_possible_bad_trade_ticks.empty())
    {
-      return ProgramMode::FindPossibleBadTradeTicks;
+      return ProgramMode::FindPossibleBadTextTradeTicks;
    }
    return ProgramMode::Invalid;
 }

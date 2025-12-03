@@ -2,7 +2,7 @@
 #include "libTradeTicksAnalyzer/Components/Args/CalculateTradeTickLatencyStatisticsArgsParser.h"
 
 TESTS(CalculateTradeTickLatencyStatisticsArgsParserTests)
-AFACT(ParseDocoptArgs_ParsesSetFindPossibleBadTradeTicksrgs_ReturnsArgs)
+AFACT(ParseDocoptArgs_ParsesSetFindPossibleBadTextTradeTicksrgs_ReturnsArgs)
 EVIDENCE
 
 CalculateTradeTickLatencyStatisticsArgsParser _calculateTradeTickLatencyStatisticsArgsParser;
@@ -15,7 +15,7 @@ STARTUP
    _calculateTradeTickLatencyStatisticsArgsParser.p_docoptParser.reset(p_docoptParserMock = new Time::DocoptParserMock);
 }
 
-TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTradeTicksrgs_ReturnsArgs)
+TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTextTradeTicksrgs_ReturnsArgs)
 {
    const map<string, docopt::Value> docoptArgs = ZenUnit::RandomOrderedMap<string, docopt::Value>();
    //
