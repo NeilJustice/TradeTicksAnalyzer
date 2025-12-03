@@ -15,7 +15,7 @@ TEST(ZenUnitEqualizer_ThrowsIfAnyFieldsNotEqual)
    ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, runNumber, ZenUnit::RandomNon0<unsigned>());
    ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, parallel, true);
    // Calculated Fields
-   ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks, ZenUnit::Random<fs::path>());
+   ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks, ZenUnit::Random<fs::path>());
 }
 
 TEST(TestableRandomTradeTicksAnalyzerArgs_ReturnsAllNonDefaultFields)
@@ -27,10 +27,10 @@ TEST(TestableRandomTradeTicksAnalyzerArgs_ReturnsAllNonDefaultFields)
    const ProgramMode programMode = tradeTicksAnalyzerRandomGeneratorMock.RandomProgramModeMock.ReturnRandom();
 
    const fs::path tradingLogsInputFolderPath = ZenUnit::Random<fs::path>();
-   const fs::path tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = ZenUnit::Random<fs::path>();
+   const fs::path tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = ZenUnit::Random<fs::path>();
    randomGeneratorMock.FilesystemPathMock.ReturnValues(
       tradingLogsInputFolderPath,
-      tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks);
+      tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks);
 
    const Time::DateWithDayOfWeek dateWithDayOfWeek = timeRandomGeneratorMock.RandomDateWithDayOfWeekMock.ReturnRandom();
 
@@ -57,7 +57,7 @@ TEST(TestableRandomTradeTicksAnalyzerArgs_ReturnsAllNonDefaultFields)
    expectedRandomArgs.runNumber = runNumber;
    expectedRandomArgs.parallel = parallel;
    // Calculated Fields
-   expectedRandomArgs.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks;
+   expectedRandomArgs.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks;
    ARE_EQUAL(expectedRandomArgs, randomArgs);
 }
 

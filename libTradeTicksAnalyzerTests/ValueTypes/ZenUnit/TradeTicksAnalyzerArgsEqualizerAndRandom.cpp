@@ -13,7 +13,7 @@ namespace ZenUnit
       FIELDS_ARE_EQUAL(expectedTradeTicksAnalyzerArgs, actualTradeTicksAnalyzerArgs, tradingLogsOutputFolderPath);
       FIELDS_ARE_EQUAL(expectedTradeTicksAnalyzerArgs, actualTradeTicksAnalyzerArgs, parallel);
       // Calculated Fields
-      FIELDS_ARE_EQUAL(expectedTradeTicksAnalyzerArgs, actualTradeTicksAnalyzerArgs, tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks);
+      FIELDS_ARE_EQUAL(expectedTradeTicksAnalyzerArgs, actualTradeTicksAnalyzerArgs, tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks);
    }
 
    TradeTicksAnalyzerArgs TestableRandomTradeTicksAnalyzerArgs(
@@ -28,7 +28,7 @@ namespace ZenUnit
       randomArgs.runNumber = randomGenerator->Unsigned();
       randomArgs.parallel = randomGenerator->Bool();
       // Calculated Fields
-      randomArgs.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = randomGenerator->FilesystemPath();
+      randomArgs.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = randomGenerator->FilesystemPath();
       return randomArgs;
    }
 
