@@ -31,10 +31,10 @@ TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTextTradeTicksrgs_ReturnsArgs)
    //
    const TradeTicksAnalyzerArgs args = _findPossibleBadTextTradeTicksArgsParser.ParseDocoptArgs(docoptArgs);
    //
-   METALMOCKTHEN(p_docoptParserMock->GetRequiredFolderPathWhichMustExistMock.CalledOnceWith(docoptArgs, "--trading-logs-folder")).Then(
+   METALMOCKTHEN(p_docoptParserMock->GetRequiredFolderPathWhichMustExistMock.CalledOnceWith(docoptArgs, "--trading-logs-input-folder")).Then(
    METALMOCKTHEN(p_docoptParserMock->GetRequiredDateWithDayOfWeekWhichNeedNotBeValidMock.CalledOnceWith(docoptArgs, "--date"))).Then(
    METALMOCKTHEN(p_docoptParserMock->GetRequiredUnsignedMock.CalledOnceWith(docoptArgs, "--run-number"))).Then(
-   METALMOCKTHEN(p_docoptParserMock->GetRequiredFolderPathWhichNeedNotExistMock.CalledOnceWith(docoptArgs, "--output-folder"))).Then(
+   METALMOCKTHEN(p_docoptParserMock->GetRequiredFolderPathWhichNeedNotExistMock.CalledOnceWith(docoptArgs, "--trading-logs-output-folder"))).Then(
    METALMOCKTHEN(p_docoptParserMock->GetOptionalBoolMock.CalledOnceWith(docoptArgs, "--parallel")));
    TradeTicksAnalyzerArgs expectedArgs;
    expectedArgs.programMode = ProgramMode::FindPossibleBadTextTradeTicks;

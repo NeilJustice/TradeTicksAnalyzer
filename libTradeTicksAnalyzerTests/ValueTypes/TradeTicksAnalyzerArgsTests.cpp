@@ -27,10 +27,10 @@ TEST(CommandLineUsage_calculate_trade_tick_latency_statistics_AreExpectedStrings
 {
    const string expectedArgs =
 R"(TradeTicksAnalyzer find-possible-bad-binary-trade-ticks
-      --trading-logs-folder=<InputFolderPath>
+      --trading-logs-input-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
-      --output-trading-logs-folder=<OutputFolderPath>
+      --trading-logs-output-folder=<OutputFolderPath>
       [--parallel])";
    ARE_EQUAL(expectedArgs, TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latency_statistics_args);
 
@@ -44,10 +44,10 @@ TEST(CommandLineUsage_find_possible_bad_trade_ticks_AreExpectedStrings)
 {
 const string expectedArgs =
 R"(TradeTicksAnalyzer find-possible-bad-text-trade-ticks
-      --trading-logs-folder=<InputFolderPath>
+      --trading-logs-input-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
-      --output-trading-logs-folder=<OutputFolderPath>
+      --trading-logs-output-folder=<OutputFolderPath>
       [--parallel])";
    ARE_EQUAL(expectedArgs, TradeTicksAnalyzerArgs::CommandLineUsage_find_possible_bad_trade_ticks_args);
 
@@ -63,16 +63,16 @@ TEST(CommandLineUsage_IsExpectedString)
 
 Usage:
    TradeTicksAnalyzer find-possible-bad-binary-trade-ticks
-      --trading-logs-folder=<InputFolderPath>
+      --trading-logs-input-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
-      --output-trading-logs-folder=<OutputFolderPath>
+      --trading-logs-output-folder=<OutputFolderPath>
       [--parallel]
    TradeTicksAnalyzer find-possible-bad-text-trade-ticks
-      --trading-logs-folder=<InputFolderPath>
+      --trading-logs-input-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
-      --output-trading-logs-folder=<OutputFolderPath>
+      --trading-logs-output-folder=<OutputFolderPath>
       [--parallel])", TradeTicksAnalyzerArgs::CommandLineUsage);
 }
 

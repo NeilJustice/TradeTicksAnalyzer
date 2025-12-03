@@ -7,11 +7,11 @@ using namespace std;
 
 // Production Args
 // ===============
-// find-possible-bad-binary-trade-ticks --trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogs --date=2025-12-02T --output-trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogs
-// find-possible-bad-binary-trade-ticks --trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogs --date=2025-12-02T --output-trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogs --parallel
+// find-possible-bad-binary-trade-ticks --trading-logs-input-folder=X:\Trading\TradingProgram\PaperTradingLogs --date=2025-12-02T --trading-logs-output-folder=X:\Trading\TradingProgram\PaperTradingLogs
+// find-possible-bad-binary-trade-ticks --trading-logs-input-folder=X:\Trading\TradingProgram\PaperTradingLogs --date=2025-12-02T --trading-logs-output-folder=X:\Trading\TradingProgram\PaperTradingLogs --parallel
 
-// find-possible-bad-text-trade-ticks --trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --date=2025-12-02T --run-number=12 --output-trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay
-// find-possible-bad-text-trade-ticks --trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --date=2025-12-02T --run-number=12 --output-trading-logs-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --parallel
+// find-possible-bad-text-trade-ticks --trading-logs-input-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --date=2025-12-02T --run-number=12 --trading-logs-output-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay
+// find-possible-bad-text-trade-ticks --trading-logs-input-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --date=2025-12-02T --run-number=12 --trading-logs-output-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --parallel
 
 // Acceptance Tests
 // ================
