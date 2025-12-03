@@ -2,13 +2,13 @@ TradeTicksAnalyzer
 
 Usage:
    TradeTicksAnalyzer find-possible-bad-binary-trade-ticks
-      --trading-logs-folder=<InputFolderPath>
+      --trading-logs-input-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
       --trading-logs-output-folder=<OutputFolderPath>
       \[--parallel\]
    TradeTicksAnalyzer find-possible-bad-text-trade-ticks
-      --trading-logs-folder=<InputFolderPath>
+      --trading-logs-input-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
       --trading-logs-output-folder=<OutputFolderPath>
