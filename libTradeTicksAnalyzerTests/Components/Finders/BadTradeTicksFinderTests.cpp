@@ -71,6 +71,7 @@ TEST(FindAllPossibleBadTradeTicks_DoesSo)
 
 TEST(TryCatchCall_FindPossibleBadTradeTicks_DoesSo)
 {
+
    const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
    const size_t realTimeTextTradeTicksInputFilePathIndex = ZenUnit::Random<size_t>();
    //
@@ -84,10 +85,23 @@ TEST(TryCatchCall_FindPossibleBadTradeTicks_DoesSo)
 TEST(FindPossibleBadTradeTicks_DoesSo)
 {
 
+   const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
+   //
+   _badTradeTicksFinder.FindPossibleBadTradeTicks(realTimeTextTradeTicksInputFilePath);
+   //
+
 }
 
 TEST(ExceptionHandler_FindPossibleBadTradeTicks_DoesSo)
 {
+
+   const string_view exceptionClassNameAndMessage = ZenUnit::Random<string_view>();
+   const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
+   //
+   _badTradeTicksFinder.ExceptionHandler_FindPossibleBadTradeTicks(
+      exceptionClassNameAndMessage,
+      realTimeTextTradeTicksInputFilePath);
+   //
 
 }
 
