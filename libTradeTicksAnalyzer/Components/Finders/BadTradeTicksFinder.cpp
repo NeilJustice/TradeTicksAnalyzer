@@ -26,7 +26,7 @@ void BadTradeTicksFinder::FindAllPossibleBadTradeTicks(
    const fs::path& /*possibleBadTradeTicksOutputFolderPath*/,
    bool /*parallel*/) const
 {
-   const vector<fs::path> realTimeTextTradeTicksFilePaths =
+   const vector<fs::path> realTimeTextTradeTicksInputFilePaths =
       _fileAndFolderPathsGetter->GetTopLevelFilePathsInFolder(realTimeTextTradeTicksInputFolderPath);
 
    //_tradeTicksAnalyzerMessageWriter->WriteMessage_ReadingAndProcessing(

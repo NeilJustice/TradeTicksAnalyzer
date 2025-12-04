@@ -36,7 +36,7 @@ TEST(Initialize_DoesSo)
 
 TEST(FindAllPossibleBadTradeTicks_DoesSo)
 {
-   const vector<fs::path> realTimeTextTradeTicksFilePaths =
+   const vector<fs::path> realTimeTextTradeTicksInputFilePaths =
       _fileAndFolderPathsGetterMock->GetTopLevelFilePathsInFolderMock.ReturnRandom();
 
    const fs::path realTimeTextTradeTicksInputFolder = ZenUnit::Random<fs::path>();
