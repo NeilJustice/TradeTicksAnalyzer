@@ -24,5 +24,8 @@ int FindPossibleBadTextTradeTicksSubProgram::Run() const
    const vector<TickData::TradeTicksFileContent> allTradeTicksFileContents =
       _multipleTextTradeTicksFilesReader->ReadAllRealTimeTextTradeTicksFiles(
          p_args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks, p_args.parallel);
+
+
+
    return 0;
 }
