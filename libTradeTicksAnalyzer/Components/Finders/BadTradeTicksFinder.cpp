@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "libFunctional/Components/FunctionCallers/TryCatchCallers/VoidOneArgTryCatchCaller.h"
 #include "libCppUtils/Components/FileSystem/FileAndFolderPathsGetter.h"
 #include "libFunctional/Components/ForEachers/Member/OneArgMemberFunctionForEacher.h"
 #include "libTradeTicksAnalyzer/Components/Finders/BadTradeTicksFinder.h"
@@ -7,6 +8,7 @@
 BadTradeTicksFinder::BadTradeTicksFinder()
    // Function Callers
    : _forEacher_fsPath(make_unique<_forEacher_fsPathType>())
+   , _tryCatchCaller_fsPath(make_unique<_tryCatchCaller_fsPathType>())
    // Constant Components
    , _fileAndFolderPathsGetter(make_unique<Utils::FileAndFolderPathsGetter>())
    // Mutable Components

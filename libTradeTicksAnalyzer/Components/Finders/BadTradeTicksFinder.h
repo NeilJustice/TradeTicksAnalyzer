@@ -3,6 +3,9 @@ namespace Functional
 {
    template<typename ClassType, typename ElementType>
    class OneArgMemberFunctionForEacher;
+
+   template<typename ClassType, typename Arg1Type>
+   class VoidOneArgTryCatchCaller;
 }
 namespace Utils
 {
@@ -17,6 +20,9 @@ private:
    // Function Callers
    using _forEacher_fsPathType = Functional::OneArgMemberFunctionForEacher<BadTradeTicksFinder, fs::path>;
    unique_ptr<const _forEacher_fsPathType> _forEacher_fsPath;
+
+   using _tryCatchCaller_fsPathType = Functional::VoidOneArgTryCatchCaller<BadTradeTicksFinder, const fs::path&>;
+   unique_ptr<const _tryCatchCaller_fsPathType> _tryCatchCaller_fsPath;
    // Constant Components
    unique_ptr<const Utils::FileAndFolderPathsGetter> _fileAndFolderPathsGetter;
    // Mutable Components
