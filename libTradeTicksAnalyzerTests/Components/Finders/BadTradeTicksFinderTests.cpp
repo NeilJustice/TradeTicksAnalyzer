@@ -106,11 +106,14 @@ TEST(FindPossibleBadTradeTicks_DoesSo)
 {
    const TickData::TradeTicksFileContent tradeTicksFileContent =
       _textTradeTicksFileReaderMock->ReadRealTimeTextTradeTicksFileMock.ReturnRandom();
+
+
    const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
    //
    _badTradeTicksFinder.FindPossibleBadTradeTicks(realTimeTextTradeTicksInputFilePath);
    //
    METALMOCK(_textTradeTicksFileReaderMock->ReadRealTimeTextTradeTicksFileMock.CalledOnceWith(realTimeTextTradeTicksInputFilePath));
+
 }
 
 TEST(ExceptionHandler_FindPossibleBadTradeTicks_DoesSo)
