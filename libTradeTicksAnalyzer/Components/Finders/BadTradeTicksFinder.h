@@ -18,7 +18,7 @@ public:
    virtual void Initialize(const Utils::Logger* logger);
    // Actions
    virtual void FindAllPossibleBadTradeTicks(
-      const fs::path& tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks,
+      const fs::path& realTimeTextTradeTicksInputFolder,
       const fs::path& tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks,
       bool parallel) const;
 };
