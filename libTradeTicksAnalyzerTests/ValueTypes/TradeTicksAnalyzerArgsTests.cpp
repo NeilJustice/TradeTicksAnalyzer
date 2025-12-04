@@ -20,6 +20,7 @@ TEST(DefaultConstructor_SetsFieldsToDefaultValues)
    expectedDefaultArgs.parallel = false;
    // Calculated Fields
    expectedDefaultArgs.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = fs::path();
+   expectedDefaultArgs.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks = fs::path();
    ARE_EQUAL(expectedDefaultArgs, defaultArgs);
 }
 

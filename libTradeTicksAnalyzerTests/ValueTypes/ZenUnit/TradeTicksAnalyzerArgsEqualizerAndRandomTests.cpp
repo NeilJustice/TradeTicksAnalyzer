@@ -16,6 +16,7 @@ TEST(ZenUnitEqualizer_ThrowsIfAnyFieldsNotEqual)
    ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, parallel, true);
    // Calculated Fields
    ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks, ZenUnit::Random<fs::path>());
+   ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks, ZenUnit::Random<fs::path>());
 }
 
 TEST(TestableRandomTradeTicksAnalyzerArgs_ReturnsAllNonDefaultFields)
@@ -28,9 +29,11 @@ TEST(TestableRandomTradeTicksAnalyzerArgs_ReturnsAllNonDefaultFields)
 
    const fs::path tradingLogsInputFolderPath = ZenUnit::Random<fs::path>();
    const fs::path tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = ZenUnit::Random<fs::path>();
+   const fs::path tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks = ZenUnit::Random<fs::path>();
    randomGeneratorMock.FilesystemPathMock.ReturnValues(
       tradingLogsInputFolderPath,
-      tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks);
+      tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks,
+      tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks);
 
    const Time::DateWithDayOfWeek dateWithDayOfWeek = timeRandomGeneratorMock.RandomDateWithDayOfWeekMock.ReturnRandom();
 
@@ -43,12 +46,13 @@ TEST(TestableRandomTradeTicksAnalyzerArgs_ReturnsAllNonDefaultFields)
       &timeRandomGeneratorMock,
       &tradeTicksAnalyzerRandomGeneratorMock);
    //
-   METALMOCK(randomGeneratorMock.FilesystemPathMock.CalledNTimes(2));
+   METALMOCK(randomGeneratorMock.FilesystemPathMock.CalledNTimes(3));
    METALMOCKTHEN(tradeTicksAnalyzerRandomGeneratorMock.RandomProgramModeMock.CalledOnce()).Then(
    METALMOCKTHEN(randomGeneratorMock.FilesystemPathMock.Called())).Then(
    METALMOCKTHEN(timeRandomGeneratorMock.RandomDateWithDayOfWeekMock.CalledOnce())).Then(
    METALMOCKTHEN(randomGeneratorMock.UnsignedMock.CalledOnce())).Then(
    METALMOCKTHEN(randomGeneratorMock.BoolMock.CalledOnce())).Then(
+   METALMOCKTHEN(randomGeneratorMock.FilesystemPathMock.Called())).Then(
    METALMOCKTHEN(randomGeneratorMock.FilesystemPathMock.Called()));
    TradeTicksAnalyzerArgs expectedRandomArgs;
    expectedRandomArgs.programMode = programMode;
@@ -58,6 +62,7 @@ TEST(TestableRandomTradeTicksAnalyzerArgs_ReturnsAllNonDefaultFields)
    expectedRandomArgs.parallel = parallel;
    // Calculated Fields
    expectedRandomArgs.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks;
+   expectedRandomArgs.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks = tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks;
    ARE_EQUAL(expectedRandomArgs, randomArgs);
 }
 
