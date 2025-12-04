@@ -85,7 +85,7 @@ TEST(FindAllPossibleBadTradeTicks_DoesSo)
 
 TEST(TryCatchCall_FindPossibleBadTradeTicks_DoesSo)
 {
-
+   _tryCatchCaller_fsPathMock->TryCatchCallConstMemberFunctionMock.Expect();
    const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
    const size_t realTimeTextTradeTicksInputFilePathIndex = ZenUnit::Random<size_t>();
    //
@@ -93,7 +93,10 @@ TEST(TryCatchCall_FindPossibleBadTradeTicks_DoesSo)
       realTimeTextTradeTicksInputFilePath,
       realTimeTextTradeTicksInputFilePathIndex);
    //
-
+   METALMOCK(_tryCatchCaller_fsPathMock->TryCatchCallConstMemberFunctionMock.CalledOnceWith(
+      &_badTradeTicksFinder, &BadTradeTicksFinder::FindPossibleBadTradeTicks,
+      realTimeTextTradeTicksInputFilePath,
+      &BadTradeTicksFinder::ExceptionHandler_FindPossibleBadTradeTicks));
 }
 
 TEST(FindPossibleBadTradeTicks_DoesSo)

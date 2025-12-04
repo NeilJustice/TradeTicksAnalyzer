@@ -47,10 +47,13 @@ void BadTradeTicksFinder::FindAllPossibleBadTradeTicks(
 // Private Functions
 
 void BadTradeTicksFinder::TryCatchCall_FindPossibleBadTradeTicks(
-   const fs::path& /*realTimeTextTradeTicksInputFilePath*/,
+   const fs::path& realTimeTextTradeTicksInputFilePath,
    size_t /*realTimeTextTradeTicksInputFilePathIndex*/) const
 {
-
+   _tryCatchCaller_fsPath->TryCatchCallConstMemberFunction(
+      this, &BadTradeTicksFinder::FindPossibleBadTradeTicks,
+      realTimeTextTradeTicksInputFilePath,
+      &BadTradeTicksFinder::ExceptionHandler_FindPossibleBadTradeTicks);
 }
 
 void BadTradeTicksFinder::FindPossibleBadTradeTicks(
