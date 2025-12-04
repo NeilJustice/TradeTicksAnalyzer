@@ -16,9 +16,6 @@ public:
    virtual ~TradeTicksAnalyzerMessageWriter();
    virtual void Initialize(const Utils::Logger* logger);
    // Actions
-   virtual void WriteMessage_Reading(
-      size_t realTimeTextTradeTicksFilePathsSize, const fs::path& realTimeTextTradeTicksFolderPath) const;
-
-   virtual void WriteMessage_Read(
+   virtual void WriteMessage_ReadingAndFinding(
       size_t realTimeTextTradeTicksFilePathsSize, const fs::path& realTimeTextTradeTicksFolderPath) const;
 };
