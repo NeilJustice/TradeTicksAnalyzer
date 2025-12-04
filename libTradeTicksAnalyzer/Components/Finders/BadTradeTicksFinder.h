@@ -23,7 +23,14 @@ public:
       const fs::path& possibleBadTradeTicksOutputFolderPath,
       bool parallel) const;
 private:
-   void TryCatchCall_FindPossibleBadTradeTicks() const;
-   void FindPossibleBadTradeTicks() const;
-   void ExceptionHandler_FindPossibleBadTradeTicks() const;
+   void TryCatchCall_FindPossibleBadTradeTicks(
+      const fs::path& realTimeTextTradeTicksInputFilePath,
+      size_t realTimeTextTradeTicksInputFilePathIndex) const;
+
+   void FindPossibleBadTradeTicks(
+      const fs::path& realTimeTextTradeTicksInputFilePath) const;
+
+   void ExceptionHandler_FindPossibleBadTradeTicks(
+      string_view exceptionClassNameAndMessage,
+      const fs::path& realTimeTextTradeTicksInputFilePath) const;
 };

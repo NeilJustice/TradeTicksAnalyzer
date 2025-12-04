@@ -41,18 +41,23 @@ void BadTradeTicksFinder::FindAllPossibleBadTradeTicks(
 
 // Private Functions
 
-void BadTradeTicksFinder::TryCatchCall_FindPossibleBadTradeTicks() const
+void BadTradeTicksFinder::TryCatchCall_FindPossibleBadTradeTicks(
+   const fs::path& /*realTimeTextTradeTicksInputFilePath*/,
+   size_t /*realTimeTextTradeTicksInputFilePathIndex*/) const
 {
 
 }
 
-void BadTradeTicksFinder::FindPossibleBadTradeTicks() const
+void BadTradeTicksFinder::FindPossibleBadTradeTicks(
+   const fs::path& /*realTimeTextTradeTicksInputFilePath*/) const
 {
    //const TickData::TradeTicksFileContent tradeTicksFileContent =
    //   _textTradeTicksFileReader->ReadRealTimeTextTradeTicksFile(realTimeTextTradeTicksFilePath);
 }
 
-void BadTradeTicksFinder::ExceptionHandler_FindPossibleBadTradeTicks() const
+void BadTradeTicksFinder::ExceptionHandler_FindPossibleBadTradeTicks(
+   string_view /*exceptionClassNameAndMessage*/,
+   const fs::path& /*realTimeTextTradeTicksInputFilePath*/) const
 {
 
 }

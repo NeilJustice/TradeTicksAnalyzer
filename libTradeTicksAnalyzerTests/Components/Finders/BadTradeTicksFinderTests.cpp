@@ -71,6 +71,13 @@ TEST(FindAllPossibleBadTradeTicks_DoesSo)
 
 TEST(TryCatchCall_FindPossibleBadTradeTicks_DoesSo)
 {
+   const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
+   const size_t realTimeTextTradeTicksInputFilePathIndex = ZenUnit::Random<size_t>();
+   //
+   _badTradeTicksFinder.TryCatchCall_FindPossibleBadTradeTicks(
+      realTimeTextTradeTicksInputFilePath,
+      realTimeTextTradeTicksInputFilePathIndex);
+   //
 
 }
 
