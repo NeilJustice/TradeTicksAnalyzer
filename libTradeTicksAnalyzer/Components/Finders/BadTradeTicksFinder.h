@@ -11,6 +11,10 @@ namespace Utils
 {
    class FileAndFolderPathsGetter;
 }
+namespace TickData
+{
+   class TextTradeTicksFileReader;
+}
 class TradeTicksAnalyzerMessageWriter;
 
 class BadTradeTicksFinder
@@ -25,6 +29,7 @@ private:
    unique_ptr<const _tryCatchCaller_fsPathType> _tryCatchCaller_fsPath;
    // Constant Components
    unique_ptr<const Utils::FileAndFolderPathsGetter> _fileAndFolderPathsGetter;
+   unique_ptr<const TickData::TextTradeTicksFileReader> _textTradeTicksFileReader;
    // Mutable Components
    unique_ptr<TradeTicksAnalyzerMessageWriter> _tradeTicksAnalyzerMessageWriter;
 public:

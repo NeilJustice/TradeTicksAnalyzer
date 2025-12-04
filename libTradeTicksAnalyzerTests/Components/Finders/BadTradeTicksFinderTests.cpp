@@ -3,6 +3,7 @@
 #include "libCppUtils/Components/Logging/MetalMock/LoggerMock.h"
 #include "libFunctional/Components/ForEachers/Member/MetalMock/OneArgMemberFunctionForEacherMock.h"
 #include "libFunctional/Components/FunctionCallers/TryCatchCallers/MetalMock/VoidOneArgTryCatchCallerMock.h"
+#include "libTickData/Components/Files/TextTradeTicks/MetalMock/TextTradeTicksFileReaderMock.h"
 #include "libTradeTicksAnalyzer/Components/Finders/BadTradeTicksFinder.h"
 #include "libTradeTicksAnalyzer/Components/MessageWriters/MetalMock/TradeTicksAnalyzerMessageWriterMock.h"
 
@@ -25,6 +26,7 @@ using _tryCatchCaller_fsPathMockType = Functional::VoidOneArgTryCatchCallerMock<
 _tryCatchCaller_fsPathMockType* _tryCatchCaller_fsPathMock = nullptr;
 // Constant Components
 Utils::FileAndFolderPathsGetterMock* _fileAndFolderPathsGetterMock = nullptr;
+TickData::TextTradeTicksFileReaderMock* _textTradeTicksFileReaderMock = nullptr;
 // Mutable Components
 TradeTicksAnalyzerMessageWriterMock* _tradeTicksAnalyzerMessageWriterMock = nullptr;
 
@@ -35,6 +37,7 @@ STARTUP
    _badTradeTicksFinder._tryCatchCaller_fsPath.reset(_tryCatchCaller_fsPathMock = new _tryCatchCaller_fsPathMockType);
    // Owned Constant Components
    _badTradeTicksFinder._fileAndFolderPathsGetter.reset(_fileAndFolderPathsGetterMock = new Utils::FileAndFolderPathsGetterMock);
+   _badTradeTicksFinder._textTradeTicksFileReader.reset(_textTradeTicksFileReaderMock = new TickData::TextTradeTicksFileReaderMock);
    // Mutable Components
    _badTradeTicksFinder._tradeTicksAnalyzerMessageWriter.reset(_tradeTicksAnalyzerMessageWriterMock = new TradeTicksAnalyzerMessageWriterMock);
 }
@@ -101,12 +104,13 @@ TEST(TryCatchCall_FindPossibleBadTradeTicks_DoesSo)
 
 TEST(FindPossibleBadTradeTicks_DoesSo)
 {
-
+   const TickData::TradeTicksFileContent tradeTicksFileContent =
+      _textTradeTicksFileReaderMock->ReadRealTimeTextTradeTicksFileMock.ReturnRandom();
    const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
    //
    _badTradeTicksFinder.FindPossibleBadTradeTicks(realTimeTextTradeTicksInputFilePath);
    //
-
+   METALMOCK(_textTradeTicksFileReaderMock->ReadRealTimeTextTradeTicksFileMock.CalledOnceWith(realTimeTextTradeTicksInputFilePath));
 }
 
 TEST(ExceptionHandler_FindPossibleBadTradeTicks_DoesSo)

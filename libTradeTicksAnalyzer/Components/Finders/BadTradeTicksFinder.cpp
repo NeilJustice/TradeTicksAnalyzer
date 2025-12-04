@@ -1,7 +1,8 @@
 #include "pch.h"
-#include "libFunctional/Components/FunctionCallers/TryCatchCallers/VoidOneArgTryCatchCaller.h"
 #include "libCppUtils/Components/FileSystem/FileAndFolderPathsGetter.h"
 #include "libFunctional/Components/ForEachers/Member/OneArgMemberFunctionForEacher.h"
+#include "libFunctional/Components/FunctionCallers/TryCatchCallers/VoidOneArgTryCatchCaller.h"
+#include "libTickData/Components/Files/TextTradeTicks/TextTradeTicksFileReader.h"
 #include "libTradeTicksAnalyzer/Components/Finders/BadTradeTicksFinder.h"
 #include "libTradeTicksAnalyzer/Components/MessageWriters/TradeTicksAnalyzerMessageWriter.h"
 
@@ -11,6 +12,7 @@ BadTradeTicksFinder::BadTradeTicksFinder()
    , _tryCatchCaller_fsPath(make_unique<_tryCatchCaller_fsPathType>())
    // Constant Components
    , _fileAndFolderPathsGetter(make_unique<Utils::FileAndFolderPathsGetter>())
+   , _textTradeTicksFileReader(make_unique<TickData::TextTradeTicksFileReader>())
    // Mutable Components
    , _tradeTicksAnalyzerMessageWriter(make_unique<TradeTicksAnalyzerMessageWriter>())
 {
@@ -57,10 +59,10 @@ void BadTradeTicksFinder::TryCatchCall_FindPossibleBadTradeTicks(
 }
 
 void BadTradeTicksFinder::FindPossibleBadTradeTicks(
-   const fs::path& /*realTimeTextTradeTicksInputFilePath*/) const
+   const fs::path& realTimeTextTradeTicksInputFilePath) const
 {
-   //const TickData::TradeTicksFileContent tradeTicksFileContent =
-   //   _textTradeTicksFileReader->ReadRealTimeTextTradeTicksFile(realTimeTextTradeTicksFilePath);
+   const TickData::TradeTicksFileContent tradeTicksFileContent =
+      _textTradeTicksFileReader->ReadRealTimeTextTradeTicksFile(realTimeTextTradeTicksInputFilePath);
 }
 
 void BadTradeTicksFinder::ExceptionHandler_FindPossibleBadTradeTicks(
