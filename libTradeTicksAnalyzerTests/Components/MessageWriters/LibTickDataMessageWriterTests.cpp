@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "libCppUtils/Components/Logging/MetalMock/LoggerMock.h"
-#include "libTickData/Components/MessageWriters/LibTickDataMessageWriter.h"
+#include "libTradeTicksAnalyzer/Components/MessageWriters/LibTickDataMessageWriter.h"
 
 TESTS(LibTickDataMessageWriterTests)
 AFACT(Initialize_DoesSo)
@@ -9,7 +9,7 @@ AFACT(WriteMessage_Reading_DoesSo)
 AFACT(WriteMessage_Read_DoesSo)
 EVIDENCE
 
-TickData::LibTickDataMessageWriter _libTickDataMessageWriter;
+LibTickDataMessageWriter _libTickDataMessageWriter;
 // Non-Owned Constant Components
 unique_ptr<Utils::LoggerMock> _loggerMock;
 
