@@ -1,4 +1,9 @@
 #pragma once
+namespace Functional
+{
+   template<typename ClassType, typename ElementType>
+   class OneArgMemberFunctionForEacher;
+}
 namespace Utils
 {
    class FileAndFolderPathsGetter;
@@ -9,6 +14,9 @@ class BadTradeTicksFinder
 {
    friend class BadTradeTicksFinderTests;
 private:
+   // Function Callers
+   using _forEacher_fsPathType = Functional::OneArgMemberFunctionForEacher<BadTradeTicksFinder, fs::path>;
+   unique_ptr<const _forEacher_fsPathType> _forEacher_fsPath;
    // Constant Components
    unique_ptr<const Utils::FileAndFolderPathsGetter> _fileAndFolderPathsGetter;
    // Mutable Components

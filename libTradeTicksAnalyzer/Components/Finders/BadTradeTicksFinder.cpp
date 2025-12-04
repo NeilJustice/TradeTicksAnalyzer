@@ -1,11 +1,14 @@
 #include "pch.h"
 #include "libCppUtils/Components/FileSystem/FileAndFolderPathsGetter.h"
+#include "libFunctional/Components/ForEachers/Member/OneArgMemberFunctionForEacher.h"
 #include "libTradeTicksAnalyzer/Components/Finders/BadTradeTicksFinder.h"
 #include "libTradeTicksAnalyzer/Components/MessageWriters/TradeTicksAnalyzerMessageWriter.h"
 
 BadTradeTicksFinder::BadTradeTicksFinder()
+   // Function Callers
+   : _forEacher_fsPath(make_unique<_forEacher_fsPathType>())
    // Constant Components
-   : _fileAndFolderPathsGetter(make_unique<Utils::FileAndFolderPathsGetter>())
+   , _fileAndFolderPathsGetter(make_unique<Utils::FileAndFolderPathsGetter>())
    // Mutable Components
    , _tradeTicksAnalyzerMessageWriter(make_unique<TradeTicksAnalyzerMessageWriter>())
 {

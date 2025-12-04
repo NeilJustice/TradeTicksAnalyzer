@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "libCppUtils/Components/FileSystem/MetalMock/FileAndFolderPathsGetterMock.h"
 #include "libCppUtils/Components/Logging/MetalMock/LoggerMock.h"
+#include "libFunctional/Components/ForEachers/Member/MetalMock/OneArgMemberFunctionForEacherMock.h"
 #include "libTradeTicksAnalyzer/Components/Finders/BadTradeTicksFinder.h"
 #include "libTradeTicksAnalyzer/Components/MessageWriters/MetalMock/TradeTicksAnalyzerMessageWriterMock.h"
 
@@ -15,6 +16,9 @@ AFACT(ExceptionHandler_FindPossibleBadTradeTicks_DoesSo)
 EVIDENCE
 
 BadTradeTicksFinder _badTradeTicksFinder;
+// Function Callers
+using _forEacher_fsPathMockType = Functional::OneArgMemberFunctionForEacherMock<BadTradeTicksFinder, fs::path>;
+_forEacher_fsPathMockType* _forEacher_fsPathMock = nullptr;
 // Constant Components
 Utils::FileAndFolderPathsGetterMock* _fileAndFolderPathsGetterMock = nullptr;
 // Mutable Components
@@ -22,6 +26,8 @@ TradeTicksAnalyzerMessageWriterMock* _tradeTicksAnalyzerMessageWriterMock = null
 
 STARTUP
 {
+   // Function Callers
+   _badTradeTicksFinder._forEacher_fsPath.reset(_forEacher_fsPathMock = new _forEacher_fsPathMockType);
    // Owned Constant Components
    _badTradeTicksFinder._fileAndFolderPathsGetter.reset(_fileAndFolderPathsGetterMock = new Utils::FileAndFolderPathsGetterMock);
    // Mutable Components
