@@ -14,9 +14,8 @@ FindPossibleBadTextTradeTicksSubProgram::~FindPossibleBadTextTradeTicksSubProgra
 
 int FindPossibleBadTextTradeTicksSubProgram::Run() const
 {
-
-   //const TickData::TradeTicksFileContent tradeTicksFileContent =
-   //   _textTradeTicksFileReader->ReadRealTimeTextTradeTicksFile(
-   //      R"(X:\Trading\TradingProgram\PaperTradingLogs\2025-12-03W-1\Polygon\AllRealTimeTextTradeTicks\ABBV-RealTimeTradeTicks.txt)");
+   const vector<TickData::TradeTicksFileContent> allTradeTicksFileContents =
+      _multipleTextTradeTicksFilesReader->ReadAllRealTimeTextTradeTicksFiles(
+         p_args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks, p_args.parallel);
    return 0;
 }

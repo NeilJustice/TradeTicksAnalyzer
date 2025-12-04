@@ -11,6 +11,8 @@ FindPossibleBadTextTradeTicksSubProgram _findPossibleBadTextTradeTicksSubProgram
 Time::ConsoleMock* p_consoleMock = nullptr;
 // Constant Components
 TickData::MultipleTextTradeTicksFilesReaderMock* _multipleTextTradeTicksFilesReaderMock = nullptr;
+// Mutable Fields
+TradeTicksAnalyzerArgs p_args;
 
 STARTUP
 {
@@ -18,17 +20,19 @@ STARTUP
    _findPossibleBadTextTradeTicksSubProgram.p_console.reset(p_consoleMock = new Time::ConsoleMock);
    // Constant Components
    _findPossibleBadTextTradeTicksSubProgram._multipleTextTradeTicksFilesReader.reset(_multipleTextTradeTicksFilesReaderMock = new TickData::MultipleTextTradeTicksFilesReaderMock);
+   // Mutable Fields
+   _findPossibleBadTextTradeTicksSubProgram.p_args = p_args = ZenUnit::Random<TradeTicksAnalyzerArgs>();
 }
 
 TEST(Run_Returns0)
 {
-   //const TickData::TradeTicksFileContent tradeTicksFileContent =
-   //   _textTradeTicksFileReaderMock->ReadRealTimeTextTradeTicksFileMock.ReturnRandom();
+   const vector<TickData::TradeTicksFileContent> allTradeTicksFileContents =
+      _multipleTextTradeTicksFilesReaderMock->ReadAllRealTimeTextTradeTicksFilesMock.ReturnRandom();
    //
    const int exitCode = _findPossibleBadTextTradeTicksSubProgram.Run();
    //
-   //METALMOCK(_textTradeTicksFileReaderMock->ReadRealTimeTextTradeTicksFileMock.CalledOnceWith(
-   //   R"(X:\Trading\TradingProgram\PaperTradingLogs\2025-12-03W-1\Polygon\AllRealTimeTextTradeTicks\ABBV-RealTimeTradeTicks.txt)"));
+   METALMOCK(_multipleTextTradeTicksFilesReaderMock->ReadAllRealTimeTextTradeTicksFilesMock.CalledOnceWith(
+      p_args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks, p_args.parallel));
    IS_ZERO(exitCode);
 }
 
