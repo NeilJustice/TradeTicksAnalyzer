@@ -12,7 +12,7 @@ public:
    virtual void Initialize(const Utils::Logger* logger);
    // Actions
    virtual void FindAllPossibleBadTradeTicks(
-      const vector<TickData::TradeTicksFileContent>& allTradeTicksFileContents,
+      const fs::path& tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks,
       const fs::path& tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks,
       bool parallel) const;
 };

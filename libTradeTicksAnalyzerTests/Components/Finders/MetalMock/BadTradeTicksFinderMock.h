@@ -7,7 +7,7 @@ public:
    METALMOCK_VOID1(Initialize, const Utils::Logger*)
    // Actions
    METALMOCK_VOID3_CONST(FindAllPossibleBadTradeTicks,
-      const vector<TickData::TradeTicksFileContent>&,
+      const fs::path&,
       const fs::path&,
       bool)
 };

@@ -14,6 +14,7 @@ include_directories(
 folder_source_group(Components)
 folder_source_group_subfolder(Components Args)
 folder_source_group_subfolder(Components Finders)
+folder_source_group_subfolder(Components MessageWriters)
 folder_source_group_subfolder(Components SubPrograms)
 folder_source_group(Enums)
 folder_source_group(ValueTypes)

@@ -1,9 +1,5 @@
 #pragma once
 #include "libTradeTicksAnalyzer/Components/SubPrograms/SubProgram.h"
-namespace TickData
-{
-   class MultipleTextTradeTicksFilesReader;
-}
 class BadTradeTicksFinder;
 
 class FindPossibleBadTextTradeTicksSubProgram : public SubProgram
@@ -12,7 +8,6 @@ class FindPossibleBadTextTradeTicksSubProgram : public SubProgram
 private:
    // Mutable Components
    unique_ptr<BadTradeTicksFinder> _badTradeTicksFinder;
-   unique_ptr<TickData::MultipleTextTradeTicksFilesReader> _multipleTextTradeTicksFilesReader;
 public:
    FindPossibleBadTextTradeTicksSubProgram();
    virtual ~FindPossibleBadTextTradeTicksSubProgram() override;
