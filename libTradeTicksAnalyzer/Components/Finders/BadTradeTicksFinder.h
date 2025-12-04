@@ -1,9 +1,15 @@
 #pragma once
+namespace Utils
+{
+   class FileAndFolderPathsGetter;
+}
 
 class BadTradeTicksFinder
 {
    friend class BadTradeTicksFinderTests;
 private:
+   // Owned Constant Components
+   unique_ptr<const Utils::FileAndFolderPathsGetter> _fileAndFolderPathsGetter;
    // Non-Owned Constant Components
    const Utils::Logger* _logger;
 public:

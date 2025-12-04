@@ -6,6 +6,6 @@ class TradeTicksAnalyzerMessageWriterMock : public Metal::Mock<TradeTicksAnalyze
 public:
    METALMOCK_VOID1(Initialize, const Utils::Logger*)
    // Actions
-   METALMOCK_VOID2_CONST(WriteMessage_Reading,
+   METALMOCK_VOID2_CONST(WriteMessage_ReadingAndFinding,
       size_t, const fs::path&)
 };
