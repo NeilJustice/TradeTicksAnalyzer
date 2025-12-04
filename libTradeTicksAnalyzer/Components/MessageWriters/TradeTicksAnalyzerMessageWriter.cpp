@@ -27,7 +27,7 @@ void TradeTicksAnalyzerMessageWriter::WriteMessage_ReadingAndFindingPossibleBadT
    _logger->WriteProgramNameTimestampedThreadIdLineThenFlush(message);
 }
 
-void TradeTicksAnalyzerMessageWriter::WriteFatalExceptionMessage_FindPossibleBadTradeTicks(
+void TradeTicksAnalyzerMessageWriter::WriteExceptionMessage_FindPossibleBadTradeTicks_ThenExit1(
    string_view exceptionClassNameAndMessage, const fs::path& realTimeTextTradeTicksInputFilePath) const
 {
    const string enhancedExceptionMessage = Utils::String::ConcatStrings(

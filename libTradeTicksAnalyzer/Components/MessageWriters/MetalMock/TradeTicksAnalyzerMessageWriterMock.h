@@ -9,6 +9,6 @@ public:
    METALMOCK_VOID2_CONST(WriteMessage_ReadingAndFindingPossibleBadTradeTicks,
       size_t, const fs::path&)
 
-   METALMOCK_VOID2_CONST(WriteFatalExceptionMessage_FindPossibleBadTradeTicks,
+   METALMOCK_VOID2_CONST(WriteExceptionMessage_FindPossibleBadTradeTicks_ThenExit1,
       string_view, const fs::path&)
 };

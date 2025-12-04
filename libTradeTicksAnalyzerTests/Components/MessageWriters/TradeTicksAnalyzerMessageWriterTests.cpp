@@ -6,7 +6,7 @@ TESTS(TradeTicksAnalyzerMessageWriterTests)
 AFACT(Initialize_DoesSo)
 // Actions
 AFACT(WriteMessage_ReadingAndFindingPossibleBadTradeTicks_DoesSo)
-AFACT(WriteFatalExceptionMessage_FindPossibleBadTradeTicks_DoesSo)
+AFACT(WriteExceptionMessage_FindPossibleBadTradeTicks_ThenExit1_DoesSo)
 EVIDENCE
 
 TradeTicksAnalyzerMessageWriter _tradeTicksAnalyzerMessageWriter;
@@ -45,13 +45,13 @@ TEST(WriteMessage_ReadingAndFindingPossibleBadTradeTicks_DoesSo)
    METALMOCK(_loggerMock->WriteProgramNameTimestampedThreadIdLineThenFlushMock.CalledOnceWith(expectedMessage));
 }
 
-TEST(WriteFatalExceptionMessage_FindPossibleBadTradeTicks_DoesSo)
+TEST(WriteExceptionMessage_FindPossibleBadTradeTicks_ThenExit1_DoesSo)
 {
    _loggerMock->WriteProgramNameTimestampedThreadIdLineInRedThenExitWithCode1IfConsoleMock.Expect();
    const string_view exceptionClassNameAndMessage = ZenUnit::Random<string_view>();
    const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
    //
-   _tradeTicksAnalyzerMessageWriter.WriteFatalExceptionMessage_FindPossibleBadTradeTicks(
+   _tradeTicksAnalyzerMessageWriter.WriteExceptionMessage_FindPossibleBadTradeTicks_ThenExit1(
       exceptionClassNameAndMessage, realTimeTextTradeTicksInputFilePath);
    //
    const string expectedEnhancedExceptionMessage = Utils::String::ConcatStrings(

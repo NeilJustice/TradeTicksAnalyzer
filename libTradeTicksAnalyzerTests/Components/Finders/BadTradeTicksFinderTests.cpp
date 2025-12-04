@@ -115,7 +115,7 @@ TEST(FindPossibleBadTradeTicks_DoesSo)
 
 TEST(ExceptionHandler_FindPossibleBadTradeTicks_DoesSo)
 {
-
+   _tradeTicksAnalyzerMessageWriterMock->WriteExceptionMessage_FindPossibleBadTradeTicks_ThenExit1Mock.Expect();
    const string_view exceptionClassNameAndMessage = ZenUnit::Random<string_view>();
    const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
    //
@@ -123,7 +123,8 @@ TEST(ExceptionHandler_FindPossibleBadTradeTicks_DoesSo)
       exceptionClassNameAndMessage,
       realTimeTextTradeTicksInputFilePath);
    //
-
+   METALMOCK(_tradeTicksAnalyzerMessageWriterMock->WriteExceptionMessage_FindPossibleBadTradeTicks_ThenExit1Mock.CalledOnceWith(
+      exceptionClassNameAndMessage, realTimeTextTradeTicksInputFilePath));
 }
 
 RUN_TESTS(BadTradeTicksFinderTests)
