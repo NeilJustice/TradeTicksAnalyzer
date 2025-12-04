@@ -21,13 +21,9 @@ void FindPossibleBadTextTradeTicksSubProgram::DerivedInitialize()
 
 int FindPossibleBadTextTradeTicksSubProgram::Run() const
 {
-   //const vector<TickData::TradeTicksFileContent> allTradeTicksFileContents =
-   //   _multipleTextTradeTicksFilesReader->ReadAllRealTimeTextTradeTicksFiles(
-   //      p_args.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks, p_args.parallel);
-
-   //_badTradeTicksFinder->FindAllPossibleBadTradeTicks(
-   //   p_args.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks,
-   //   p_args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks,
-   //   p_args.parallel);
+   _badTradeTicksFinder->FindAllPossibleBadTradeTicks(
+      p_args.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks,
+      p_args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks,
+      p_args.parallel);
    return 0;
 }

@@ -11,28 +11,27 @@ AFACT(FindAllPossibleBadTradeTicks_DoesSo)
 EVIDENCE
 
 BadTradeTicksFinder _badTradeTicksFinder;
-// Owned Constant Components
+// Constant Components
 Utils::FileAndFolderPathsGetterMock* _fileAndFolderPathsGetterMock = nullptr;
+// Mutable Components
 TradeTicksAnalyzerMessageWriterMock* _tradeTicksAnalyzerMessageWriterMock = nullptr;
-// Non-Owned Constant Components
-unique_ptr<Utils::LoggerMock> _loggerMock;
 
 STARTUP
 {
    // Owned Constant Components
    _badTradeTicksFinder._fileAndFolderPathsGetter.reset(_fileAndFolderPathsGetterMock = new Utils::FileAndFolderPathsGetterMock);
+   // Mutable Components
    _badTradeTicksFinder._tradeTicksAnalyzerMessageWriter.reset(_tradeTicksAnalyzerMessageWriterMock = new TradeTicksAnalyzerMessageWriterMock);
-   // Non-Owned Constant Components
-   _badTradeTicksFinder._logger = (_loggerMock = make_unique<Utils::LoggerMock>()).get();
 }
 
 TEST(Initialize_DoesSo)
 {
+   _tradeTicksAnalyzerMessageWriterMock->InitializeMock.Expect();
    const Utils::LoggerMock loggerMock;
    //
    _badTradeTicksFinder.Initialize(&loggerMock);
    //
-   ARE_EQUAL(&loggerMock, _badTradeTicksFinder._logger);
+   METALMOCK(_tradeTicksAnalyzerMessageWriterMock->InitializeMock.CalledOnceWith(&loggerMock));
 }
 
 // Actions

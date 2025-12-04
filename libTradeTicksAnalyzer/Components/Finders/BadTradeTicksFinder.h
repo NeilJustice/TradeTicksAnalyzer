@@ -9,11 +9,10 @@ class BadTradeTicksFinder
 {
    friend class BadTradeTicksFinderTests;
 private:
-   // Owned Constant Components
+   // Constant Components
    unique_ptr<const Utils::FileAndFolderPathsGetter> _fileAndFolderPathsGetter;
-   unique_ptr<const TradeTicksAnalyzerMessageWriter> _tradeTicksAnalyzerMessageWriter;
-   // Non-Owned Constant Components
-   const Utils::Logger* _logger;
+   // Mutable Components
+   unique_ptr<TradeTicksAnalyzerMessageWriter> _tradeTicksAnalyzerMessageWriter;
 public:
    BadTradeTicksFinder();
    virtual ~BadTradeTicksFinder();

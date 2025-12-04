@@ -4,11 +4,10 @@
 #include "libTradeTicksAnalyzer/Components/MessageWriters/TradeTicksAnalyzerMessageWriter.h"
 
 BadTradeTicksFinder::BadTradeTicksFinder()
-   // Owned Constant Components
+   // Constant Components
    : _fileAndFolderPathsGetter(make_unique<Utils::FileAndFolderPathsGetter>())
+   // Mutable Components
    , _tradeTicksAnalyzerMessageWriter(make_unique<TradeTicksAnalyzerMessageWriter>())
-   // Non-Owned Constant Components
-   , _logger(nullptr)
 {
 }
 
@@ -18,7 +17,7 @@ BadTradeTicksFinder::~BadTradeTicksFinder()
 
 void BadTradeTicksFinder::Initialize(const Utils::Logger* logger)
 {
-   _logger = logger;
+   _tradeTicksAnalyzerMessageWriter->Initialize(logger);
 }
 
 // Actions
