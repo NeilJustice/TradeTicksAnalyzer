@@ -1,0 +1,2 @@
+SIPReceiveTime TPReceiveTime Latency      Exchange Tape Price      Delta%  Size      TC1                       TC2                       TC3                       TC4                       TC5                       CT Dark TCI SequenceNumber             
+00:00:00.000   00:00:00.000  00:00:00.000 NYSE     NYSE 0.000      abc     100       Unset                     Unset                     Unset                     Unset                     Unset                     0  No   0   0                          
