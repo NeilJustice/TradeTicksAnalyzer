@@ -40,12 +40,12 @@ TEST(FindAllPossibleBadTradeTicks_DoesSo)
       _fileAndFolderPathsGetterMock->GetTopLevelFilePathsInFolderMock.ReturnRandom();
 
    const fs::path realTimeTextTradeTicksInputFolder = ZenUnit::Random<fs::path>();
-   const fs::path tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks = ZenUnit::Random<fs::path>();
+   const fs::path possibleBadTradeTicksOutputFolderPath = ZenUnit::Random<fs::path>();
    const bool parallel = ZenUnit::Random<bool>();
    //
    _badTradeTicksFinder.FindAllPossibleBadTradeTicks(
       realTimeTextTradeTicksInputFolder,
-      tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks,
+      possibleBadTradeTicksOutputFolderPath,
       parallel);
    //
    METALMOCK(_fileAndFolderPathsGetterMock->GetTopLevelFilePathsInFolderMock.CalledOnceWith(realTimeTextTradeTicksInputFolder));

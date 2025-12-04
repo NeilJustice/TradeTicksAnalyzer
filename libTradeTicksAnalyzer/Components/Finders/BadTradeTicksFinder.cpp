@@ -22,12 +22,12 @@ void BadTradeTicksFinder::Initialize(const Utils::Logger* logger)
 // Actions
 
 void BadTradeTicksFinder::FindAllPossibleBadTradeTicks(
-   const fs::path& realTimeTextTradeTicksInputFolder,
-   const fs::path& /*tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks*/,
+   const fs::path& realTimeTextTradeTicksInputFolderPath,
+   const fs::path& /*possibleBadTradeTicksOutputFolderPath*/,
    bool /*parallel*/) const
 {
    const vector<fs::path> realTimeTextTradeTicksFilePaths =
-      _fileAndFolderPathsGetter->GetTopLevelFilePathsInFolder(realTimeTextTradeTicksInputFolder);
+      _fileAndFolderPathsGetter->GetTopLevelFilePathsInFolder(realTimeTextTradeTicksInputFolderPath);
 
    //_tradeTicksAnalyzerMessageWriter->WriteMessage_ReadingAndProcessing(
    //   realTimeTextTradeTicksFilePaths.size(), realTimeTextTradeTicksFolderPaths);
