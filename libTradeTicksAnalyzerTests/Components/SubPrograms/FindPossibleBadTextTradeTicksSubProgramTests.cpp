@@ -46,11 +46,16 @@ TEST(Run_Returns0)
 {
    const vector<TickData::TradeTicksFileContent> allTradeTicksFileContents =
       _multipleTextTradeTicksFilesReaderMock->ReadAllRealTimeTextTradeTicksFilesMock.ReturnRandom();
+   _badTradeTicksFinderMock->FindAllPossibleBadTradeTicksMock.Expect();
    //
    const int exitCode = _findPossibleBadTextTradeTicksSubProgram.Run();
    //
-   METALMOCK(_multipleTextTradeTicksFilesReaderMock->ReadAllRealTimeTextTradeTicksFilesMock.CalledOnceWith(
-      p_args.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks, p_args.parallel));
+   METALMOCKTHEN(_multipleTextTradeTicksFilesReaderMock->ReadAllRealTimeTextTradeTicksFilesMock.CalledOnceWith(
+      p_args.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks, p_args.parallel)).Then(
+   METALMOCKTHEN(_badTradeTicksFinderMock->FindAllPossibleBadTradeTicksMock.CalledOnceWith(
+      allTradeTicksFileContents,
+      p_args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks,
+      p_args.parallel)));
    IS_ZERO(exitCode);
 }
 
