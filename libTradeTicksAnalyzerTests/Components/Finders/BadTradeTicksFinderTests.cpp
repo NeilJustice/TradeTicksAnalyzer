@@ -17,20 +17,39 @@ unique_ptr<Utils::LoggerMock> _loggerMock;
 
 STARTUP
 {
+   // Owned Constant Components
+   _badTradeTicksFinder._fileAndFolderPathsGetter.reset(_fileAndFolderPathsGetterMock = new Utils::FileAndFolderPathsGetterMock);
    // Non-Owned Constant Components
    _badTradeTicksFinder._logger = (_loggerMock = make_unique<Utils::LoggerMock>()).get();
 }
 
 TEST(Initialize_DoesSo)
 {
-
+   const Utils::LoggerMock loggerMock;
+   //
+   _badTradeTicksFinder.Initialize(&loggerMock);
+   //
+   ARE_EQUAL(&loggerMock, _badTradeTicksFinder._logger);
 }
 
 // Actions
 
 TEST(FindAllPossibleBadTradeTicks_DoesSo)
 {
+   const vector<fs::path> realTimeTextTradeTicksFilePaths =
+      _fileAndFolderPathsGetterMock->GetTopLevelFilePathsInFolderMock.ReturnRandom();
 
+   const fs::path tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = ZenUnit::Random<fs::path>();
+   const fs::path tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks = ZenUnit::Random<fs::path>();
+   const bool parallel = ZenUnit::Random<bool>();
+   //
+   _badTradeTicksFinder.FindAllPossibleBadTradeTicks(
+      tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks,
+      tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks,
+      parallel);
+   //
+   METALMOCK(_fileAndFolderPathsGetterMock->GetTopLevelFilePathsInFolderMock.CalledOnceWith(
+      tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks));
 }
 
 RUN_TESTS(BadTradeTicksFinderTests)
