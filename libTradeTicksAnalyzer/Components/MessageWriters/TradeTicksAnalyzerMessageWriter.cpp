@@ -22,7 +22,8 @@ void TradeTicksAnalyzerMessageWriter::WriteMessage_Reading(
    size_t realTimeTextTradeTicksFilePathsSize, const fs::path& realTimeTextTradeTicksFolderPath) const
 {
    const string message = Utils::String::ConcatValues(
-      "Reading ", realTimeTextTradeTicksFilePathsSize, " RealTimeTradeTicks files in ", realTimeTextTradeTicksFolderPath.string());
+      "Reading and finding possible bad trade ticks in ", realTimeTextTradeTicksFilePathsSize, " RealTimeTradeTicks files in ",
+      realTimeTextTradeTicksFolderPath.string());
    _logger->WriteProgramNameTimestampedThreadIdLineThenFlush(message);
 }
 
