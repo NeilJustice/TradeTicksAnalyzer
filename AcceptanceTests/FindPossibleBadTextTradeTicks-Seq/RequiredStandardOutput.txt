@@ -1,15 +1,8 @@
-TradeTicksAnalyzer
-
-Usage:
-   TradeTicksAnalyzer find-possible-bad-binary-trade-ticks
-      --trading-logs-input-folder=<InputFolderPath>
-      --date=<YYYY-MM-DDW>
-      --run-number=<Unsigned>
-      --trading-logs-output-folder=<OutputFolderPath>
-      \[--parallel\]
-   TradeTicksAnalyzer find-possible-bad-text-trade-ticks
-      --trading-logs-input-folder=<InputFolderPath>
-      --date=<YYYY-MM-DDW>
-      --run-number=<Unsigned>
-      --trading-logs-output-folder=<OutputFolderPath>
-      \[--parallel\]
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d 02:29:50 PM T16072 \]   Running: .*TradeTicksAnalyzer.exe find-possible-bad-text-trade-ticks --trading-logs-input-folder=InputFiles\\TradingLogs --date=YYYY-MM-DDM --run-number=1 --trading-logs-output-folder=#RESULTSFOLDER#\\TradingLogs
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d 02:29:50 PM T16072 \]   Machine: .*
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d 02:29:50 PM T16072 \]      User: .*
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d 02:29:50 PM T16072 \] Directory: .*
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d 02:29:50 PM T16072 \] Reading 214 RealTimeTradeTicks files in .*\\InputFiles\\TradingLogs\\YYYY-MM-DDM-1\\Polygon\\FilteredRealTimeTextTradeTicks
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d 02:29:50 PM T16072 \]    Read 214 RealTimeTradeTicks files in .*\\InputFiles\\TradingLogs\\YYYY-MM-DDM-1\\Polygon\\FilteredRealTimeTextTradeTicks
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d 02:29:50 PM T16072 \] Duration: \d.\d\d\d seconds
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d 02:29:50 PM T16072 \] ExitCode: 0
