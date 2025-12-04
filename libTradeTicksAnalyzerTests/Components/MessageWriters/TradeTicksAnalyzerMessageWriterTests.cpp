@@ -1,31 +1,31 @@
 #include "pch.h"
 #include "libCppUtils/Components/Logging/MetalMock/LoggerMock.h"
-#include "libTradeTicksAnalyzer/Components/MessageWriters/LibTickDataMessageWriter.h"
+#include "libTradeTicksAnalyzer/Components/MessageWriters/TradeTicksAnalyzerMessageWriter.h"
 
-TESTS(LibTickDataMessageWriterTests)
+TESTS(TradeTicksAnalyzerMessageWriterTests)
 AFACT(Initialize_DoesSo)
 // Actions
 AFACT(WriteMessage_Reading_DoesSo)
 AFACT(WriteMessage_Read_DoesSo)
 EVIDENCE
 
-LibTickDataMessageWriter _libTickDataMessageWriter;
+TradeTicksAnalyzerMessageWriter _tradeTicksAnalyzerMessageWriter;
 // Non-Owned Constant Components
 unique_ptr<Utils::LoggerMock> _loggerMock;
 
 STARTUP
 {
    // Non-Owned Constant Components
-   _libTickDataMessageWriter._logger = (_loggerMock = make_unique<Utils::LoggerMock>()).get();
+   _tradeTicksAnalyzerMessageWriter._logger = (_loggerMock = make_unique<Utils::LoggerMock>()).get();
 }
 
 TEST(Initialize_DoesSo)
 {
    const Utils::LoggerMock loggerMock;
    //
-   _libTickDataMessageWriter.Initialize(&loggerMock);
+   _tradeTicksAnalyzerMessageWriter.Initialize(&loggerMock);
    //
-   ARE_EQUAL(&loggerMock, _libTickDataMessageWriter._logger);
+   ARE_EQUAL(&loggerMock, _tradeTicksAnalyzerMessageWriter._logger);
 }
 
 // Actions
@@ -36,7 +36,7 @@ TEST(WriteMessage_Reading_DoesSo)
    const size_t realTimeTextTradeTicksFilePathsSize = ZenUnit::Random<size_t>();
    const fs::path realTimeTextTradeTicksFolderPath = ZenUnit::Random<fs::path>();
    //
-   _libTickDataMessageWriter.WriteMessage_Reading(
+   _tradeTicksAnalyzerMessageWriter.WriteMessage_Reading(
       realTimeTextTradeTicksFilePathsSize, realTimeTextTradeTicksFolderPath);
    //
    const string expectedMessage = Utils::String::ConcatValues(
@@ -50,7 +50,7 @@ TEST(WriteMessage_Read_DoesSo)
    const size_t realTimeTextTradeTicksFilePathsSize = ZenUnit::Random<size_t>();
    const fs::path realTimeTextTradeTicksFolderPath = ZenUnit::Random<fs::path>();
    //
-   _libTickDataMessageWriter.WriteMessage_Read(
+   _tradeTicksAnalyzerMessageWriter.WriteMessage_Read(
       realTimeTextTradeTicksFilePathsSize, realTimeTextTradeTicksFolderPath);
    //
    const string expectedMessage = Utils::String::ConcatValues(
@@ -58,4 +58,4 @@ TEST(WriteMessage_Read_DoesSo)
    METALMOCK(_loggerMock->WriteProgramNameTimestampedThreadIdLineThenFlushMock.CalledOnceWith(expectedMessage));
 }
 
-RUN_TESTS(LibTickDataMessageWriterTests)
+RUN_TESTS(TradeTicksAnalyzerMessageWriterTests)

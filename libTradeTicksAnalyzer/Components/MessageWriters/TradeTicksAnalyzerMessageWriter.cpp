@@ -1,24 +1,24 @@
 #include "pch.h"
-#include "libTradeTicksAnalyzer/Components/MessageWriters/LibTickDataMessageWriter.h"
+#include "libTradeTicksAnalyzer/Components/MessageWriters/TradeTicksAnalyzerMessageWriter.h"
 
-LibTickDataMessageWriter::LibTickDataMessageWriter()
+TradeTicksAnalyzerMessageWriter::TradeTicksAnalyzerMessageWriter()
    // Non-Owned Constant Components
    : _logger(nullptr)
 {
 }
 
-LibTickDataMessageWriter::~LibTickDataMessageWriter()
+TradeTicksAnalyzerMessageWriter::~TradeTicksAnalyzerMessageWriter()
 {
 }
 
-void LibTickDataMessageWriter::Initialize(const Utils::Logger* logger)
+void TradeTicksAnalyzerMessageWriter::Initialize(const Utils::Logger* logger)
 {
    _logger = logger;
 }
 
 // Actions
 
-void LibTickDataMessageWriter::WriteMessage_Reading(
+void TradeTicksAnalyzerMessageWriter::WriteMessage_Reading(
    size_t realTimeTextTradeTicksFilePathsSize, const fs::path& realTimeTextTradeTicksFolderPath) const
 {
    const string message = Utils::String::ConcatValues(
@@ -26,7 +26,7 @@ void LibTickDataMessageWriter::WriteMessage_Reading(
    _logger->WriteProgramNameTimestampedThreadIdLineThenFlush(message);
 }
 
-void LibTickDataMessageWriter::WriteMessage_Read(
+void TradeTicksAnalyzerMessageWriter::WriteMessage_Read(
    size_t realTimeTextTradeTicksFilePathsSize, const fs::path& realTimeTextTradeTicksFolderPath) const
 {
    const string message = Utils::String::ConcatValues(

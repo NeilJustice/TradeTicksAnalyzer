@@ -1,7 +1,7 @@
 #pragma once
-#include "libTradeTicksAnalyzer/Components/MessageWriters/LibTickDataMessageWriter.h"
+#include "libTradeTicksAnalyzer/Components/MessageWriters/TradeTicksAnalyzerMessageWriter.h"
 
-class LibTickDataMessageWriterMock : public Metal::Mock<LibTickDataMessageWriter>
+class TradeTicksAnalyzerMessageWriterMock : public Metal::Mock<TradeTicksAnalyzerMessageWriter>
 {
 public:
    METALMOCK_VOID1(Initialize, const Utils::Logger*)

@@ -3,17 +3,17 @@ namespace Utils
 {
    class Logger;
 }
-class LibTickDataMessageWriterTests;
+class TradeTicksAnalyzerMessageWriterTests;
 
-class LibTickDataMessageWriter
+class TradeTicksAnalyzerMessageWriter
 {
-   friend class ::LibTickDataMessageWriterTests;
+   friend class ::TradeTicksAnalyzerMessageWriterTests;
 private:
    // Non-Owned Constant Components
    const Utils::Logger* _logger;
 public:
-   LibTickDataMessageWriter();
-   virtual ~LibTickDataMessageWriter();
+   TradeTicksAnalyzerMessageWriter();
+   virtual ~TradeTicksAnalyzerMessageWriter();
    virtual void Initialize(const Utils::Logger* logger);
    // Actions
    virtual void WriteMessage_Reading(
