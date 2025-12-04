@@ -31,16 +31,13 @@ void BadTradeTicksFinder::FindAllPossibleBadTradeTicks(
    const vector<fs::path> realTimeTextTradeTicksInputFilePaths =
       _fileAndFolderPathsGetter->GetTopLevelFilePathsInFolder(realTimeTextTradeTicksInputFolderPath);
 
-   //_tradeTicksAnalyzerMessageWriter->WriteMessage_ReadingAndFindingPossibleBadTradeTicks(
-   //   realTimeTextTradeTicksFilePaths.size(), realTimeTextTradeTicksFolderPaths);
+   _tradeTicksAnalyzerMessageWriter->WriteMessage_ReadingAndFindingPossibleBadTradeTicks(
+      realTimeTextTradeTicksInputFilePaths.size(), realTimeTextTradeTicksInputFolderPath);
 
    // _forEacher_fsPath->CallConstMemberFunctionOnEachElementOptionallyInParallel(
-   //    realTimeTextTradeTicksFilePaths,
+   //    realTimeTextTradeTicksInputFilePaths,
    //    this, &MultipleTextTradeTicksFilesReader::TryCatchCall_ReadTradeTicksFile,
    //    parallel);
-
-   //_tradeTicksAnalyzerMessageWriter->WriteMessage_ReadAndProcessing(
-   //   realTimeTextTradeTicksFilePaths.size(), realTimeTextTradeTicksFolderPath);
 }
 
 // Private Functions

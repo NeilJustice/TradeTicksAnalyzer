@@ -42,16 +42,22 @@ TEST(FindAllPossibleBadTradeTicks_DoesSo)
    const vector<fs::path> realTimeTextTradeTicksInputFilePaths =
       _fileAndFolderPathsGetterMock->GetTopLevelFilePathsInFolderMock.ReturnRandom();
 
-   const fs::path realTimeTextTradeTicksInputFolder = ZenUnit::Random<fs::path>();
+   _tradeTicksAnalyzerMessageWriterMock->WriteMessage_ReadingAndFindingPossibleBadTradeTicksMock.Expect();
+
+   const fs::path realTimeTextTradeTicksInputFolderPath = ZenUnit::Random<fs::path>();
    const fs::path possibleBadTradeTicksOutputFolderPath = ZenUnit::Random<fs::path>();
    const bool parallel = ZenUnit::Random<bool>();
    //
    _badTradeTicksFinder.FindAllPossibleBadTradeTicks(
-      realTimeTextTradeTicksInputFolder,
+      realTimeTextTradeTicksInputFolderPath,
       possibleBadTradeTicksOutputFolderPath,
       parallel);
    //
-   METALMOCK(_fileAndFolderPathsGetterMock->GetTopLevelFilePathsInFolderMock.CalledOnceWith(realTimeTextTradeTicksInputFolder));
+   METALMOCKTHEN(_fileAndFolderPathsGetterMock->GetTopLevelFilePathsInFolderMock.CalledOnceWith(
+      realTimeTextTradeTicksInputFolderPath)).Then(
+
+   METALMOCKTHEN(_tradeTicksAnalyzerMessageWriterMock->WriteMessage_ReadingAndFindingPossibleBadTradeTicksMock.CalledOnceWith(
+      realTimeTextTradeTicksInputFilePaths.size(), realTimeTextTradeTicksInputFolderPath)));
 }
 
 RUN_TESTS(BadTradeTicksFinderTests)
