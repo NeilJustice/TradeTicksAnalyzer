@@ -11,6 +11,9 @@ using namespace std;
 #include "libDateTime/Components/Args/DocoptParser.h"
 #include "libDateTime/Components/Console/Console.h"
 
+// libTickData ValueTypes
+#include "libTickData/ValueTypes/TradeTicksFileContent.h"
+
 // libTradeTicksAnalyzer Enums
 #include "libTradeTicksAnalyzer/Enums/ProgramMode.h"
 // libTradeTicksAnalyzer ValueTypes
