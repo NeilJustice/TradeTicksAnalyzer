@@ -19,6 +19,15 @@ using namespace std;
 // invalid_program_mode
 // C:\Code\TradeTicksAnalyzer\AcceptanceTests\InvalidCommandLineArguments
 
+// Seq
+// find-possible-bad-text-trade-ticks --trading-logs-input-folder=InputFiles\TradingLogs --date=YYYY-MM-DDM --run-number=1 --trading-logs-output-folder=#RESULTSFOLDER#\TradingLogs
+
+// Par
+// find-possible-bad-text-trade-ticks --trading-logs-input-folder=InputFiles\TradingLogs --date=YYYY-MM-DDM --run-number=1 --trading-logs-output-folder=#RESULTSFOLDER#\TradingLogs --parallel
+
+// ParEx
+// find-possible-bad-text-trade-ticks --trading-logs-input-folder=InputFiles\TradingLogs --date=YYYY-MM-DDM --run-number=1 --trading-logs-output-folder=#RESULTSFOLDER#\TradingLogs --parallel
+
 int main(int argc, char* argv[])
 {
    TradeTicksAnalyzerProgram tradeTicksAnalyzerProgram;

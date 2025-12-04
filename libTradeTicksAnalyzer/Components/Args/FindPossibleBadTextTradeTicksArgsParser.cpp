@@ -20,8 +20,8 @@ TradeTicksAnalyzerArgs FindPossibleBadTextTradeTicksArgsParser::ParseDocoptArgs(
    args.parallel = p_docoptParser->GetOptionalBool(docoptArgs, "--parallel");
    // Calculated Fields
    const string dateDashRunNumberFolderName = Utils::String::ConcatValues(args.dateWithDayOfWeek, "-", args.runNumber);
-   args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks =
+   args.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks =
       p_fileSystemPather->MakeThreeDeepFolderPathWhichMustExist(
-         args.tradingLogsOutputFolderPath, dateDashRunNumberFolderName, "Polygon", "FilteredRealTimeTextTradeTicks");
+         args.tradingLogsInputFolderPath, dateDashRunNumberFolderName, "Polygon", "FilteredRealTimeTextTradeTicks");
    return args;
 }

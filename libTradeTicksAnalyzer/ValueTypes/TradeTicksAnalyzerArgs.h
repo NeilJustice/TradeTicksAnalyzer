@@ -17,5 +17,5 @@ struct TradeTicksAnalyzerArgs
    fs::path tradingLogsOutputFolderPath;
    bool parallel = false;
    // Calculated Fields
-   fs::path tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks;
+   fs::path tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks;
 };

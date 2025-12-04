@@ -1,0 +1,5 @@
+find-possible-bad-text-trade-ticks
+--trading-logs-input-folder=InputFiles\TradingLogs
+--date=YYYY-MM-DDM
+--run-number=1
+--trading-logs-output-folder=#RESULTSFOLDER#\TradingLogs
