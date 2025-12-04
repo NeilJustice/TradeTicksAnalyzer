@@ -5,4 +5,5 @@ AcceptanceRunner.exe run-acceptance-test-with-one-possible-standard-output `
    --required-standard-output-file="RequiredStandardOutput.txt" `
    --required-text-file-writes-file="RequiredTextFileWrites.txt" `
    --test-runs=2 `
-   --required-exit-code=0
+   --required-exit-code=0 `
+   --acceptance-test-results-folder-to-delete-first="X:\AcceptanceTestResults\TradeTicksAnalyzer\FindPossibleBadTextTradeTicks-Seq"

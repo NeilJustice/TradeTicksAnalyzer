@@ -1,8 +1,8 @@
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d 02:29:50 PM T16072 \]   Running: .*TradeTicksAnalyzer.exe find-possible-bad-text-trade-ticks --trading-logs-input-folder=InputFiles\\TradingLogs --date=YYYY-MM-DDM --run-number=1 --trading-logs-output-folder=#RESULTSFOLDER#\\TradingLogs
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d 02:29:50 PM T16072 \]   Machine: .*
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d 02:29:50 PM T16072 \]      User: .*
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d 02:29:50 PM T16072 \] Directory: .*
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d 02:29:50 PM T16072 \] Reading 214 RealTimeTradeTicks files in .*\\InputFiles\\TradingLogs\\YYYY-MM-DDM-1\\Polygon\\FilteredRealTimeTextTradeTicks
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d 02:29:50 PM T16072 \]    Read 214 RealTimeTradeTicks files in .*\\InputFiles\\TradingLogs\\YYYY-MM-DDM-1\\Polygon\\FilteredRealTimeTextTradeTicks
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d 02:29:50 PM T16072 \] Duration: \d.\d\d\d seconds
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d 02:29:50 PM T16072 \] ExitCode: 0
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\]   Running: .*TradeTicksAnalyzerRelease.exe find-possible-bad-text-trade-ticks --trading-logs-input-folder=InputFiles\\TradingLogs --date=YYYY-MM-DDM --run-number=1 --trading-logs-output-folder=#RESULTSFOLDER#\\TradingLogs
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\]   Machine: .*
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\]      User: .*
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\] Directory: .*
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\] Reading 2 RealTimeTradeTicks files in .*\\InputFiles\\TradingLogs\\YYYY-MM-DDM-1\\Polygon\\FilteredRealTimeTextTradeTicks
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\]    Read 2 RealTimeTradeTicks files in .*\\InputFiles\\TradingLogs\\YYYY-MM-DDM-1\\Polygon\\FilteredRealTimeTextTradeTicks
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\] Duration: \d.\d\d\d seconds
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\] ExitCode: 0
