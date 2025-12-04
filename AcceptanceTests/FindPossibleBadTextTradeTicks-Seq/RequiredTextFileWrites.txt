@@ -1,2 +1,2 @@
 RelativeFilePathRequiredToBeWritten|ExpectedAbsoluteFilePathWriteLocation
-RequiredTextFileWrites\Backtester.log|#RESULTSFOLDER#\results\#DATETODAYW#-1-BuyNMinutesBeforeClose\Backtester.logRelativeFilePathRequiredToBeWritten|ExpectedAbsoluteFilePathWriteLocation
+RequiredTextFileWrites\Backtester.log|#RESULTSFOLDER#\results\#DATETODAYW#-1-BuyNMinutesBeforeClose\Backtester.log
