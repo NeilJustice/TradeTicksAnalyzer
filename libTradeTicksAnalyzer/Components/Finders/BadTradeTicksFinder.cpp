@@ -1,10 +1,12 @@
 #include "pch.h"
 #include "libCppUtils/Components/FileSystem/FileAndFolderPathsGetter.h"
 #include "libTradeTicksAnalyzer/Components/Finders/BadTradeTicksFinder.h"
+#include "libTradeTicksAnalyzer/Components/MessageWriters/TradeTicksAnalyzerMessageWriter.h"
 
 BadTradeTicksFinder::BadTradeTicksFinder()
    // Owned Constant Components
    : _fileAndFolderPathsGetter(make_unique<Utils::FileAndFolderPathsGetter>())
+   , _tradeTicksAnalyzerMessageWriter(make_unique<TradeTicksAnalyzerMessageWriter>())
    // Non-Owned Constant Components
    , _logger(nullptr)
 {

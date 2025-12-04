@@ -3,6 +3,7 @@ namespace Utils
 {
    class FileAndFolderPathsGetter;
 }
+class TradeTicksAnalyzerMessageWriter;
 
 class BadTradeTicksFinder
 {
@@ -10,6 +11,7 @@ class BadTradeTicksFinder
 private:
    // Owned Constant Components
    unique_ptr<const Utils::FileAndFolderPathsGetter> _fileAndFolderPathsGetter;
+   unique_ptr<const TradeTicksAnalyzerMessageWriter> _tradeTicksAnalyzerMessageWriter;
    // Non-Owned Constant Components
    const Utils::Logger* _logger;
 public:

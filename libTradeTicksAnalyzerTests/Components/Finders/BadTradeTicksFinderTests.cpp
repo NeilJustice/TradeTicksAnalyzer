@@ -2,6 +2,7 @@
 #include "libCppUtils/Components/FileSystem/MetalMock/FileAndFolderPathsGetterMock.h"
 #include "libCppUtils/Components/Logging/MetalMock/LoggerMock.h"
 #include "libTradeTicksAnalyzer/Components/Finders/BadTradeTicksFinder.h"
+#include "libTradeTicksAnalyzer/Components/MessageWriters/MetalMock/TradeTicksAnalyzerMessageWriterMock.h"
 
 TESTS(BadTradeTicksFinderTests)
 AFACT(Initialize_DoesSo)
@@ -12,6 +13,7 @@ EVIDENCE
 BadTradeTicksFinder _badTradeTicksFinder;
 // Owned Constant Components
 Utils::FileAndFolderPathsGetterMock* _fileAndFolderPathsGetterMock = nullptr;
+TradeTicksAnalyzerMessageWriterMock* _tradeTicksAnalyzerMessageWriterMock = nullptr;
 // Non-Owned Constant Components
 unique_ptr<Utils::LoggerMock> _loggerMock;
 
@@ -19,6 +21,7 @@ STARTUP
 {
    // Owned Constant Components
    _badTradeTicksFinder._fileAndFolderPathsGetter.reset(_fileAndFolderPathsGetterMock = new Utils::FileAndFolderPathsGetterMock);
+   _badTradeTicksFinder._tradeTicksAnalyzerMessageWriter.reset(_tradeTicksAnalyzerMessageWriterMock = new TradeTicksAnalyzerMessageWriterMock);
    // Non-Owned Constant Components
    _badTradeTicksFinder._logger = (_loggerMock = make_unique<Utils::LoggerMock>()).get();
 }
