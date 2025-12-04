@@ -14,20 +14,21 @@ BadTradeTicksFinder::~BadTradeTicksFinder()
 {
 }
 
-// Actions
-
 void BadTradeTicksFinder::Initialize(const Utils::Logger* logger)
 {
    _logger = logger;
 }
 
+// Actions
+
 void BadTradeTicksFinder::FindAllPossibleBadTradeTicks(
-   const fs::path& /*tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks*/,
+   const fs::path& tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks,
    const fs::path& /*tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks*/,
    bool /*parallel*/) const
 {
-   //const vector<fs::path> realTimeTextTradeTicksFilePaths =
-   //   _fileAndFolderPathsGetter->GetTopLevelFilePathsInFolder(tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks);
+   const vector<fs::path> realTimeTextTradeTicksFilePaths = _fileAndFolderPathsGetter->GetTopLevelFilePathsInFolder(
+      tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks);
+
    //_tradeTicksAnalyzerMessageWriter->WriteMessage_ReadingAndProcessing(realTimeTextTradeTicksFilePaths.size(), realTimeTextTradeTicksFolderPath);
 
    // _forEacher_fsPath->CallConstMemberFunctionOnEachElementOptionallyInParallel(

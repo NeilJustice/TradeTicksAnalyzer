@@ -4,7 +4,9 @@
 #include "libTradeTicksAnalyzer/Components/Finders/BadTradeTicksFinder.h"
 
 TESTS(BadTradeTicksFinderTests)
-AFACT(DefaultConstructor_SetsFieldsToDefaultValues)
+AFACT(Initialize_DoesSo)
+// Actions
+AFACT(FindAllPossibleBadTradeTicks_DoesSo)
 EVIDENCE
 
 BadTradeTicksFinder _badTradeTicksFinder;
@@ -19,7 +21,14 @@ STARTUP
    _badTradeTicksFinder._logger = (_loggerMock = make_unique<Utils::LoggerMock>()).get();
 }
 
-TEST(DefaultConstructor_SetsFieldsToDefaultValues)
+TEST(Initialize_DoesSo)
+{
+
+}
+
+// Actions
+
+TEST(FindAllPossibleBadTradeTicks_DoesSo)
 {
 
 }
