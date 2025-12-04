@@ -22,4 +22,8 @@ public:
       const fs::path& realTimeTextTradeTicksInputFolderPath,
       const fs::path& possibleBadTradeTicksOutputFolderPath,
       bool parallel) const;
+private:
+   void TryCatchCall_FindPossibleBadTradeTicks() const;
+   void FindPossibleBadTradeTicks() const;
+   void ExceptionHandler_FindPossibleBadTradeTicks() const;
 };

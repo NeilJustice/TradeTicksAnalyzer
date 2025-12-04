@@ -8,6 +8,10 @@ TESTS(BadTradeTicksFinderTests)
 AFACT(Initialize_DoesSo)
 // Actions
 AFACT(FindAllPossibleBadTradeTicks_DoesSo)
+// Private Functions
+AFACT(TryCatchCall_FindPossibleBadTradeTicks_DoesSo)
+AFACT(FindPossibleBadTradeTicks_DoesSo)
+AFACT(ExceptionHandler_FindPossibleBadTradeTicks_DoesSo)
 EVIDENCE
 
 BadTradeTicksFinder _badTradeTicksFinder;
@@ -43,6 +47,8 @@ TEST(FindAllPossibleBadTradeTicks_DoesSo)
 
    _tradeTicksAnalyzerMessageWriterMock->WriteMessage_ReadingAndFindingPossibleBadTradeTicksMock.Expect();
 
+
+
    const fs::path realTimeTextTradeTicksInputFolderPath = ZenUnit::Random<fs::path>();
    const fs::path possibleBadTradeTicksOutputFolderPath = ZenUnit::Random<fs::path>();
    const bool parallel = ZenUnit::Random<bool>();
@@ -57,6 +63,25 @@ TEST(FindAllPossibleBadTradeTicks_DoesSo)
 
    METALMOCKTHEN(_tradeTicksAnalyzerMessageWriterMock->WriteMessage_ReadingAndFindingPossibleBadTradeTicksMock.CalledOnceWith(
       realTimeTextTradeTicksInputFilePaths.size(), realTimeTextTradeTicksInputFolderPath)));
+
+
+}
+
+// Private Functions
+
+TEST(TryCatchCall_FindPossibleBadTradeTicks_DoesSo)
+{
+
+}
+
+TEST(FindPossibleBadTradeTicks_DoesSo)
+{
+
+}
+
+TEST(ExceptionHandler_FindPossibleBadTradeTicks_DoesSo)
+{
+
 }
 
 RUN_TESTS(BadTradeTicksFinderTests)

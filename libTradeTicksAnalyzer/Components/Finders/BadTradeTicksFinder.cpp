@@ -33,17 +33,26 @@ void BadTradeTicksFinder::FindAllPossibleBadTradeTicks(
    _tradeTicksAnalyzerMessageWriter->WriteMessage_ReadingAndFindingPossibleBadTradeTicks(
       realTimeTextTradeTicksInputFilePaths.size(), realTimeTextTradeTicksInputFolderPath);
 
-   // _forEacher_fsPath->CallConstMemberFunctionOnEachElementOptionallyInParallel(
-   //    realTimeTextTradeTicksInputFilePaths,
-   //    this, &MultipleTextTradeTicksFilesReader::TryCatchCall_ReadTradeTicksFile,
-   //    parallel);
+   //_forEacher_fsPath->CallConstMemberFunctionOnEachElementOptionallyInParallel(
+   //   realTimeTextTradeTicksInputFilePaths,
+   //   this, &BadTradeTicksFinder::TryCatchCall_FindPossibleBadTradeTicks,
+   //   parallel);
 }
 
 // Private Functions
 
-// void BadTradeTicksFinder::ReadAndFindPossibleBadTradeTicks() const
-// {
-      //const TickData::TradeTicksFileContent tradeTicksFileContent =
-      //   _textTradeTicksFileReader->ReadRealTimeTextTradeTicksFile(realTimeTextTradeTicksFilePath);
-// }
+void BadTradeTicksFinder::TryCatchCall_FindPossibleBadTradeTicks() const
+{
 
+}
+
+void BadTradeTicksFinder::FindPossibleBadTradeTicks() const
+{
+   //const TickData::TradeTicksFileContent tradeTicksFileContent =
+   //   _textTradeTicksFileReader->ReadRealTimeTextTradeTicksFile(realTimeTextTradeTicksFilePath);
+}
+
+void BadTradeTicksFinder::ExceptionHandler_FindPossibleBadTradeTicks() const
+{
+
+}
