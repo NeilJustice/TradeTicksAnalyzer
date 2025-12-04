@@ -17,7 +17,7 @@ FindPossibleBadTextTradeTicksSubProgram::~FindPossibleBadTextTradeTicksSubProgra
 void FindPossibleBadTextTradeTicksSubProgram::DerivedInitialize()
 {
    _multipleTextTradeTicksFilesReader->Initialize(p_console.get());
-   //_badTradeTicksFinder->Initialize(p_console.get());
+   _badTradeTicksFinder->Initialize(p_console.get());
 }
 
 // Actions

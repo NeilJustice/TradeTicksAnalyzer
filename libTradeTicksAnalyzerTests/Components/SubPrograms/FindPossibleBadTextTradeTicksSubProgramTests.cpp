@@ -32,10 +32,12 @@ STARTUP
 TEST(DerivedInitialize_DoesSo)
 {
    _multipleTextTradeTicksFilesReaderMock->InitializeMock.Expect();
+   _badTradeTicksFinderMock->InitializeMock.Expect();
    //
    _findPossibleBadTextTradeTicksSubProgram.DerivedInitialize();
    //
-   METALMOCK(_multipleTextTradeTicksFilesReaderMock->InitializeMock.CalledOnceWith(p_consoleMock));
+   METALMOCKTHEN(_multipleTextTradeTicksFilesReaderMock->InitializeMock.CalledOnceWith(p_consoleMock)).Then(
+   METALMOCKTHEN(_badTradeTicksFinderMock->InitializeMock.CalledOnceWith(p_consoleMock)));
 }
 
 // Actions
