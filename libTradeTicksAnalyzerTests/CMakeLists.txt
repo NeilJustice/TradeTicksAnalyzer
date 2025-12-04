@@ -18,6 +18,8 @@ include_directories(
 folder_source_group(Components)
 folder_source_group_subfolder(Components Args)
 folder_source_group_subsubfolder(Components Args MetalMock)
+folder_source_group_subfolder(Components Finders)
+folder_source_group_subsubfolder(Components Finders MetalMock)
 folder_source_group_subfolder(Components SubPrograms)
 folder_source_group_subsubfolder(Components SubPrograms MetalMock)
 folder_source_group_subfolder(Components Testing)
