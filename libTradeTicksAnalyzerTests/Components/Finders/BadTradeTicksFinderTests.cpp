@@ -53,7 +53,7 @@ TEST(FindAllPossibleBadTradeTicks_DoesSo)
 
    _tradeTicksAnalyzerMessageWriterMock->WriteMessage_ReadingAndFindingPossibleBadTradeTicksMock.Expect();
 
-
+   _forEacher_fsPathMock->CallConstMemberFunctionWithEachElementOptionallyInParallelMock.Expect();
 
    const fs::path realTimeTextTradeTicksInputFolderPath = ZenUnit::Random<fs::path>();
    const fs::path possibleBadTradeTicksOutputFolderPath = ZenUnit::Random<fs::path>();
@@ -68,9 +68,12 @@ TEST(FindAllPossibleBadTradeTicks_DoesSo)
       realTimeTextTradeTicksInputFolderPath)).Then(
 
    METALMOCKTHEN(_tradeTicksAnalyzerMessageWriterMock->WriteMessage_ReadingAndFindingPossibleBadTradeTicksMock.CalledOnceWith(
-      realTimeTextTradeTicksInputFilePaths.size(), realTimeTextTradeTicksInputFolderPath)));
+      realTimeTextTradeTicksInputFilePaths.size(), realTimeTextTradeTicksInputFolderPath))).Then(
 
-
+   METALMOCKTHEN(_forEacher_fsPathMock->CallConstMemberFunctionWithEachElementOptionallyInParallelMock.CalledOnceWith(
+      realTimeTextTradeTicksInputFilePaths,
+      &_badTradeTicksFinder, &BadTradeTicksFinder::TryCatchCall_FindPossibleBadTradeTicks,
+      parallel)));
 }
 
 // Private Functions

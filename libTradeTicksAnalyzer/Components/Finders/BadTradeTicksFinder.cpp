@@ -28,7 +28,7 @@ void BadTradeTicksFinder::Initialize(const Utils::Logger* logger)
 void BadTradeTicksFinder::FindAllPossibleBadTradeTicks(
    const fs::path& realTimeTextTradeTicksInputFolderPath,
    const fs::path& /*possibleBadTradeTicksOutputFolderPath*/,
-   bool /*parallel*/) const
+   bool parallel) const
 {
    const vector<fs::path> realTimeTextTradeTicksInputFilePaths =
       _fileAndFolderPathsGetter->GetTopLevelFilePathsInFolder(realTimeTextTradeTicksInputFolderPath);
@@ -36,10 +36,10 @@ void BadTradeTicksFinder::FindAllPossibleBadTradeTicks(
    _tradeTicksAnalyzerMessageWriter->WriteMessage_ReadingAndFindingPossibleBadTradeTicks(
       realTimeTextTradeTicksInputFilePaths.size(), realTimeTextTradeTicksInputFolderPath);
 
-   //_forEacher_fsPath->CallConstMemberFunctionOnEachElementOptionallyInParallel(
-   //   realTimeTextTradeTicksInputFilePaths,
-   //   this, &BadTradeTicksFinder::TryCatchCall_FindPossibleBadTradeTicks,
-   //   parallel);
+   _forEacher_fsPath->CallConstMemberFunctionWithEachElementOptionallyInParallel(
+      realTimeTextTradeTicksInputFilePaths,
+      this, &BadTradeTicksFinder::TryCatchCall_FindPossibleBadTradeTicks,
+      parallel);
 }
 
 // Private Functions
