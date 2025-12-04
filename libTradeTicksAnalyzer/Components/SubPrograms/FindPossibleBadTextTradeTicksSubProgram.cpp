@@ -1,10 +1,12 @@
 #include "pch.h"
 #include "libTickData/Components/Files/TextTradeTicks/MultipleTextTradeTicksFilesReader.h"
+#include "libTradeTicksAnalyzer/Components/Finders/BadTradeTicksFinder.h"
 #include "libTradeTicksAnalyzer/Components/SubPrograms/FindPossibleBadTextTradeTicksSubProgram.h"
 
 FindPossibleBadTextTradeTicksSubProgram::FindPossibleBadTextTradeTicksSubProgram()
    // Mutable Components
-   : _multipleTextTradeTicksFilesReader(make_unique<TickData::MultipleTextTradeTicksFilesReader>())
+   : _badTradeTicksFinder(make_unique<BadTradeTicksFinder>())
+   , _multipleTextTradeTicksFilesReader(make_unique<TickData::MultipleTextTradeTicksFilesReader>())
 {
 }
 
