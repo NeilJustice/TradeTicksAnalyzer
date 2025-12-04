@@ -9,11 +9,12 @@ class FindPossibleBadTextTradeTicksSubProgram : public SubProgram
 {
    friend class FindPossibleBadTextTradeTicksSubProgramTests;
 private:
-   // Constant Components
-   unique_ptr<const TickData::MultipleTextTradeTicksFilesReader> _multipleTextTradeTicksFilesReader;
+   // Mutable Components
+   unique_ptr<TickData::MultipleTextTradeTicksFilesReader> _multipleTextTradeTicksFilesReader;
 public:
    FindPossibleBadTextTradeTicksSubProgram();
    virtual ~FindPossibleBadTextTradeTicksSubProgram() override;
-
+   void DerivedInitialize() override;
+   // Actions
    int Run() const override;
 };

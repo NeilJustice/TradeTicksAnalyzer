@@ -3,7 +3,7 @@
 #include "libTradeTicksAnalyzer/Components/SubPrograms/FindPossibleBadTextTradeTicksSubProgram.h"
 
 FindPossibleBadTextTradeTicksSubProgram::FindPossibleBadTextTradeTicksSubProgram()
-   // Constant Components
+   // Mutable Components
    : _multipleTextTradeTicksFilesReader(make_unique<TickData::MultipleTextTradeTicksFilesReader>())
 {
 }
@@ -11,6 +11,13 @@ FindPossibleBadTextTradeTicksSubProgram::FindPossibleBadTextTradeTicksSubProgram
 FindPossibleBadTextTradeTicksSubProgram::~FindPossibleBadTextTradeTicksSubProgram()
 {
 }
+
+void FindPossibleBadTextTradeTicksSubProgram::DerivedInitialize()
+{
+   _multipleTextTradeTicksFilesReader->Initialize(p_console.get());
+}
+
+// Actions
 
 int FindPossibleBadTextTradeTicksSubProgram::Run() const
 {
