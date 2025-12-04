@@ -18,4 +18,7 @@ public:
    // Actions
    virtual void WriteMessage_ReadingAndFindingPossibleBadTradeTicks(
       size_t realTimeTextTradeTicksFilePathsSize, const fs::path& realTimeTextTradeTicksFolderPath) const;
+
+   virtual void WriteFatalExceptionMessage_FindPossibleBadTradeTicks(
+      string_view exceptionClassNameAndMessage, const fs::path& realTimeTextTradeTicksInputFilePath) const;
 };

@@ -63,6 +63,7 @@ void BadTradeTicksFinder::FindPossibleBadTradeTicks(
 {
    const TickData::TradeTicksFileContent tradeTicksFileContent =
       _textTradeTicksFileReader->ReadRealTimeTextTradeTicksFile(realTimeTextTradeTicksInputFilePath);
+
 }
 
 void BadTradeTicksFinder::ExceptionHandler_FindPossibleBadTradeTicks(

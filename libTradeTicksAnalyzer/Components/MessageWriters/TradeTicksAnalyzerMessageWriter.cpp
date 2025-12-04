@@ -26,3 +26,13 @@ void TradeTicksAnalyzerMessageWriter::WriteMessage_ReadingAndFindingPossibleBadT
       realTimeTextTradeTicksInputFolderPath.string());
    _logger->WriteProgramNameTimestampedThreadIdLineThenFlush(message);
 }
+
+void TradeTicksAnalyzerMessageWriter::WriteFatalExceptionMessage_FindPossibleBadTradeTicks(
+   string_view exceptionClassNameAndMessage, const fs::path& realTimeTextTradeTicksInputFilePath) const
+{
+   const string enhancedExceptionMessage = Utils::String::ConcatStrings(
+      "Exception thrown while calling BadTradeTicksFinder::FindPossibleBadTradeTicks:\n",
+      exceptionClassNameAndMessage, "\n",
+      "realTimeTextTradeTicksInputFilePath=", realTimeTextTradeTicksInputFilePath.string());
+   _logger->WriteProgramNameTimestampedThreadIdLineInRedThenExitWithCode1IfConsole(enhancedExceptionMessage);
+}

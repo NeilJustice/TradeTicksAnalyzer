@@ -6,6 +6,7 @@ TESTS(TradeTicksAnalyzerMessageWriterTests)
 AFACT(Initialize_DoesSo)
 // Actions
 AFACT(WriteMessage_ReadingAndFindingPossibleBadTradeTicks_DoesSo)
+AFACT(WriteFatalExceptionMessage_FindPossibleBadTradeTicks_DoesSo)
 EVIDENCE
 
 TradeTicksAnalyzerMessageWriter _tradeTicksAnalyzerMessageWriter;
@@ -42,6 +43,23 @@ TEST(WriteMessage_ReadingAndFindingPossibleBadTradeTicks_DoesSo)
       "Reading and finding possible bad trade ticks in ", realTimeTextTradeTicksFilePathsSize, " RealTimeTradeTicks files in ",
       realTimeTextTradeTicksInputFolderPath.string());
    METALMOCK(_loggerMock->WriteProgramNameTimestampedThreadIdLineThenFlushMock.CalledOnceWith(expectedMessage));
+}
+
+TEST(WriteFatalExceptionMessage_FindPossibleBadTradeTicks_DoesSo)
+{
+   _loggerMock->WriteProgramNameTimestampedThreadIdLineInRedThenExitWithCode1IfConsoleMock.Expect();
+   const string_view exceptionClassNameAndMessage = ZenUnit::Random<string_view>();
+   const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
+   //
+   _tradeTicksAnalyzerMessageWriter.WriteFatalExceptionMessage_FindPossibleBadTradeTicks(
+      exceptionClassNameAndMessage, realTimeTextTradeTicksInputFilePath);
+   //
+   const string expectedEnhancedExceptionMessage = Utils::String::ConcatStrings(
+      "Exception thrown while calling BadTradeTicksFinder::FindPossibleBadTradeTicks:\n",
+      exceptionClassNameAndMessage, "\n",
+      "realTimeTextTradeTicksInputFilePath=", realTimeTextTradeTicksInputFilePath.string());
+   METALMOCK(_loggerMock->WriteProgramNameTimestampedThreadIdLineInRedThenExitWithCode1IfConsoleMock.CalledOnceWith(
+      expectedEnhancedExceptionMessage));
 }
 
 RUN_TESTS(TradeTicksAnalyzerMessageWriterTests)
