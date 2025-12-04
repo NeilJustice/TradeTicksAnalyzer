@@ -5,7 +5,7 @@
 TESTS(TradeTicksAnalyzerMessageWriterTests)
 AFACT(Initialize_DoesSo)
 // Actions
-AFACT(WriteMessage_ReadingAndFinding_DoesSo)
+AFACT(WriteMessage_ReadingAndFindingPossibleBadTradeTicks_DoesSo)
 EVIDENCE
 
 TradeTicksAnalyzerMessageWriter _tradeTicksAnalyzerMessageWriter;
@@ -29,18 +29,18 @@ TEST(Initialize_DoesSo)
 
 // Actions
 
-TEST(WriteMessage_ReadingAndFinding_DoesSo)
+TEST(WriteMessage_ReadingAndFindingPossibleBadTradeTicks_DoesSo)
 {
    _loggerMock->WriteProgramNameTimestampedThreadIdLineThenFlushMock.Expect();
    const size_t realTimeTextTradeTicksFilePathsSize = ZenUnit::Random<size_t>();
-   const fs::path realTimeTextTradeTicksFolderPath = ZenUnit::Random<fs::path>();
+   const fs::path realTimeTextTradeTicksInputFolderPath = ZenUnit::Random<fs::path>();
    //
-   _tradeTicksAnalyzerMessageWriter.WriteMessage_ReadingAndFinding(
-      realTimeTextTradeTicksFilePathsSize, realTimeTextTradeTicksFolderPath);
+   _tradeTicksAnalyzerMessageWriter.WriteMessage_ReadingAndFindingPossibleBadTradeTicks(
+      realTimeTextTradeTicksFilePathsSize, realTimeTextTradeTicksInputFolderPath);
    //
    const string expectedMessage = Utils::String::ConcatValues(
       "Reading and finding possible bad trade ticks in ", realTimeTextTradeTicksFilePathsSize, " RealTimeTradeTicks files in ",
-      realTimeTextTradeTicksFolderPath.string());
+      realTimeTextTradeTicksInputFolderPath.string());
    METALMOCK(_loggerMock->WriteProgramNameTimestampedThreadIdLineThenFlushMock.CalledOnceWith(expectedMessage));
 }
 

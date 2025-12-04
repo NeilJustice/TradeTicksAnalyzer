@@ -18,11 +18,11 @@ void TradeTicksAnalyzerMessageWriter::Initialize(const Utils::Logger* logger)
 
 // Actions
 
-void TradeTicksAnalyzerMessageWriter::WriteMessage_ReadingAndFinding(
-   size_t realTimeTextTradeTicksFilePathsSize, const fs::path& realTimeTextTradeTicksFolderPath) const
+void TradeTicksAnalyzerMessageWriter::WriteMessage_ReadingAndFindingPossibleBadTradeTicks(
+   size_t realTimeTextTradeTicksFilePathsSize, const fs::path& realTimeTextTradeTicksInputFolderPath) const
 {
    const string message = Utils::String::ConcatValues(
       "Reading and finding possible bad trade ticks in ", realTimeTextTradeTicksFilePathsSize, " RealTimeTradeTicks files in ",
-      realTimeTextTradeTicksFolderPath.string());
+      realTimeTextTradeTicksInputFolderPath.string());
    _logger->WriteProgramNameTimestampedThreadIdLineThenFlush(message);
 }
