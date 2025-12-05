@@ -16,15 +16,15 @@ using namespace std;
 // Acceptance Tests
 // ================
 // FindPossibleBadTextTradeTicks-Par
-// find-possible-bad-text-trade-ticks --trading-logs-input-folder=InputFiles\TradingLogs --date=YYYY-MM-DDM --run-number=1 --trading-logs-output-folder=X:\AcceptanceTestResults\TradeTicksAnalyzer\FindPossibleBadTextTradeTicks-Par\TradingLogs --parallel
+// find-possible-bad-text-trade-ticks --trading-logs-input-folder=InputFiles\TradingLogs --date=YYYY-MM-DDM --run-number=1 --bad-tick-change-percent-threshold=2.0 --trading-logs-output-folder=X:\AcceptanceTestResults\TradeTicksAnalyzer\FindPossibleBadTextTradeTicks-Par\TradingLogs --parallel
 // C:\Code\TradeTicksAnalyzer\AcceptanceTests\FindPossibleBadTextTradeTicks-Par
 
 // FindPossibleBadTextTradeTicks-ParEx
-// find-possible-bad-text-trade-ticks --trading-logs-input-folder=InputFiles\TradingLogs --date=YYYY-MM-DDM --run-number=1 --trading-logs-output-folder=X:\AcceptanceTestResults\TradeTicksAnalyzer\FindPossibleBadTextTradeTicks-ParEx\TradingLogs --parallel
+// find-possible-bad-text-trade-ticks --trading-logs-input-folder=InputFiles\TradingLogs --date=YYYY-MM-DDM --run-number=1 --bad-tick-change-percent-threshold=1.0 --trading-logs-output-folder=X:\AcceptanceTestResults\TradeTicksAnalyzer\FindPossibleBadTextTradeTicks-ParEx\TradingLogs --parallel
 // C:\Code\TradeTicksAnalyzer\AcceptanceTests\FindPossibleBadTextTradeTicks-ParEx
 
 // FindPossibleBadTextTradeTicks-Seq
-// find-possible-bad-text-trade-ticks --trading-logs-input-folder=InputFiles\TradingLogs --date=YYYY-MM-DDM --run-number=1 --trading-logs-output-folder=X:\AcceptanceTestResults\TradeTicksAnalyzer\FindPossibleBadTextTradeTicks-Seq\TradingLogs
+// find-possible-bad-text-trade-ticks --trading-logs-input-folder=InputFiles\TradingLogs --date=YYYY-MM-DDM --run-number=1 --bad-tick-change-percent-threshold=1.0 --trading-logs-output-folder=X:\AcceptanceTestResults\TradeTicksAnalyzer\FindPossibleBadTextTradeTicks-Seq\TradingLogs
 // C:\Code\TradeTicksAnalyzer\AcceptanceTests\FindPossibleBadTextTradeTicks-Seq
 
 // InvalidCommandLineArguments
