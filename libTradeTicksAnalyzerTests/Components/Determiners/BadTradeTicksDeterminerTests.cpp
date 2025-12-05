@@ -7,7 +7,7 @@
 TESTS(BadTradeTicksDeterminerTests)
 AFACT(FindPossibleBadTradeTicks_DoesSo)
 // Private Functions
-AFACT(IsTradeTickPossiblyBad_TradeTickIsPremarketOrAftermarket_ReturnsFalse)
+AFACT(IsTradeTickPossiblyBad_TradeTickIsExtendedHours_ReturnsFalse)
 AFACT(IsTradeTickPossiblyBad_TradeTickIsRegularHours_ChangePercentWithinBounds_ReturnsFalse)
 AFACT(IsTradeTickPossiblyBad_TradeTickIsRegularHours_ChangePercentAtOrOutOfBounds_ReturnsTrue)
 EVIDENCE
@@ -50,39 +50,39 @@ TEST(FindPossibleBadTradeTicks_DoesSo)
 
 // Private Functions
 
-TEST(IsTradeTickPossiblyBad_TradeTickIsPremarketOrAftermarket_ReturnsFalse)
+TEST(IsTradeTickPossiblyBad_TradeTickIsExtendedHours_ReturnsFalse)
 {
-
+   _tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.Return(true);
    const TickData::TradeTick tradeTick = ZenUnit::Random<TickData::TradeTick>();
    const float badTickChangePercentThreshold = ZenUnit::Random<float>();
    //
    const bool isTradeTickPossiblyBad = _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
    //
-
+   METALMOCK(_tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.CalledOnceWith(tradeTick.tradeConditionIdentifier));
    IS_FALSE(isTradeTickPossiblyBad);
 }
 
 TEST(IsTradeTickPossiblyBad_TradeTickIsRegularHours_ChangePercentWithinBounds_ReturnsFalse)
 {
-
+   _tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.Return(false);
    const TickData::TradeTick tradeTick = ZenUnit::Random<TickData::TradeTick>();
    const float badTickChangePercentThreshold = ZenUnit::Random<float>();
    //
    const bool isTradeTickPossiblyBad = _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
    //
-
+   METALMOCK(_tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.CalledOnceWith(tradeTick.tradeConditionIdentifier));
    IS_FALSE(isTradeTickPossiblyBad);
 }
 
 TEST(IsTradeTickPossiblyBad_TradeTickIsRegularHours_ChangePercentAtOrOutOfBounds_ReturnsTrue)
 {
-
+   _tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.Return(false);
    const TickData::TradeTick tradeTick = ZenUnit::Random<TickData::TradeTick>();
    const float badTickChangePercentThreshold = ZenUnit::Random<float>();
    //
    const bool isTradeTickPossiblyBad = _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
    //
-
+   METALMOCK(_tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.CalledOnceWith(tradeTick.tradeConditionIdentifier));
    IS_FALSE(isTradeTickPossiblyBad);
 }
 
