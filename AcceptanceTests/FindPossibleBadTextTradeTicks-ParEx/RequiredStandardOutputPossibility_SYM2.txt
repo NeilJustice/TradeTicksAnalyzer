@@ -1,9 +1,9 @@
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\]   Running: .*TradeTicksAnalyzerRelease.exe find-possible-bad-text-trade-ticks --trading-logs-input-folder=InputFiles\\TradingLogs --date=YYYY-MM-DDM --run-number=1 --bad-tick-change-percent-threshold=1.0 --trading-logs-output-folder=#RESULTSFOLDER#\\TradingLogs --parallel
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\]   Machine: .*
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\]      User: .*
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\] Directory: .*
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\] Reading 2 RealTimeTradeTicks files in .*\\InputFiles\\TradingLogs\\YYYY-MM-DDM-1\\Polygon\\FilteredRealTimeTextTradeTicks
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\] Error: Exception thrown while calling BadTradeTicksFinderAndFilesWriter::FindPossibleBadTradeTicks:
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d (AM|PM) T\d+\s*\]   Running: .*TradeTicksAnalyzerRelease.exe find-possible-bad-text-trade-ticks --trading-logs-input-folder=InputFiles\\TradingLogs --date=YYYY-MM-DDM --run-number=1 --bad-tick-change-percent-threshold=1.0 --trading-logs-output-folder=#RESULTSFOLDER#\\TradingLogs --parallel
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d (AM|PM) T\d+\s*\]   Machine: .*
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d (AM|PM) T\d+\s*\]      User: .*
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] Directory: .*
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] Reading 2 RealTimeTradeTicks files in .*\\InputFiles\\TradingLogs\\YYYY-MM-DDM-1\\Polygon\\FilteredRealTimeTextTradeTicks
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] Error: Exception thrown while calling BadTradeTicksFinderAndFilesWriter::FindPossibleBadTradeTicks:
 std::invalid_argument: Utils::String::ToFloat\(string_view floatString\) called with string not convertible to float: "xyz    "
 realTimeTextTradeTicksInputFilePath=.*\\InputFiles\\TradingLogs\\YYYY-MM-DDM-1\\Polygon\\FilteredRealTimeTextTradeTicks\\SYM2-RealTimeTradeTicks.txt
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\] ExitCode: 1
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] ExitCode: 1
