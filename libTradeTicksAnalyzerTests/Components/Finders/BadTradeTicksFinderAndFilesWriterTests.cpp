@@ -115,6 +115,8 @@ TEST(FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
    const vector<TickData::TradeTick> possibleBadTradeTicks =
       _badTradeTicksDeterminerMock->FindPossibleBadTradeTicksMock.ReturnRandom();
 
+
+
    const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
    //
    _badTradeTicksFinderAndFilesWriter.FindPossibleBadTradeTicksAndWriteResultsFile(realTimeTextTradeTicksInputFilePath);
@@ -124,6 +126,8 @@ TEST(FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
 
    METALMOCKTHEN(_badTradeTicksDeterminerMock->FindPossibleBadTradeTicksMock.CalledOnceWith(
       tradeTicksFileContent.tradeTicks, _args.badTickChangePercentThreshold)));
+
+
 }
 
 TEST(ExceptionHandler_FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)

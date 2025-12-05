@@ -37,6 +37,10 @@ bool BadTradeTicksDeterminer::IsTradeTickPossiblyBad(
    {
       return false;
    }
+   if (tradeTick.priceDeltaPercent == FLT_MAX)
+   {
+      return false;
+   }
    bool isTradeTickPossiblyBad = _floatHelper->IsFloatAtOrOutsideRange(
       tradeTick.priceDeltaPercent,
       -badTickChangePercentThreshold,

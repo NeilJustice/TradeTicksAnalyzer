@@ -67,7 +67,8 @@ void BadTradeTicksFinderAndFilesWriter::FindPossibleBadTradeTicksAndWriteResults
    const vector<TickData::TradeTick> possibleBadTradeTicks = _badTradeTicksDeterminer->FindPossibleBadTradeTicks(
       tradeTicksFileContent.tradeTicks, _args.badTickChangePercentThreshold);
 
-   // _args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks
+
+   //_args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks
 }
 
 void BadTradeTicksFinderAndFilesWriter::ExceptionHandler_FindPossibleBadTradeTicksAndWriteResultsFile(
