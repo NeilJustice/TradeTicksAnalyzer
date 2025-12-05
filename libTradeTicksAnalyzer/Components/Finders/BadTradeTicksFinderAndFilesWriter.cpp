@@ -3,6 +3,7 @@
 #include "libFunctional/Components/ForEachers/Member/OneArgMemberFunctionForEacher.h"
 #include "libFunctional/Components/FunctionCallers/TryCatchCallers/VoidOneArgTryCatchCaller.h"
 #include "libTickData/Components/Files/TextTradeTicks/TextTradeTicksFileReader.h"
+#include "libTickData/Components/Files/TextTradeTicks/TextTradeTicksFileWriter.h"
 #include "libTradeTicksAnalyzer/Components/Determiners/BadTradeTicksDeterminer.h"
 #include "libTradeTicksAnalyzer/Components/Finders/BadTradeTicksFinderAndFilesWriter.h"
 #include "libTradeTicksAnalyzer/Components/MessageWriters/TradeTicksAnalyzerMessageWriter.h"
@@ -15,6 +16,7 @@ BadTradeTicksFinderAndFilesWriter::BadTradeTicksFinderAndFilesWriter()
    , _badTradeTicksDeterminer(make_unique<BadTradeTicksDeterminer>())
    , _fileAndFolderPathsGetter(make_unique<Utils::FileAndFolderPathsGetter>())
    , _textTradeTicksFileReader(make_unique<TickData::TextTradeTicksFileReader>())
+   , _textTradeTicksFileWriter(make_unique<TickData::TextTradeTicksFileWriter>())
    // Mutable Components
    , _tradeTicksAnalyzerMessageWriter(make_unique<TradeTicksAnalyzerMessageWriter>())
 {

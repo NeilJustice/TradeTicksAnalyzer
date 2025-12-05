@@ -4,6 +4,7 @@
 #include "libFunctional/Components/ForEachers/Member/MetalMock/OneArgMemberFunctionForEacherMock.h"
 #include "libFunctional/Components/FunctionCallers/TryCatchCallers/MetalMock/VoidOneArgTryCatchCallerMock.h"
 #include "libTickData/Components/Files/TextTradeTicks/MetalMock/TextTradeTicksFileReaderMock.h"
+#include "libTickData/Components/Files/TextTradeTicks/MetalMock/TextTradeTicksFileWriterMock.h"
 #include "libTradeTicksAnalyzer/Components/Finders/BadTradeTicksFinderAndFilesWriter.h"
 #include "libTradeTicksAnalyzer/Components/MessageWriters/MetalMock/TradeTicksAnalyzerMessageWriterMock.h"
 #include "libTradeTicksAnalyzerTests/Components/Determiners/MetalMock/BadTradeTicksDeterminerMock.h"
@@ -29,6 +30,7 @@ _tryCatchCaller_fsPathMockType* _tryCatchCaller_fsPathMock = nullptr;
 BadTradeTicksDeterminerMock* _badTradeTicksDeterminerMock = nullptr;
 Utils::FileAndFolderPathsGetterMock* _fileAndFolderPathsGetterMock = nullptr;
 TickData::TextTradeTicksFileReaderMock* _textTradeTicksFileReaderMock = nullptr;
+TickData::TextTradeTicksFileWriterMock* _textTradeTicksFileWriterMock = nullptr;
 // Mutable Components
 TradeTicksAnalyzerMessageWriterMock* _tradeTicksAnalyzerMessageWriterMock = nullptr;
 // Mutable Fields
@@ -43,6 +45,7 @@ STARTUP
    _badTradeTicksFinderAndFilesWriter._badTradeTicksDeterminer.reset(_badTradeTicksDeterminerMock = new BadTradeTicksDeterminerMock);
    _badTradeTicksFinderAndFilesWriter._fileAndFolderPathsGetter.reset(_fileAndFolderPathsGetterMock = new Utils::FileAndFolderPathsGetterMock);
    _badTradeTicksFinderAndFilesWriter._textTradeTicksFileReader.reset(_textTradeTicksFileReaderMock = new TickData::TextTradeTicksFileReaderMock);
+   _badTradeTicksFinderAndFilesWriter._textTradeTicksFileWriter.reset(_textTradeTicksFileWriterMock = new TickData::TextTradeTicksFileWriterMock);
    // Mutable Components
    _badTradeTicksFinderAndFilesWriter._tradeTicksAnalyzerMessageWriter.reset(_tradeTicksAnalyzerMessageWriterMock = new TradeTicksAnalyzerMessageWriterMock);
    // Mutable Fields
