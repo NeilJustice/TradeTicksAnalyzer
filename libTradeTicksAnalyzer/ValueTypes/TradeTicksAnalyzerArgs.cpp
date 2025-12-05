@@ -6,6 +6,7 @@ R"(TradeTicksAnalyzer find-possible-bad-binary-trade-ticks
       --trading-logs-input-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
+      --bad-tick-change-percent-threshold=<Float>
       --trading-logs-output-folder=<OutputFolderPath>
       [--parallel])";
 const string TradeTicksAnalyzerArgs::CommandLineUsage_calculate_trade_tick_latency_statistics =
@@ -17,6 +18,7 @@ R"(TradeTicksAnalyzer find-possible-bad-text-trade-ticks
       --trading-logs-input-folder=<InputFolderPath>
       --date=<YYYY-MM-DDW>
       --run-number=<Unsigned>
+      --bad-tick-change-percent-threshold=<Float>
       --trading-logs-output-folder=<OutputFolderPath>
       [--parallel])";
 const string TradeTicksAnalyzerArgs::CommandLineUsage_find_possible_bad_trade_ticks =
