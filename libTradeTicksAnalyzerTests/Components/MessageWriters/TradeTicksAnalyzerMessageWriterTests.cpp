@@ -55,7 +55,7 @@ TEST(WriteExceptionMessage_FindPossibleBadTradeTicks_ThenExit1_DoesSo)
       exceptionClassNameAndMessage, realTimeTextTradeTicksInputFilePath);
    //
    const string expectedEnhancedExceptionMessage = Utils::String::ConcatStrings(
-      "Exception thrown while calling BadTradeTicksFinder::FindPossibleBadTradeTicks:\n",
+      "Exception thrown while calling BadTradeTicksFinderAndFilesWriter::FindPossibleBadTradeTicks:\n",
       exceptionClassNameAndMessage, "\n",
       "realTimeTextTradeTicksInputFilePath=", realTimeTextTradeTicksInputFilePath.string());
    METALMOCK(_loggerMock->WriteProgramNameTimestampedThreadIdLineInRedThenExitWithCode1IfConsoleMock.CalledOnceWith(

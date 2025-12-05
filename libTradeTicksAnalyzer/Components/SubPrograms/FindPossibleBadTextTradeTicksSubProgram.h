@@ -1,13 +1,13 @@
 #pragma once
 #include "libTradeTicksAnalyzer/Components/SubPrograms/SubProgram.h"
-class BadTradeTicksFinder;
+class BadTradeTicksFinderAndFilesWriter;
 
 class FindPossibleBadTextTradeTicksSubProgram : public SubProgram
 {
    friend class FindPossibleBadTextTradeTicksSubProgramTests;
 private:
    // Mutable Components
-   unique_ptr<BadTradeTicksFinder> _badTradeTicksFinder;
+   unique_ptr<BadTradeTicksFinderAndFilesWriter> _badTradeTicksFinderAndFilesWriter;
 public:
    FindPossibleBadTextTradeTicksSubProgram();
    virtual ~FindPossibleBadTextTradeTicksSubProgram() override;

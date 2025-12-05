@@ -17,15 +17,15 @@ namespace TickData
 }
 class TradeTicksAnalyzerMessageWriter;
 
-class BadTradeTicksFinder
+class BadTradeTicksFinderAndFilesWriter
 {
-   friend class BadTradeTicksFinderTests;
+   friend class BadTradeTicksFinderAndFilesWriterTests;
 private:
    // Function Callers
-   using _forEacher_fsPathType = Functional::OneArgMemberFunctionForEacher<BadTradeTicksFinder, fs::path>;
+   using _forEacher_fsPathType = Functional::OneArgMemberFunctionForEacher<BadTradeTicksFinderAndFilesWriter, fs::path>;
    unique_ptr<const _forEacher_fsPathType> _forEacher_fsPath;
 
-   using _tryCatchCaller_fsPathType = Functional::VoidOneArgTryCatchCaller<BadTradeTicksFinder, const fs::path&>;
+   using _tryCatchCaller_fsPathType = Functional::VoidOneArgTryCatchCaller<BadTradeTicksFinderAndFilesWriter, const fs::path&>;
    unique_ptr<const _tryCatchCaller_fsPathType> _tryCatchCaller_fsPath;
    // Constant Components
    unique_ptr<const Utils::FileAndFolderPathsGetter> _fileAndFolderPathsGetter;
@@ -35,8 +35,8 @@ private:
    // Mutable Fields
    TradeTicksAnalyzerArgs _args;
 public:
-   BadTradeTicksFinder();
-   virtual ~BadTradeTicksFinder();
+   BadTradeTicksFinderAndFilesWriter();
+   virtual ~BadTradeTicksFinderAndFilesWriter();
    virtual void Initialize(const TradeTicksAnalyzerArgs& args, const Utils::Logger* logger);
    // Actions
    virtual void FindAllPossibleBadTradeTicks(

@@ -31,7 +31,7 @@ void TradeTicksAnalyzerMessageWriter::WriteExceptionMessage_FindPossibleBadTrade
    string_view exceptionClassNameAndMessage, const fs::path& realTimeTextTradeTicksInputFilePath) const
 {
    const string enhancedExceptionMessage = Utils::String::ConcatStrings(
-      "Exception thrown while calling BadTradeTicksFinder::FindPossibleBadTradeTicks:\n",
+      "Exception thrown while calling BadTradeTicksFinderAndFilesWriter::FindPossibleBadTradeTicks:\n",
       exceptionClassNameAndMessage, "\n",
       "realTimeTextTradeTicksInputFilePath=", realTimeTextTradeTicksInputFilePath.string());
    _logger->WriteProgramNameTimestampedThreadIdLineInRedThenExitWithCode1IfConsole(enhancedExceptionMessage);
