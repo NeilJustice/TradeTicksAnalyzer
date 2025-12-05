@@ -15,6 +15,7 @@ namespace TickData
 {
    class TextTradeTicksFileReader;
 }
+class BadTradeTicksDeterminer;
 class TradeTicksAnalyzerMessageWriter;
 
 class BadTradeTicksFinderAndFilesWriter
@@ -28,6 +29,7 @@ private:
    using _tryCatchCaller_fsPathType = Functional::VoidOneArgTryCatchCaller<BadTradeTicksFinderAndFilesWriter, const fs::path&>;
    unique_ptr<const _tryCatchCaller_fsPathType> _tryCatchCaller_fsPath;
    // Constant Components
+   unique_ptr<const BadTradeTicksDeterminer> _badTradeTicksDeterminer;
    unique_ptr<const Utils::FileAndFolderPathsGetter> _fileAndFolderPathsGetter;
    unique_ptr<const TickData::TextTradeTicksFileReader> _textTradeTicksFileReader;
    // Mutable Components

@@ -6,6 +6,7 @@
 #include "libTickData/Components/Files/TextTradeTicks/MetalMock/TextTradeTicksFileReaderMock.h"
 #include "libTradeTicksAnalyzer/Components/Finders/BadTradeTicksFinderAndFilesWriter.h"
 #include "libTradeTicksAnalyzer/Components/MessageWriters/MetalMock/TradeTicksAnalyzerMessageWriterMock.h"
+#include "libTradeTicksAnalyzerTests/Components/Determiners/MetalMock/BadTradeTicksDeterminerMock.h"
 
 TESTS(BadTradeTicksFinderAndFilesWriterTests)
 AFACT(Initialize_DoesSo)
@@ -25,6 +26,7 @@ _forEacher_fsPathMockType* _forEacher_fsPathMock = nullptr;
 using _tryCatchCaller_fsPathMockType = Functional::VoidOneArgTryCatchCallerMock<BadTradeTicksFinderAndFilesWriter, const fs::path&>;
 _tryCatchCaller_fsPathMockType* _tryCatchCaller_fsPathMock = nullptr;
 // Constant Components
+BadTradeTicksDeterminerMock* _badTradeTicksDeterminerMock = nullptr;
 Utils::FileAndFolderPathsGetterMock* _fileAndFolderPathsGetterMock = nullptr;
 TickData::TextTradeTicksFileReaderMock* _textTradeTicksFileReaderMock = nullptr;
 // Mutable Components
@@ -38,6 +40,7 @@ STARTUP
    _badTradeTicksFinderAndFilesWriter._forEacher_fsPath.reset(_forEacher_fsPathMock = new _forEacher_fsPathMockType);
    _badTradeTicksFinderAndFilesWriter._tryCatchCaller_fsPath.reset(_tryCatchCaller_fsPathMock = new _tryCatchCaller_fsPathMockType);
    // Owned Constant Components
+   _badTradeTicksFinderAndFilesWriter._badTradeTicksDeterminer.reset(_badTradeTicksDeterminerMock = new BadTradeTicksDeterminerMock);
    _badTradeTicksFinderAndFilesWriter._fileAndFolderPathsGetter.reset(_fileAndFolderPathsGetterMock = new Utils::FileAndFolderPathsGetterMock);
    _badTradeTicksFinderAndFilesWriter._textTradeTicksFileReader.reset(_textTradeTicksFileReaderMock = new TickData::TextTradeTicksFileReaderMock);
    // Mutable Components

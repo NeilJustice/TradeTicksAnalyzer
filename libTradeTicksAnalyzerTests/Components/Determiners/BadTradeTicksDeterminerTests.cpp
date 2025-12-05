@@ -21,16 +21,37 @@ STARTUP
 TEST(IsTradeTickPossiblyBad_TradeTickIsPremarketOrAftermarket_ReturnsFalse)
 {
 
+   const TickData::TradeTick tradeTick = ZenUnit::Random<TickData::TradeTick>();
+   const float badTickChangePercentThreshold = ZenUnit::Random<float>();
+   //
+   const bool isTradeTickPossiblyBad = _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
+   //
+
+   IS_FALSE(isTradeTickPossiblyBad);
 }
 
 TEST(IsTradeTickPossiblyBad_TradeTickIsRegularHours_ChangePercentWithinBounds_ReturnsFalse)
 {
 
+   const TickData::TradeTick tradeTick = ZenUnit::Random<TickData::TradeTick>();
+   const float badTickChangePercentThreshold = ZenUnit::Random<float>();
+   //
+   const bool isTradeTickPossiblyBad = _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
+   //
+
+   IS_FALSE(isTradeTickPossiblyBad);
 }
 
 TEST(IsTradeTickPossiblyBad_TradeTickIsRegularHours_ChangePercentAtOrOutOfBounds_ReturnsTrue)
 {
 
+   const TickData::TradeTick tradeTick = ZenUnit::Random<TickData::TradeTick>();
+   const float badTickChangePercentThreshold = ZenUnit::Random<float>();
+   //
+   const bool isTradeTickPossiblyBad = _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
+   //
+
+   IS_FALSE(isTradeTickPossiblyBad);
 }
 
 RUN_TESTS(BadTradeTicksDeterminerTests)

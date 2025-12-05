@@ -15,5 +15,6 @@ BadTradeTicksDeterminer::~BadTradeTicksDeterminer()
 bool BadTradeTicksDeterminer::IsTradeTickPossiblyBad(
    const TickData::TradeTick& /*tradeTick*/, float /*badTickChangePercentThreshold*/) const
 {
+
    return false;
 }

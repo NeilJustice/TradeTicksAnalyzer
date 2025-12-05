@@ -4,6 +4,6 @@
 class BadTradeTicksDeterminerMock : public Metal::Mock<BadTradeTicksDeterminer>
 {
 public:
-   METALMOCK_NONVOID2(bool, IsTradeTickPossiblyBad,
+   METALMOCK_NONVOID2_CONST(bool, IsTradeTickPossiblyBad,
       const TickData::TradeTick&, float)
 };

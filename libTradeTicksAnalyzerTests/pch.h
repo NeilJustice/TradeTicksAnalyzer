@@ -24,3 +24,4 @@ using namespace std;
 
 // libTickData ValueTypes
 #include "libTickData/ValueTypes/ZenUnit/TradeTicksFileContentEqualizerAndRandom.h"
+#include "libTickData/ValueTypes/ZenUnit/TradeTickEqualizerAndRandom.h"
