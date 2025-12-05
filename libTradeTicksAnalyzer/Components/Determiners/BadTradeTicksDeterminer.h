@@ -14,6 +14,9 @@ public:
    BadTradeTicksDeterminer();
    virtual ~BadTradeTicksDeterminer();
 
-   virtual bool IsTradeTickPossiblyBad(
+   virtual vector<TickData::TradeTick> FindPossibleBadTradeTicks(
+      const vector<TickData::TradeTick>& tradeTicks, float badTickChangePercentThreshold) const;
+   // Private Functions
+   bool IsTradeTickPossiblyBad(
       const TickData::TradeTick& tradeTick, float badTickChangePercentThreshold) const;
 };

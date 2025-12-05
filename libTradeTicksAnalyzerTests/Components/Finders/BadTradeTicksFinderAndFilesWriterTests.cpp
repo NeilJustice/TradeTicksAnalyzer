@@ -112,14 +112,18 @@ TEST(FindPossibleBadTradeTicks_DoesSo)
    const TickData::TradeTicksFileContent tradeTicksFileContent =
       _textTradeTicksFileReaderMock->ReadRealTimeTextTradeTicksFileMock.ReturnRandom();
 
-
+   const vector<TickData::TradeTick> possibleBadTradeTicks =
+      _badTradeTicksDeterminerMock->FindPossibleBadTradeTicksMock.ReturnRandom();
 
    const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
    //
    _badTradeTicksFinderAndFilesWriter.FindPossibleBadTradeTicks(realTimeTextTradeTicksInputFilePath);
    //
-   METALMOCK(_textTradeTicksFileReaderMock->ReadRealTimeTextTradeTicksFileMock.CalledOnceWith(realTimeTextTradeTicksInputFilePath));
+   METALMOCKTHEN(_textTradeTicksFileReaderMock->ReadRealTimeTextTradeTicksFileMock.CalledOnceWith(
+      realTimeTextTradeTicksInputFilePath)).Then(
 
+   METALMOCKTHEN(_badTradeTicksDeterminerMock->FindPossibleBadTradeTicksMock.CalledOnceWith(
+      tradeTicksFileContent.tradeTicks, _args.badTickChangePercentThreshold)));
 }
 
 TEST(ExceptionHandler_FindPossibleBadTradeTicks_DoesSo)

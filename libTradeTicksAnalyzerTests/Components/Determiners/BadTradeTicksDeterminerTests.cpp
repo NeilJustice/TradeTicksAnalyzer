@@ -3,6 +3,8 @@
 #include "libTradeTicksAnalyzer/Components/Determiners/BadTradeTicksDeterminer.h"
 
 TESTS(BadTradeTicksDeterminerTests)
+AFACT(FindPossibleBadTradeTicks_DoesSo)
+// Private Functions
 AFACT(IsTradeTickPossiblyBad_TradeTickIsPremarketOrAftermarket_ReturnsFalse)
 AFACT(IsTradeTickPossiblyBad_TradeTickIsRegularHours_ChangePercentWithinBounds_ReturnsFalse)
 AFACT(IsTradeTickPossiblyBad_TradeTickIsRegularHours_ChangePercentAtOrOutOfBounds_ReturnsTrue)
@@ -17,6 +19,18 @@ STARTUP
    // Constant Components
    _badTradeTicksDeterminer._floatHelper.reset(_floatHelperMock = new Utils::FloatHelperMock);
 }
+
+TEST(FindPossibleBadTradeTicks_DoesSo)
+{
+   const vector<TickData::TradeTick> tradeTicks = ZenUnit::RandomVector<TickData::TradeTick>();
+   const float badTickChangePercentThreshold = ZenUnit::Random<float>();
+   //
+   _badTradeTicksDeterminer.FindPossibleBadTradeTicks(tradeTicks, badTickChangePercentThreshold);
+   //
+
+}
+
+// Private Functions
 
 TEST(IsTradeTickPossiblyBad_TradeTickIsPremarketOrAftermarket_ReturnsFalse)
 {

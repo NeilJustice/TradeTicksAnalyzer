@@ -12,6 +12,14 @@ BadTradeTicksDeterminer::~BadTradeTicksDeterminer()
 {
 }
 
+vector<TickData::TradeTick> BadTradeTicksDeterminer::FindPossibleBadTradeTicks(
+   const vector<TickData::TradeTick>& /*tradeTicks*/, float /*badTickChangePercentThreshold*/) const
+{
+   return {};
+}
+
+// Private Functions
+
 bool BadTradeTicksDeterminer::IsTradeTickPossiblyBad(
    const TickData::TradeTick& /*tradeTick*/, float /*badTickChangePercentThreshold*/) const
 {
