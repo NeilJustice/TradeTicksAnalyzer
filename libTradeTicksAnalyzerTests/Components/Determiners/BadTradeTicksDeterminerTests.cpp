@@ -21,19 +21,28 @@ Utils::FloatHelperMock* _floatHelperMock = nullptr;
 
 STARTUP
 {
+   // Function Callers
+   _badTradeTicksDeterminer._filter_IsTradeTickPossiblyBad.reset(_filter_IsTradeTickPossiblyBadMock = new _filter_IsTradeTickPossiblyBadMockType);
    // Constant Components
    _badTradeTicksDeterminer._floatHelper.reset(_floatHelperMock = new Utils::FloatHelperMock);
 }
 
 TEST(FindPossibleBadTradeTicks_DoesSo)
 {
+   const vector<TickData::TradeTick> possibleBadTradeTicks =
+      _filter_IsTradeTickPossiblyBadMock->GetMatchingElementsMock.ReturnRandom();
+
    const vector<TickData::TradeTick> tradeTicks = ZenUnit::RandomVector<TickData::TradeTick>();
    const float badTickChangePercentThreshold = ZenUnit::Random<float>();
    //
-   const vector<TickData::TradeTick> possibleBadTradeTicks =
+   const vector<TickData::TradeTick> returnedPossibleBadTradeTicks =
       _badTradeTicksDeterminer.FindPossibleBadTradeTicks(tradeTicks, badTickChangePercentThreshold);
    //
-
+   METALMOCK(_filter_IsTradeTickPossiblyBadMock->GetMatchingElementsMock.CalledOnceWith(
+      tradeTicks,
+      &_badTradeTicksDeterminer, &BadTradeTicksDeterminer::IsTradeTickPossiblyBad,
+      badTickChangePercentThreshold));
+   VECTORS_ARE_EQUAL(possibleBadTradeTicks, returnedPossibleBadTradeTicks);
 }
 
 // Private Functions

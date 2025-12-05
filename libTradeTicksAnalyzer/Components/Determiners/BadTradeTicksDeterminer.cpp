@@ -16,10 +16,13 @@ BadTradeTicksDeterminer::~BadTradeTicksDeterminer()
 }
 
 vector<TickData::TradeTick> BadTradeTicksDeterminer::FindPossibleBadTradeTicks(
-   const vector<TickData::TradeTick>& /*tradeTicks*/, float /*badTickChangePercentThreshold*/) const
+   const vector<TickData::TradeTick>& tradeTicks, float badTickChangePercentThreshold) const
 {
-   vector<TickData::TradeTick> tradeTicks;
-   return tradeTicks;
+   vector<TickData::TradeTick> possibleBadTradeTicks = _filter_IsTradeTickPossiblyBad->GetMatchingElements(
+      tradeTicks,
+      this, &BadTradeTicksDeterminer::IsTradeTickPossiblyBad,
+      badTickChangePercentThreshold);
+   return possibleBadTradeTicks;
 }
 
 // Private Functions
