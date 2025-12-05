@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "libCppUtils/Components/FloatingPoint/MetalMock/FloatHelperMock.h"
+#include "libFunctional/Components/Filters/Member/MetalMock/TwoArgMemberFunctionFilterMock.h"
 #include "libTradeTicksAnalyzer/Components/Determiners/BadTradeTicksDeterminer.h"
 
 TESTS(BadTradeTicksDeterminerTests)
@@ -11,6 +12,10 @@ AFACT(IsTradeTickPossiblyBad_TradeTickIsRegularHours_ChangePercentAtOrOutOfBound
 EVIDENCE
 
 BadTradeTicksDeterminer _badTradeTicksDeterminer;
+// Function Callers
+using _filter_IsTradeTickPossiblyBadMockType = Functional::TwoArgMemberFunctionFilterMock<
+   BadTradeTicksDeterminer, TickData::TradeTick, float>;
+_filter_IsTradeTickPossiblyBadMockType* _filter_IsTradeTickPossiblyBadMock = nullptr;
 // Constant Components
 Utils::FloatHelperMock* _floatHelperMock = nullptr;
 

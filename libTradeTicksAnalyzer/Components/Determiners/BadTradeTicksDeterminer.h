@@ -1,4 +1,9 @@
 #pragma once
+namespace Functional
+{
+   template<typename ClassType, typename ElementType, typename Arg2Type>
+   class TwoArgMemberFunctionFilter;
+}
 namespace Utils
 {
    class FloatHelper;
@@ -8,6 +13,10 @@ class BadTradeTicksDeterminer
 {
    friend class BadTradeTicksDeterminerTests;
 private:
+   // Function Callers
+   using _filter_IsTradeTickPossiblyBadType = Functional::TwoArgMemberFunctionFilter<
+      BadTradeTicksDeterminer, TickData::TradeTick, float>;
+   unique_ptr<const _filter_IsTradeTickPossiblyBadType> _filter_IsTradeTickPossiblyBad;
    // Constant Components
    unique_ptr<const Utils::FloatHelper> _floatHelper;
 public:
