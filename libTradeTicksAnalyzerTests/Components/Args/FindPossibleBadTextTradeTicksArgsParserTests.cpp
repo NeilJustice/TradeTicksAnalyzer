@@ -53,7 +53,7 @@ TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTextTradeTicksrgs_ReturnsArgs)
    METALMOCKTHEN(p_fileSystemPatherMock->MakeThreeDeepFolderPathWhichMustExistMock.CalledOnceWith(
       args.tradingLogsInputFolderPath, expectedDateDashRunNumberFolderName, "Polygon", "FilteredRealTimeTextTradeTicks"))).Then(
    METALMOCKTHEN(p_fileSystemPatherMock->MakeThreeDeepFolderPathWhichNeedNotExistMock.CalledOnceWith(
-      args.tradingLogsInputFolderPath, expectedDateDashRunNumberFolderName, "Polygon", "FilteredRealTimeTextTradeTicks-PossibleBadTradeTicks")));
+      args.tradingLogsOutputFolderPath, expectedDateDashRunNumberFolderName, "Polygon", "FilteredRealTimeTextTradeTicks-PossibleBadTradeTicks")));
    TradeTicksAnalyzerArgs expectedArgs;
    expectedArgs.programMode = ProgramMode::FindPossibleBadTextTradeTicks;
    expectedArgs.tradingLogsInputFolderPath = tradingLogsInputFolderPath;
