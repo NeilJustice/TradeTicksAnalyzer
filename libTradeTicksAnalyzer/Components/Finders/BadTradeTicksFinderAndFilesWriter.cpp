@@ -70,7 +70,7 @@ void BadTradeTicksFinderAndFilesWriter::FindPossibleBadTradeTicksAndWriteResults
    const vector<TickData::TradeTick> possibleBadTradeTicks = _badTradeTicksDeterminer->FindPossibleBadTradeTicks(
       tradeTicksFileContent.tradeTicks, _args.badTickChangePercentThreshold);
 
-   _textTradeTicksFileWriter->CreateTextTradeTicksFile(
+   _textTradeTicksFileWriter->CreateHistoricalTextTradeTicksFile(
       tradeTicksFileContent.symbol,
       tradeTicksFileContent.date,
       possibleBadTradeTicks,
