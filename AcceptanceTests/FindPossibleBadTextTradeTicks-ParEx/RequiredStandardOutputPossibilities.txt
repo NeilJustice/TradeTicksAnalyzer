@@ -1,2 +1,2 @@
-RequiredStandardOutputPossibility1.txt
-RequiredStandardOutputPossibility2.txt
+RequiredStandardOutputPossibility_SYM1.txt
+RequiredStandardOutputPossibility_SYM2.txt

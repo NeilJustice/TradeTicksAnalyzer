@@ -2,8 +2,8 @@
 \[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\]   Machine: .*
 \[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\]      User: .*
 \[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\] Directory: .*
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\] Reading and finding possible bad trade ticks in 2 RealTimeTradeTicks files in .*\\InputFiles\\TradingLogs\\YYYY-MM-DDM-1\\Polygon\\FilteredRealTimeTextTradeTicks
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\] Reading 2 RealTimeTradeTicks files in .*\\InputFiles\\TradingLogs\\YYYY-MM-DDM-1\\Polygon\\FilteredRealTimeTextTradeTicks
 \[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\] Error: Exception thrown while calling BadTradeTicksFinder::FindPossibleBadTradeTicks:
-std::invalid_argument: Utils::String::ToFloat\(string_view floatString\) called with string not convertible to float: "abc    "
-realTimeTextTradeTicksInputFilePath=.*\\InputFiles\\TradingLogs\\YYYY-MM-DDM-1\\Polygon\\FilteredRealTimeTextTradeTicks\SYM1-RealTimeTradeTicks.txt
-\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\] ExitCode: 0
+std::invalid_argument: Utils::String::ToFloat\(string_view floatString\) called with string not convertible to float: "xyz    "
+realTimeTextTradeTicksInputFilePath=.*\\InputFiles\\TradingLogs\\YYYY-MM-DDM-1\\Polygon\\FilteredRealTimeTextTradeTicks\\SYM2-RealTimeTradeTicks.txt
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d PM T\d+\s*\] ExitCode: 1
