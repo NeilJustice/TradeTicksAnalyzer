@@ -30,7 +30,8 @@ TEST(FindPossibleBadTradeTicks_DoesSo)
    const vector<TickData::TradeTick> tradeTicks = ZenUnit::RandomVector<TickData::TradeTick>();
    const float badTickChangePercentThreshold = ZenUnit::Random<float>();
    //
-   _badTradeTicksDeterminer.FindPossibleBadTradeTicks(tradeTicks, badTickChangePercentThreshold);
+   const vector<TickData::TradeTick> possibleBadTradeTicks =
+      _badTradeTicksDeterminer.FindPossibleBadTradeTicks(tradeTicks, badTickChangePercentThreshold);
    //
 
 }
