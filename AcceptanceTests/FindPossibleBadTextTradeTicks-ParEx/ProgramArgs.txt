@@ -2,5 +2,6 @@ find-possible-bad-text-trade-ticks
 --trading-logs-input-folder=InputFiles\TradingLogs
 --date=YYYY-MM-DDM
 --run-number=1
+--bad-tick-change-percent-threshold=1.0
 --trading-logs-output-folder=#RESULTSFOLDER#\TradingLogs
 --parallel
