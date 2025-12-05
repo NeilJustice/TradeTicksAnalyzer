@@ -2,12 +2,24 @@
 #include "libTradeTicksAnalyzer/Components/Determiners/BadTradeTicksDeterminer.h"
 
 TESTS(BadTradeTicksDeterminerTests)
-AFACT(DefaultConstructor_SetsFieldsToDefaultValues)
+AFACT(IsTradeTickPossiblyBad_TradeTickIsPremarketOrAftermarket_ReturnsFalse)
+AFACT(IsTradeTickPossiblyBad_TradeTickIsRegularHours_ChangePercentWithinBounds_ReturnsFalse)
+AFACT(IsTradeTickPossiblyBad_TradeTickIsRegularHours_ChangePercentAtOrOutOfBounds_ReturnsTrue)
 EVIDENCE
 
 BadTradeTicksDeterminer _badTradeTicksDeterminer;
 
-TEST(DefaultConstructor_SetsFieldsToDefaultValues)
+TEST(IsTradeTickPossiblyBad_TradeTickIsPremarketOrAftermarket_ReturnsFalse)
+{
+
+}
+
+TEST(IsTradeTickPossiblyBad_TradeTickIsRegularHours_ChangePercentWithinBounds_ReturnsFalse)
+{
+
+}
+
+TEST(IsTradeTickPossiblyBad_TradeTickIsRegularHours_ChangePercentAtOrOutOfBounds_ReturnsTrue)
 {
 
 }
