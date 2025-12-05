@@ -27,11 +27,15 @@ TEST(TestableRandomTradeTicksAnalyzerArgs_ReturnsAllNonDefaultFields)
 
    const ProgramMode programMode = tradeTicksAnalyzerRandomGeneratorMock.RandomProgramModeMock.ReturnRandom();
 
+   const float badTickChangePercentThreshold = randomGeneratorMock.FloatMock.ReturnRandom();
+
    const fs::path tradingLogsInputFolderPath = ZenUnit::Random<fs::path>();
+   const fs::path tradingLogsOutputFolderPath = ZenUnit::Random<fs::path>();
    const fs::path tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = ZenUnit::Random<fs::path>();
    const fs::path tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks = ZenUnit::Random<fs::path>();
    randomGeneratorMock.FilesystemPathMock.ReturnValues(
       tradingLogsInputFolderPath,
+      tradingLogsOutputFolderPath,
       tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks,
       tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks);
 
@@ -46,12 +50,15 @@ TEST(TestableRandomTradeTicksAnalyzerArgs_ReturnsAllNonDefaultFields)
       &timeRandomGeneratorMock,
       &tradeTicksAnalyzerRandomGeneratorMock);
    //
-   METALMOCK(randomGeneratorMock.FilesystemPathMock.CalledNTimes(3));
+   METALMOCK(randomGeneratorMock.FilesystemPathMock.CalledNTimes(4));
    METALMOCKTHEN(tradeTicksAnalyzerRandomGeneratorMock.RandomProgramModeMock.CalledOnce()).Then(
    METALMOCKTHEN(randomGeneratorMock.FilesystemPathMock.Called())).Then(
    METALMOCKTHEN(timeRandomGeneratorMock.RandomDateWithDayOfWeekMock.CalledOnce())).Then(
    METALMOCKTHEN(randomGeneratorMock.UnsignedMock.CalledOnce())).Then(
+   METALMOCKTHEN(randomGeneratorMock.FloatMock.CalledOnce())).Then(
+   METALMOCKTHEN(randomGeneratorMock.FilesystemPathMock.Called())).Then(
    METALMOCKTHEN(randomGeneratorMock.BoolMock.CalledOnce())).Then(
+   // Calculated Fields
    METALMOCKTHEN(randomGeneratorMock.FilesystemPathMock.Called())).Then(
    METALMOCKTHEN(randomGeneratorMock.FilesystemPathMock.Called()));
    TradeTicksAnalyzerArgs expectedRandomArgs;
@@ -59,6 +66,8 @@ TEST(TestableRandomTradeTicksAnalyzerArgs_ReturnsAllNonDefaultFields)
    expectedRandomArgs.tradingLogsInputFolderPath = tradingLogsInputFolderPath;
    expectedRandomArgs.dateWithDayOfWeek = dateWithDayOfWeek;
    expectedRandomArgs.runNumber = runNumber;
+   expectedRandomArgs.badTickChangePercentThreshold = badTickChangePercentThreshold;
+   expectedRandomArgs.tradingLogsOutputFolderPath = tradingLogsOutputFolderPath;
    expectedRandomArgs.parallel = parallel;
    // Calculated Fields
    expectedRandomArgs.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks;

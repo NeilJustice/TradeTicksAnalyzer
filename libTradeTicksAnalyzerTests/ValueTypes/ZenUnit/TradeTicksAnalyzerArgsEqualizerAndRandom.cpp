@@ -10,6 +10,7 @@ namespace ZenUnit
       FIELDS_ARE_EQUAL(expectedTradeTicksAnalyzerArgs, actualTradeTicksAnalyzerArgs, tradingLogsInputFolderPath);
       FIELDS_ARE_EQUAL(expectedTradeTicksAnalyzerArgs, actualTradeTicksAnalyzerArgs, dateWithDayOfWeek);
       FIELDS_ARE_EQUAL(expectedTradeTicksAnalyzerArgs, actualTradeTicksAnalyzerArgs, runNumber);
+      FIELDS_ARE_EQUAL(expectedTradeTicksAnalyzerArgs, actualTradeTicksAnalyzerArgs, badTickChangePercentThreshold);
       FIELDS_ARE_EQUAL(expectedTradeTicksAnalyzerArgs, actualTradeTicksAnalyzerArgs, tradingLogsOutputFolderPath);
       FIELDS_ARE_EQUAL(expectedTradeTicksAnalyzerArgs, actualTradeTicksAnalyzerArgs, parallel);
       // Calculated Fields
@@ -27,6 +28,8 @@ namespace ZenUnit
       randomArgs.tradingLogsInputFolderPath = randomGenerator->FilesystemPath();
       randomArgs.dateWithDayOfWeek = timeRandomGenerator->RandomDateWithDayOfWeek();
       randomArgs.runNumber = randomGenerator->Unsigned();
+      randomArgs.badTickChangePercentThreshold = randomGenerator->Float();
+      randomArgs.tradingLogsOutputFolderPath = randomGenerator->FilesystemPath();
       randomArgs.parallel = randomGenerator->Bool();
       // Calculated Fields
       randomArgs.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = randomGenerator->FilesystemPath();
