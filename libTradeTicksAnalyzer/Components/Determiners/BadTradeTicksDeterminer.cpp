@@ -1,7 +1,10 @@
 #include "pch.h"
+#include "libCppUtils/Components/FloatingPoint/FloatHelper.h"
 #include "libTradeTicksAnalyzer/Components/Determiners/BadTradeTicksDeterminer.h"
 
 BadTradeTicksDeterminer::BadTradeTicksDeterminer()
+   // Constant Components
+   : _floatHelper(make_unique<Utils::FloatHelper>())
 {
 }
 
