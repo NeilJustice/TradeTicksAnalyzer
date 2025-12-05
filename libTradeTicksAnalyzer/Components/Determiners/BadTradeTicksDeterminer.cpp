@@ -24,6 +24,10 @@ vector<TickData::TradeTick> BadTradeTicksDeterminer::FindPossibleBadTradeTicks(
       tradeTicks,
       this, &BadTradeTicksDeterminer::IsTradeTickPossiblyBad,
       badTickChangePercentThreshold);
+   if (possibleBadTradeTicks.size() > 0)
+   {
+      string();
+   }
    return possibleBadTradeTicks;
 }
 
