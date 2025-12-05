@@ -79,7 +79,8 @@ TEST(IsTradeTickPossiblyBad_TradeTickIsRegularHours_ReturnsTrueIfTradeTickPriceD
 {
    _tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.Return(false);
    const bool isTradeTickPossiblyBad = _floatHelperMock->IsFloatAtOrOutsideRangeMock.ReturnRandom();
-   const TickData::TradeTick tradeTick = ZenUnit::Random<TickData::TradeTick>();
+   TickData::TradeTick tradeTick = ZenUnit::Random<TickData::TradeTick>();
+   tradeTick.priceDeltaPercent = ZenUnit::RandomNotEqualTo(FLT_MAX);
    const float badTickChangePercentThreshold = ZenUnit::Random<float>();
    //
    const bool returnedIsTradeTickPossiblyBad = _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
