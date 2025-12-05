@@ -11,11 +11,11 @@
 TESTS(BadTradeTicksFinderAndFilesWriterTests)
 AFACT(Initialize_DoesSo)
 // Actions
-AFACT(FindAllPossibleBadTradeTicks_DoesSo)
+AFACT(FindAllPossibleBadTradeTicksAndWriteResultsFiles_DoesSo)
 // Private Functions
-AFACT(TryCatchCall_FindPossibleBadTradeTicks_DoesSo)
-AFACT(FindPossibleBadTradeTicks_DoesSo)
-AFACT(ExceptionHandler_FindPossibleBadTradeTicks_DoesSo)
+AFACT(TryCatchCall_FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
+AFACT(FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
+AFACT(ExceptionHandler_FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
 EVIDENCE
 
 BadTradeTicksFinderAndFilesWriter _badTradeTicksFinderAndFilesWriter;
@@ -63,7 +63,7 @@ TEST(Initialize_DoesSo)
 
 // Actions
 
-TEST(FindAllPossibleBadTradeTicks_DoesSo)
+TEST(FindAllPossibleBadTradeTicksAndWriteResultsFiles_DoesSo)
 {
    const vector<fs::path> realTimeTextTradeTicksInputFilePaths =
       _fileAndFolderPathsGetterMock->GetTopLevelFilePathsInFolderMock.ReturnRandom();
@@ -75,7 +75,7 @@ TEST(FindAllPossibleBadTradeTicks_DoesSo)
    const fs::path realTimeTextTradeTicksInputFolderPath = ZenUnit::Random<fs::path>();
    const bool parallel = ZenUnit::Random<bool>();
    //
-   _badTradeTicksFinderAndFilesWriter.FindAllPossibleBadTradeTicks(realTimeTextTradeTicksInputFolderPath, parallel);
+   _badTradeTicksFinderAndFilesWriter.FindAllPossibleBadTradeTicksAndWriteResultsFiles(realTimeTextTradeTicksInputFolderPath, parallel);
    //
    METALMOCKTHEN(_fileAndFolderPathsGetterMock->GetTopLevelFilePathsInFolderMock.CalledOnceWith(
       realTimeTextTradeTicksInputFolderPath)).Then(
@@ -85,29 +85,29 @@ TEST(FindAllPossibleBadTradeTicks_DoesSo)
 
    METALMOCKTHEN(_forEacher_fsPathMock->CallConstMemberFunctionWithEachElementOptionallyInParallelMock.CalledOnceWith(
       realTimeTextTradeTicksInputFilePaths,
-      &_badTradeTicksFinderAndFilesWriter, &BadTradeTicksFinderAndFilesWriter::TryCatchCall_FindPossibleBadTradeTicks,
+      &_badTradeTicksFinderAndFilesWriter, &BadTradeTicksFinderAndFilesWriter::TryCatchCall_FindPossibleBadTradeTicksAndWriteResultsFile,
       parallel)));
 }
 
 // Private Functions
 
-TEST(TryCatchCall_FindPossibleBadTradeTicks_DoesSo)
+TEST(TryCatchCall_FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
 {
    _tryCatchCaller_fsPathMock->TryCatchCallConstMemberFunctionMock.Expect();
    const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
    const size_t realTimeTextTradeTicksInputFilePathIndex = ZenUnit::Random<size_t>();
    //
-   _badTradeTicksFinderAndFilesWriter.TryCatchCall_FindPossibleBadTradeTicks(
+   _badTradeTicksFinderAndFilesWriter.TryCatchCall_FindPossibleBadTradeTicksAndWriteResultsFile(
       realTimeTextTradeTicksInputFilePath,
       realTimeTextTradeTicksInputFilePathIndex);
    //
    METALMOCK(_tryCatchCaller_fsPathMock->TryCatchCallConstMemberFunctionMock.CalledOnceWith(
-      &_badTradeTicksFinderAndFilesWriter, &BadTradeTicksFinderAndFilesWriter::FindPossibleBadTradeTicks,
+      &_badTradeTicksFinderAndFilesWriter, &BadTradeTicksFinderAndFilesWriter::FindPossibleBadTradeTicksAndWriteResultsFile,
       realTimeTextTradeTicksInputFilePath,
-      &BadTradeTicksFinderAndFilesWriter::ExceptionHandler_FindPossibleBadTradeTicks));
+      &BadTradeTicksFinderAndFilesWriter::ExceptionHandler_FindPossibleBadTradeTicksAndWriteResultsFile));
 }
 
-TEST(FindPossibleBadTradeTicks_DoesSo)
+TEST(FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
 {
    const TickData::TradeTicksFileContent tradeTicksFileContent =
       _textTradeTicksFileReaderMock->ReadRealTimeTextTradeTicksFileMock.ReturnRandom();
@@ -117,7 +117,7 @@ TEST(FindPossibleBadTradeTicks_DoesSo)
 
    const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
    //
-   _badTradeTicksFinderAndFilesWriter.FindPossibleBadTradeTicks(realTimeTextTradeTicksInputFilePath);
+   _badTradeTicksFinderAndFilesWriter.FindPossibleBadTradeTicksAndWriteResultsFile(realTimeTextTradeTicksInputFilePath);
    //
    METALMOCKTHEN(_textTradeTicksFileReaderMock->ReadRealTimeTextTradeTicksFileMock.CalledOnceWith(
       realTimeTextTradeTicksInputFilePath)).Then(
@@ -126,13 +126,13 @@ TEST(FindPossibleBadTradeTicks_DoesSo)
       tradeTicksFileContent.tradeTicks, _args.badTickChangePercentThreshold)));
 }
 
-TEST(ExceptionHandler_FindPossibleBadTradeTicks_DoesSo)
+TEST(ExceptionHandler_FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
 {
    _tradeTicksAnalyzerMessageWriterMock->WriteExceptionMessage_FindPossibleBadTradeTicks_ThenExit1Mock.Expect();
    const string_view exceptionClassNameAndMessage = ZenUnit::Random<string_view>();
    const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
    //
-   _badTradeTicksFinderAndFilesWriter.ExceptionHandler_FindPossibleBadTradeTicks(
+   _badTradeTicksFinderAndFilesWriter.ExceptionHandler_FindPossibleBadTradeTicksAndWriteResultsFile(
       exceptionClassNameAndMessage,
       realTimeTextTradeTicksInputFilePath);
    //

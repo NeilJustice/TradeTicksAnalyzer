@@ -39,11 +39,11 @@ TEST(DerivedInitialize_DoesSo)
 
 TEST(Run_Returns0)
 {
-   _badTradeTicksFinderAndFilesWriterMock->FindAllPossibleBadTradeTicksMock.Expect();
+   _badTradeTicksFinderAndFilesWriterMock->FindAllPossibleBadTradeTicksAndWriteResultsFilesMock.Expect();
    //
    const int exitCode = _findPossibleBadTextTradeTicksSubProgram.Run();
    //
-   METALMOCK(_badTradeTicksFinderAndFilesWriterMock->FindAllPossibleBadTradeTicksMock.CalledOnceWith(
+   METALMOCK(_badTradeTicksFinderAndFilesWriterMock->FindAllPossibleBadTradeTicksAndWriteResultsFilesMock.CalledOnceWith(
       p_args.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks, p_args.parallel));
    IS_ZERO(exitCode);
 }

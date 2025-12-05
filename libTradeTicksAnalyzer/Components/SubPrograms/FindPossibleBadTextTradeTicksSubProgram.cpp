@@ -21,7 +21,7 @@ void FindPossibleBadTextTradeTicksSubProgram::DerivedInitialize()
 
 int FindPossibleBadTextTradeTicksSubProgram::Run() const
 {
-   _badTradeTicksFinderAndFilesWriter->FindAllPossibleBadTradeTicks(
+   _badTradeTicksFinderAndFilesWriter->FindAllPossibleBadTradeTicksAndWriteResultsFiles(
       p_args.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks,
       p_args.parallel);
    return 0;

@@ -6,7 +6,7 @@ class BadTradeTicksFinderAndFilesWriterMock : public Metal::Mock<BadTradeTicksFi
 public:
    METALMOCK_VOID2(Initialize, const TradeTicksAnalyzerArgs&, const Utils::Logger*)
    // Actions
-   METALMOCK_VOID2_CONST(FindAllPossibleBadTradeTicks,
+   METALMOCK_VOID2_CONST(FindAllPossibleBadTradeTicksAndWriteResultsFiles,
       const fs::path&,
       bool)
 };

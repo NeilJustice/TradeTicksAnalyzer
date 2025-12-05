@@ -32,7 +32,7 @@ void BadTradeTicksFinderAndFilesWriter::Initialize(const TradeTicksAnalyzerArgs&
 
 // Actions
 
-void BadTradeTicksFinderAndFilesWriter::FindAllPossibleBadTradeTicks(
+void BadTradeTicksFinderAndFilesWriter::FindAllPossibleBadTradeTicksAndWriteResultsFiles(
    const fs::path& realTimeTextTradeTicksInputFolderPath, bool parallel) const
 {
    const vector<fs::path> realTimeTextTradeTicksInputFilePaths =
@@ -43,22 +43,22 @@ void BadTradeTicksFinderAndFilesWriter::FindAllPossibleBadTradeTicks(
 
    _forEacher_fsPath->CallConstMemberFunctionWithEachElementOptionallyInParallel(
       realTimeTextTradeTicksInputFilePaths,
-      this, &BadTradeTicksFinderAndFilesWriter::TryCatchCall_FindPossibleBadTradeTicks,
+      this, &BadTradeTicksFinderAndFilesWriter::TryCatchCall_FindPossibleBadTradeTicksAndWriteResultsFile,
       parallel);
 }
 
 // Private Functions
 
-void BadTradeTicksFinderAndFilesWriter::TryCatchCall_FindPossibleBadTradeTicks(
+void BadTradeTicksFinderAndFilesWriter::TryCatchCall_FindPossibleBadTradeTicksAndWriteResultsFile(
    const fs::path& realTimeTextTradeTicksInputFilePath, size_t /*realTimeTextTradeTicksInputFilePathIndex*/) const
 {
    _tryCatchCaller_fsPath->TryCatchCallConstMemberFunction(
-      this, &BadTradeTicksFinderAndFilesWriter::FindPossibleBadTradeTicks,
+      this, &BadTradeTicksFinderAndFilesWriter::FindPossibleBadTradeTicksAndWriteResultsFile,
       realTimeTextTradeTicksInputFilePath,
-      &BadTradeTicksFinderAndFilesWriter::ExceptionHandler_FindPossibleBadTradeTicks);
+      &BadTradeTicksFinderAndFilesWriter::ExceptionHandler_FindPossibleBadTradeTicksAndWriteResultsFile);
 }
 
-void BadTradeTicksFinderAndFilesWriter::FindPossibleBadTradeTicks(
+void BadTradeTicksFinderAndFilesWriter::FindPossibleBadTradeTicksAndWriteResultsFile(
    const fs::path& realTimeTextTradeTicksInputFilePath) const
 {
    const TickData::TradeTicksFileContent tradeTicksFileContent =
@@ -70,7 +70,7 @@ void BadTradeTicksFinderAndFilesWriter::FindPossibleBadTradeTicks(
    // _args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks
 }
 
-void BadTradeTicksFinderAndFilesWriter::ExceptionHandler_FindPossibleBadTradeTicks(
+void BadTradeTicksFinderAndFilesWriter::ExceptionHandler_FindPossibleBadTradeTicksAndWriteResultsFile(
    string_view exceptionClassNameAndMessage, const fs::path& realTimeTextTradeTicksInputFilePath) const
 {
    _tradeTicksAnalyzerMessageWriter->WriteExceptionMessage_FindPossibleBadTradeTicks_ThenExit1(

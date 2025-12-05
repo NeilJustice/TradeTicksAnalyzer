@@ -41,15 +41,15 @@ public:
    virtual ~BadTradeTicksFinderAndFilesWriter();
    virtual void Initialize(const TradeTicksAnalyzerArgs& args, const Utils::Logger* logger);
    // Actions
-   virtual void FindAllPossibleBadTradeTicks(
+   virtual void FindAllPossibleBadTradeTicksAndWriteResultsFiles(
       const fs::path& realTimeTextTradeTicksInputFolderPath, bool parallel) const;
 private:
-   void TryCatchCall_FindPossibleBadTradeTicks(
+   void TryCatchCall_FindPossibleBadTradeTicksAndWriteResultsFile(
       const fs::path& realTimeTextTradeTicksInputFilePath, size_t realTimeTextTradeTicksInputFilePathIndex) const;
 
-   void FindPossibleBadTradeTicks(
+   void FindPossibleBadTradeTicksAndWriteResultsFile(
       const fs::path& realTimeTextTradeTicksInputFilePath) const;
 
-   void ExceptionHandler_FindPossibleBadTradeTicks(
+   void ExceptionHandler_FindPossibleBadTradeTicksAndWriteResultsFile(
       string_view exceptionClassNameAndMessage, const fs::path& realTimeTextTradeTicksInputFilePath) const;
 };
