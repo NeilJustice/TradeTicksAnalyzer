@@ -70,13 +70,9 @@ TEST(FindAllPossibleBadTradeTicks_DoesSo)
    _forEacher_fsPathMock->CallConstMemberFunctionWithEachElementOptionallyInParallelMock.Expect();
 
    const fs::path realTimeTextTradeTicksInputFolderPath = ZenUnit::Random<fs::path>();
-   const fs::path possibleBadTradeTicksOutputFolderPath = ZenUnit::Random<fs::path>();
    const bool parallel = ZenUnit::Random<bool>();
    //
-   _badTradeTicksFinder.FindAllPossibleBadTradeTicks(
-      realTimeTextTradeTicksInputFolderPath,
-      possibleBadTradeTicksOutputFolderPath,
-      parallel);
+   _badTradeTicksFinder.FindAllPossibleBadTradeTicks(realTimeTextTradeTicksInputFolderPath, parallel);
    //
    METALMOCKTHEN(_fileAndFolderPathsGetterMock->GetTopLevelFilePathsInFolderMock.CalledOnceWith(
       realTimeTextTradeTicksInputFolderPath)).Then(

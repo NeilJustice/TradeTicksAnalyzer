@@ -31,9 +31,7 @@ void BadTradeTicksFinder::Initialize(const TradeTicksAnalyzerArgs& args, const U
 // Actions
 
 void BadTradeTicksFinder::FindAllPossibleBadTradeTicks(
-   const fs::path& realTimeTextTradeTicksInputFolderPath,
-   const fs::path& /*possibleBadTradeTicksOutputFolderPath*/,
-   bool parallel) const
+   const fs::path& realTimeTextTradeTicksInputFolderPath, bool parallel) const
 {
    const vector<fs::path> realTimeTextTradeTicksInputFilePaths =
       _fileAndFolderPathsGetter->GetTopLevelFilePathsInFolder(realTimeTextTradeTicksInputFolderPath);
@@ -67,7 +65,7 @@ void BadTradeTicksFinder::FindPossibleBadTradeTicks(
    //const vector<TickData::TradeTick> possibleBadTradeTicks = _badTradeTicksDeterminer->DeterminePossibleBadTradeTicks(
    //   tradeTicksFileContent.tradeTicks, _args.badTradeTickChangePercentThreshold);
 
-
+   // _args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks
 }
 
 void BadTradeTicksFinder::ExceptionHandler_FindPossibleBadTradeTicks(

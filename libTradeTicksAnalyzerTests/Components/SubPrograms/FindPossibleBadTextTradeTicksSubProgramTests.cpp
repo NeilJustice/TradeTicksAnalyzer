@@ -44,9 +44,7 @@ TEST(Run_Returns0)
    const int exitCode = _findPossibleBadTextTradeTicksSubProgram.Run();
    //
    METALMOCK(_badTradeTicksFinderMock->FindAllPossibleBadTradeTicksMock.CalledOnceWith(
-      p_args.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks,
-      p_args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks,
-      p_args.parallel));
+      p_args.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks, p_args.parallel));
    IS_ZERO(exitCode);
 }
 

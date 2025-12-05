@@ -40,9 +40,7 @@ public:
    virtual void Initialize(const TradeTicksAnalyzerArgs& args, const Utils::Logger* logger);
    // Actions
    virtual void FindAllPossibleBadTradeTicks(
-      const fs::path& realTimeTextTradeTicksInputFolderPath,
-      const fs::path& possibleBadTradeTicksOutputFolderPath,
-      bool parallel) const;
+      const fs::path& realTimeTextTradeTicksInputFolderPath, bool parallel) const;
 private:
    void TryCatchCall_FindPossibleBadTradeTicks(
       const fs::path& realTimeTextTradeTicksInputFilePath, size_t realTimeTextTradeTicksInputFilePathIndex) const;
