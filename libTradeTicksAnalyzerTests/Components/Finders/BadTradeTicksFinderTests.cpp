@@ -29,6 +29,8 @@ Utils::FileAndFolderPathsGetterMock* _fileAndFolderPathsGetterMock = nullptr;
 TickData::TextTradeTicksFileReaderMock* _textTradeTicksFileReaderMock = nullptr;
 // Mutable Components
 TradeTicksAnalyzerMessageWriterMock* _tradeTicksAnalyzerMessageWriterMock = nullptr;
+// Mutable Fields
+TradeTicksAnalyzerArgs _args;
 
 STARTUP
 {
@@ -40,16 +42,20 @@ STARTUP
    _badTradeTicksFinder._textTradeTicksFileReader.reset(_textTradeTicksFileReaderMock = new TickData::TextTradeTicksFileReaderMock);
    // Mutable Components
    _badTradeTicksFinder._tradeTicksAnalyzerMessageWriter.reset(_tradeTicksAnalyzerMessageWriterMock = new TradeTicksAnalyzerMessageWriterMock);
+   // Mutable Fields
+   _badTradeTicksFinder._args = _args = ZenUnit::Random<TradeTicksAnalyzerArgs>();
 }
 
 TEST(Initialize_DoesSo)
 {
    _tradeTicksAnalyzerMessageWriterMock->InitializeMock.Expect();
+   const TradeTicksAnalyzerArgs args = ZenUnit::Random<TradeTicksAnalyzerArgs>();
    const Utils::LoggerMock loggerMock;
    //
-   _badTradeTicksFinder.Initialize(&loggerMock);
+   _badTradeTicksFinder.Initialize(args, &loggerMock);
    //
    METALMOCK(_tradeTicksAnalyzerMessageWriterMock->InitializeMock.CalledOnceWith(&loggerMock));
+   ARE_EQUAL(args, _badTradeTicksFinder._args);
 }
 
 // Actions

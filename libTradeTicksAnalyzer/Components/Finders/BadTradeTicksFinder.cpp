@@ -22,9 +22,10 @@ BadTradeTicksFinder::~BadTradeTicksFinder()
 {
 }
 
-void BadTradeTicksFinder::Initialize(const Utils::Logger* logger)
+void BadTradeTicksFinder::Initialize(const TradeTicksAnalyzerArgs& args, const Utils::Logger* logger)
 {
    _tradeTicksAnalyzerMessageWriter->Initialize(logger);
+   _args = args;
 }
 
 // Actions
@@ -63,6 +64,9 @@ void BadTradeTicksFinder::FindPossibleBadTradeTicks(
    const TickData::TradeTicksFileContent tradeTicksFileContent =
       _textTradeTicksFileReader->ReadRealTimeTextTradeTicksFile(realTimeTextTradeTicksInputFilePath);
 
+   //const vector<TickData::TradeTick> possibleBadTradeTicks = _badTradeTicksDeterminer->DeterminePossibleBadTradeTicks(
+   //   tradeTicksFileContent.tradeTicks, _args.badTradeTickChangePercentThreshold);
+
 
 }
 
@@ -72,3 +76,4 @@ void BadTradeTicksFinder::ExceptionHandler_FindPossibleBadTradeTicks(
    _tradeTicksAnalyzerMessageWriter->WriteExceptionMessage_FindPossibleBadTradeTicks_ThenExit1(
       exceptionClassNameAndMessage, realTimeTextTradeTicksInputFilePath);
 }
+

@@ -32,7 +32,7 @@ TEST(DerivedInitialize_DoesSo)
    //
    _findPossibleBadTextTradeTicksSubProgram.DerivedInitialize();
    //
-   METALMOCK(_badTradeTicksFinderMock->InitializeMock.CalledOnceWith(p_consoleMock));
+   METALMOCK(_badTradeTicksFinderMock->InitializeMock.CalledOnceWith(p_args, p_consoleMock));
 }
 
 // Actions

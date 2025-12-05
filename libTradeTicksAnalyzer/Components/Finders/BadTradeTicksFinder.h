@@ -32,10 +32,12 @@ private:
    unique_ptr<const TickData::TextTradeTicksFileReader> _textTradeTicksFileReader;
    // Mutable Components
    unique_ptr<TradeTicksAnalyzerMessageWriter> _tradeTicksAnalyzerMessageWriter;
+   // Mutable Fields
+   TradeTicksAnalyzerArgs _args;
 public:
    BadTradeTicksFinder();
    virtual ~BadTradeTicksFinder();
-   virtual void Initialize(const Utils::Logger* logger);
+   virtual void Initialize(const TradeTicksAnalyzerArgs& args, const Utils::Logger* logger);
    // Actions
    virtual void FindAllPossibleBadTradeTicks(
       const fs::path& realTimeTextTradeTicksInputFolderPath,
