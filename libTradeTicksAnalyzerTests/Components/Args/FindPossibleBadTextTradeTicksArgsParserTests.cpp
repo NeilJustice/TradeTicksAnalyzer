@@ -22,9 +22,12 @@ TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTextTradeTicksrgs_ReturnsArgs)
 {
    const fs::path tradingLogsInputFolderPath = p_docoptParserMock->GetRequiredFolderPathWhichMustExistMock.ReturnRandom();
 
-   const Time::DateWithDayOfWeek dateWithDayOfWeek = p_docoptParserMock->GetRequiredDateWithDayOfWeekWhichNeedNotBeValidMock.ReturnRandom();
+   const Time::DateWithDayOfWeek dateWithDayOfWeek =
+      p_docoptParserMock->GetRequiredDateWithDayOfWeekWhichNeedNotBeValidMock.ReturnRandom();
 
    const unsigned runNumber = p_docoptParserMock->GetRequiredUnsignedMock.ReturnRandom();
+
+   const float badTickChangePercentThreshold = p_docoptParserMock->GetRequiredFloatMock.ReturnRandom();
 
    const fs::path tradingLogsOutputFolderPath = p_docoptParserMock->GetRequiredFolderPathWhichNeedNotExistMock.ReturnRandom();
 
@@ -44,6 +47,7 @@ TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTextTradeTicksrgs_ReturnsArgs)
    METALMOCKTHEN(p_docoptParserMock->GetRequiredFolderPathWhichMustExistMock.CalledOnceWith(docoptArgs, "--trading-logs-input-folder")).Then(
    METALMOCKTHEN(p_docoptParserMock->GetRequiredDateWithDayOfWeekWhichNeedNotBeValidMock.CalledOnceWith(docoptArgs, "--date"))).Then(
    METALMOCKTHEN(p_docoptParserMock->GetRequiredUnsignedMock.CalledOnceWith(docoptArgs, "--run-number"))).Then(
+   METALMOCKTHEN(p_docoptParserMock->GetRequiredFloatMock.CalledOnceWith(docoptArgs, "--bad-tick-change-percent-threshold"))).Then(
    METALMOCKTHEN(p_docoptParserMock->GetRequiredFolderPathWhichNeedNotExistMock.CalledOnceWith(docoptArgs, "--trading-logs-output-folder"))).Then(
    METALMOCKTHEN(p_docoptParserMock->GetOptionalBoolMock.CalledOnceWith(docoptArgs, "--parallel"))).Then(
    METALMOCKTHEN(p_fileSystemPatherMock->MakeThreeDeepFolderPathWhichMustExistMock.CalledOnceWith(
@@ -55,6 +59,7 @@ TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTextTradeTicksrgs_ReturnsArgs)
    expectedArgs.tradingLogsInputFolderPath = tradingLogsInputFolderPath;
    expectedArgs.dateWithDayOfWeek = dateWithDayOfWeek;
    expectedArgs.runNumber = runNumber;
+   expectedArgs.badTickChangePercentThreshold = badTickChangePercentThreshold;
    expectedArgs.tradingLogsOutputFolderPath = tradingLogsOutputFolderPath;
    expectedArgs.parallel = parallel;
    // Calculated Fields
