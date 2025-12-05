@@ -8,6 +8,10 @@ namespace Utils
 {
    class FloatHelper;
 }
+namespace TickData
+{
+   class TradeConditionIdentifierDeterminer;
+}
 
 class BadTradeTicksDeterminer
 {
@@ -19,6 +23,7 @@ private:
    unique_ptr<const _filter_IsTradeTickPossiblyBadType> _filter_IsTradeTickPossiblyBad;
    // Constant Components
    unique_ptr<const Utils::FloatHelper> _floatHelper;
+   unique_ptr<const TickData::TradeConditionIdentifierDeterminer> _tradeConditionIdentifierDeterminer;
 public:
    BadTradeTicksDeterminer();
    virtual ~BadTradeTicksDeterminer();

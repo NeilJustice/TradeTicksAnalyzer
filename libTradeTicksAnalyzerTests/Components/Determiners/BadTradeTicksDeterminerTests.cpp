@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "libCppUtils/Components/FloatingPoint/MetalMock/FloatHelperMock.h"
 #include "libFunctional/Components/Filters/Member/MetalMock/TwoArgMemberFunctionFilterMock.h"
+#include "libTickData/Components/Determiners/MetalMock/TradeConditionIdentifierDeterminerMock.h"
 #include "libTradeTicksAnalyzer/Components/Determiners/BadTradeTicksDeterminer.h"
 
 TESTS(BadTradeTicksDeterminerTests)
@@ -18,6 +19,7 @@ using _filter_IsTradeTickPossiblyBadMockType = Functional::TwoArgMemberFunctionF
 _filter_IsTradeTickPossiblyBadMockType* _filter_IsTradeTickPossiblyBadMock = nullptr;
 // Constant Components
 Utils::FloatHelperMock* _floatHelperMock = nullptr;
+TickData::TradeConditionIdentifierDeterminerMock* _tradeConditionIdentifierDeterminerMock = nullptr;
 
 STARTUP
 {
@@ -25,6 +27,7 @@ STARTUP
    _badTradeTicksDeterminer._filter_IsTradeTickPossiblyBad.reset(_filter_IsTradeTickPossiblyBadMock = new _filter_IsTradeTickPossiblyBadMockType);
    // Constant Components
    _badTradeTicksDeterminer._floatHelper.reset(_floatHelperMock = new Utils::FloatHelperMock);
+   _badTradeTicksDeterminer._tradeConditionIdentifierDeterminer.reset(_tradeConditionIdentifierDeterminerMock = new TickData::TradeConditionIdentifierDeterminerMock);
 }
 
 TEST(FindPossibleBadTradeTicks_DoesSo)

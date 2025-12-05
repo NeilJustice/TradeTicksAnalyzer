@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "libCppUtils/Components/FloatingPoint/FloatHelper.h"
 #include "libFunctional/Components/Filters/Member/TwoArgMemberFunctionFilter.h"
+#include "libTickData/Components/Determiners/TradeConditionIdentifierDeterminer.h"
 #include "libTradeTicksAnalyzer/Components/Determiners/BadTradeTicksDeterminer.h"
 
 BadTradeTicksDeterminer::BadTradeTicksDeterminer()
@@ -8,6 +9,7 @@ BadTradeTicksDeterminer::BadTradeTicksDeterminer()
    : _filter_IsTradeTickPossiblyBad(make_unique<_filter_IsTradeTickPossiblyBadType>())
    // Constant Components
    , _floatHelper(make_unique<Utils::FloatHelper>())
+   , _tradeConditionIdentifierDeterminer(make_unique<TickData::TradeConditionIdentifierDeterminer>())
 {
 }
 
@@ -30,6 +32,10 @@ vector<TickData::TradeTick> BadTradeTicksDeterminer::FindPossibleBadTradeTicks(
 bool BadTradeTicksDeterminer::IsTradeTickPossiblyBad(
    const TickData::TradeTick& /*tradeTick*/, float /*badTickChangePercentThreshold*/) const
 {
-
+   // const bool isPremarketOrAfterhours = _tradeConditionIdentifierDeterminer->IsPremarketOrAfterhours(tradeTick.tradeConditionIdentifier);
+   // if (isPremarketOrAfterhours)
+   // {
+   //    return false;
+   // }
    return false;
 }
