@@ -16,8 +16,8 @@ BadTradeTicksFinderAndFilesWriter::BadTradeTicksFinderAndFilesWriter()
    , _badTradeTicksDeterminer(make_unique<BadTradeTicksDeterminer>())
    , _fileAndFolderPathsGetter(make_unique<Utils::FileAndFolderPathsGetter>())
    , _textTradeTicksFileReader(make_unique<TickData::TextTradeTicksFileReader>())
-   , _textTradeTicksFileWriter(make_unique<TickData::TextTradeTicksFileWriter>())
    // Mutable Components
+   , _textTradeTicksFileWriter(make_unique<TickData::TextTradeTicksFileWriter>())
    , _tradeTicksAnalyzerMessageWriter(make_unique<TradeTicksAnalyzerMessageWriter>())
 {
 }
@@ -28,6 +28,7 @@ BadTradeTicksFinderAndFilesWriter::~BadTradeTicksFinderAndFilesWriter()
 
 void BadTradeTicksFinderAndFilesWriter::Initialize(const TradeTicksAnalyzerArgs& args, const Utils::Logger* logger)
 {
+   _textTradeTicksFileWriter->SetProgramName("TradeTicksAnalyzer");
    _tradeTicksAnalyzerMessageWriter->Initialize(logger);
    _args = args;
 }

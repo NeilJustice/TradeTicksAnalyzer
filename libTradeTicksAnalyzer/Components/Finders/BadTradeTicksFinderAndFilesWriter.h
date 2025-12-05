@@ -33,8 +33,8 @@ private:
    unique_ptr<const BadTradeTicksDeterminer> _badTradeTicksDeterminer;
    unique_ptr<const Utils::FileAndFolderPathsGetter> _fileAndFolderPathsGetter;
    unique_ptr<const TickData::TextTradeTicksFileReader> _textTradeTicksFileReader;
-   unique_ptr<const TickData::TextTradeTicksFileWriter> _textTradeTicksFileWriter;
    // Mutable Components
+   unique_ptr<TickData::TextTradeTicksFileWriter> _textTradeTicksFileWriter;
    unique_ptr<TradeTicksAnalyzerMessageWriter> _tradeTicksAnalyzerMessageWriter;
    // Mutable Fields
    TradeTicksAnalyzerArgs _args;

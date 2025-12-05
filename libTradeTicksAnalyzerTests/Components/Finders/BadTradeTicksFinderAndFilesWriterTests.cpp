@@ -54,13 +54,15 @@ STARTUP
 
 TEST(Initialize_DoesSo)
 {
+   _textTradeTicksFileWriterMock->SetProgramNameMock.Expect();
    _tradeTicksAnalyzerMessageWriterMock->InitializeMock.Expect();
    const TradeTicksAnalyzerArgs args = ZenUnit::Random<TradeTicksAnalyzerArgs>();
    const Utils::LoggerMock loggerMock;
    //
    _badTradeTicksFinderAndFilesWriter.Initialize(args, &loggerMock);
    //
-   METALMOCK(_tradeTicksAnalyzerMessageWriterMock->InitializeMock.CalledOnceWith(&loggerMock));
+   METALMOCKTHEN(_textTradeTicksFileWriterMock->SetProgramNameMock.CalledOnceWith("TradeTicksAnalyzer")).Then(
+   METALMOCKTHEN(_tradeTicksAnalyzerMessageWriterMock->InitializeMock.CalledOnceWith(&loggerMock)));
    ARE_EQUAL(args, _badTradeTicksFinderAndFilesWriter._args);
 }
 
@@ -78,7 +80,8 @@ TEST(FindAllPossibleBadTradeTicksAndWriteResultsFiles_DoesSo)
    const fs::path realTimeTextTradeTicksInputFolderPath = ZenUnit::Random<fs::path>();
    const bool parallel = ZenUnit::Random<bool>();
    //
-   _badTradeTicksFinderAndFilesWriter.FindAllPossibleBadTradeTicksAndWriteResultsFiles(realTimeTextTradeTicksInputFolderPath, parallel);
+   _badTradeTicksFinderAndFilesWriter.FindAllPossibleBadTradeTicksAndWriteResultsFiles(
+      realTimeTextTradeTicksInputFolderPath, parallel);
    //
    METALMOCKTHEN(_fileAndFolderPathsGetterMock->GetTopLevelFilePathsInFolderMock.CalledOnceWith(
       realTimeTextTradeTicksInputFolderPath)).Then(
