@@ -16,6 +16,7 @@ TEST(DefaultConstructor_SetsFieldsToDefaultValues)
    expectedDefaultArgs.tradingLogsInputFolderPath = fs::path();
    expectedDefaultArgs.dateWithDayOfWeek = Time::DateWithDayOfWeek{};
    expectedDefaultArgs.runNumber = 0;
+   expectedDefaultArgs.badTickChangePercentThreshold = 0.0f;
    expectedDefaultArgs.tradingLogsOutputFolderPath = fs::path();
    expectedDefaultArgs.parallel = false;
    // Calculated Fields

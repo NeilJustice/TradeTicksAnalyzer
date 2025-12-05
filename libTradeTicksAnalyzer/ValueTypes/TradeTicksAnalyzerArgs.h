@@ -14,6 +14,7 @@ struct TradeTicksAnalyzerArgs
    fs::path tradingLogsInputFolderPath;
    Time::DateWithDayOfWeek dateWithDayOfWeek;
    unsigned runNumber = 0;
+   float badTickChangePercentThreshold = 0.0f;
    fs::path tradingLogsOutputFolderPath;
    bool parallel = false;
    // Calculated Fields
