@@ -3,5 +3,7 @@
 \[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d (AM|PM) T\d+\s*\]      User: .*
 \[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] Directory: .*
 \[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] Reading and finding possible bad trade ticks in 2 RealTimeTradeTicks files in .*\\InputFiles\\TradingLogs\\YYYY-MM-DDM-1\\Polygon\\FilteredRealTimeTextTradeTicks
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] Wrote text trade ticks file #RESULTSFOLDER#\\TradingLogs\\YYYY-MM-DDM-1\\Polygon\\FilteredRealTimeTextTradeTicks-PossibleBad\\SYM2-RealTimeTradeTicks-PossibleBad.txt
+\[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] Wrote text trade ticks file #RESULTSFOLDER#\\TradingLogs\\YYYY-MM-DDM-1\\Polygon\\FilteredRealTimeTextTradeTicks-PossibleBad\\SYM1-RealTimeTradeTicks-PossibleBad.txt
 \[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] Duration: \d.\d\d\d seconds
 \[TradeTicksAnalyzer \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d (AM|PM) T\d+\s*\] ExitCode: 0

@@ -15,7 +15,8 @@ AFACT(Initialize_DoesSo)
 AFACT(FindAllPossibleBadTradeTicksAndWriteResultsFiles_DoesSo)
 // Private Functions
 AFACT(TryCatchCall_FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
-AFACT(FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
+AFACT(FindPossibleBadTradeTicksAndWriteResultsFile_ZeroBadTradeTicks_DoesNotWriteBadTradeTicksFile)
+AFACT(FindPossibleBadTradeTicksAndWriteResultsFile_MoreThanZeroBadTradeTicks_WritesBadTradeTicksFile)
 AFACT(ExceptionHandler_FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
 EVIDENCE
 
@@ -113,13 +114,32 @@ TEST(TryCatchCall_FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
       &BadTradeTicksFinderAndFilesWriter::ExceptionHandler_FindPossibleBadTradeTicksAndWriteResultsFile));
 }
 
-TEST(FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
+TEST(FindPossibleBadTradeTicksAndWriteResultsFile_ZeroBadTradeTicks_DoesNotWriteBadTradeTicksFile)
 {
    const TickData::TradeTicksFileContent tradeTicksFileContent =
       _textTradeTicksFileReaderMock->ReadRealTimeTextTradeTicksFileMock.ReturnRandom();
 
-   const vector<TickData::TradeTick> possibleBadTradeTicks =
-      _badTradeTicksDeterminerMock->FindPossibleBadTradeTicksMock.ReturnRandom();
+   const vector<TickData::TradeTick> zeroPossibleBadTradeTicks;
+   _badTradeTicksDeterminerMock->FindPossibleBadTradeTicksMock.Return(zeroPossibleBadTradeTicks);
+
+   const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
+   //
+   _badTradeTicksFinderAndFilesWriter.FindPossibleBadTradeTicksAndWriteResultsFile(realTimeTextTradeTicksInputFilePath);
+   //
+   METALMOCKTHEN(_textTradeTicksFileReaderMock->ReadRealTimeTextTradeTicksFileMock.CalledOnceWith(
+      realTimeTextTradeTicksInputFilePath)).Then(
+
+   METALMOCKTHEN(_badTradeTicksDeterminerMock->FindPossibleBadTradeTicksMock.CalledOnceWith(
+      tradeTicksFileContent.tradeTicks, _args.badTickChangePercentThreshold)));
+}
+
+TEST(FindPossibleBadTradeTicksAndWriteResultsFile_MoreThanZeroBadTradeTicks_WritesBadTradeTicksFile)
+{
+   const TickData::TradeTicksFileContent tradeTicksFileContent =
+      _textTradeTicksFileReaderMock->ReadRealTimeTextTradeTicksFileMock.ReturnRandom();
+
+   const vector<TickData::TradeTick> possibleBadTradeTicks = ZenUnit::RandomNonEmptyVector<TickData::TradeTick>();
+   _badTradeTicksDeterminerMock->FindPossibleBadTradeTicksMock.Return(possibleBadTradeTicks);
 
    _textTradeTicksFileWriterMock->CreatePossibleBadTradeTicksFileMock.Expect();
 
