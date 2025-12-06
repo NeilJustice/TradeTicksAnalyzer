@@ -40,7 +40,7 @@ TEST(WriteMessage_ReadingAndFindingPossibleBadTradeTicks_DoesSo)
       realTimeTextTradeTicksFilePathsSize, realTimeTextTradeTicksInputFolderPath);
    //
    const string expectedMessage = Utils::String::ConcatValues(
-      "Reading and finding possible bad trade ticks in ", realTimeTextTradeTicksFilePathsSize, " RealTimeTradeTicks files in ",
+      "Finding possible bad trade ticks in ", realTimeTextTradeTicksFilePathsSize, " RealTimeTradeTicks files in ",
       realTimeTextTradeTicksInputFolderPath.string());
    METALMOCK(_loggerMock->WriteProgramNameTimestampedThreadIdLineThenFlushMock.CalledOnceWith(expectedMessage));
 }
