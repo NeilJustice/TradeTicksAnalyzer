@@ -41,7 +41,7 @@ void BadTradeTicksFinderAndFilesWriter::FindAllPossibleBadTradeTicksAndWriteResu
    const vector<fs::path> realTimeTextTradeTicksInputFilePaths =
       _fileAndFolderPathsGetter->GetTopLevelFilePathsInFolder(realTimeTextTradeTicksInputFolderPath);
 
-   _tradeTicksAnalyzerMessageWriter->WriteMessage_ReadingAndFindingPossibleBadTradeTicks(
+   _tradeTicksAnalyzerMessageWriter->WriteMessage_FindingPossibleBadTradeTicks(
       realTimeTextTradeTicksInputFilePaths.size(), realTimeTextTradeTicksInputFolderPath);
 
    _forEacher_fsPath->CallConstMemberFunctionWithEachElementOptionallyInParallel(

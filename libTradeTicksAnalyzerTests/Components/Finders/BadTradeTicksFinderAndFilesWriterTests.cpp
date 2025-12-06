@@ -74,7 +74,7 @@ TEST(FindAllPossibleBadTradeTicksAndWriteResultsFiles_DoesSo)
    const vector<fs::path> realTimeTextTradeTicksInputFilePaths =
       _fileAndFolderPathsGetterMock->GetTopLevelFilePathsInFolderMock.ReturnRandom();
 
-   _tradeTicksAnalyzerMessageWriterMock->WriteMessage_ReadingAndFindingPossibleBadTradeTicksMock.Expect();
+   _tradeTicksAnalyzerMessageWriterMock->WriteMessage_FindingPossibleBadTradeTicksMock.Expect();
 
    _forEacher_fsPathMock->CallConstMemberFunctionWithEachElementOptionallyInParallelMock.Expect();
 
@@ -87,7 +87,7 @@ TEST(FindAllPossibleBadTradeTicksAndWriteResultsFiles_DoesSo)
    METALMOCKTHEN(_fileAndFolderPathsGetterMock->GetTopLevelFilePathsInFolderMock.CalledOnceWith(
       realTimeTextTradeTicksInputFolderPath)).Then(
 
-   METALMOCKTHEN(_tradeTicksAnalyzerMessageWriterMock->WriteMessage_ReadingAndFindingPossibleBadTradeTicksMock.CalledOnceWith(
+   METALMOCKTHEN(_tradeTicksAnalyzerMessageWriterMock->WriteMessage_FindingPossibleBadTradeTicksMock.CalledOnceWith(
       realTimeTextTradeTicksInputFilePaths.size(), realTimeTextTradeTicksInputFolderPath))).Then(
 
    METALMOCKTHEN(_forEacher_fsPathMock->CallConstMemberFunctionWithEachElementOptionallyInParallelMock.CalledOnceWith(

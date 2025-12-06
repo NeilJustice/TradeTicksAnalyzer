@@ -18,7 +18,7 @@ void TradeTicksAnalyzerMessageWriter::Initialize(const Utils::Logger* logger)
 
 // Actions
 
-void TradeTicksAnalyzerMessageWriter::WriteMessage_ReadingAndFindingPossibleBadTradeTicks(
+void TradeTicksAnalyzerMessageWriter::WriteMessage_FindingPossibleBadTradeTicks(
    size_t realTimeTextTradeTicksFilePathsSize, const fs::path& realTimeTextTradeTicksInputFolderPath) const
 {
    const string message = Utils::String::ConcatValues(

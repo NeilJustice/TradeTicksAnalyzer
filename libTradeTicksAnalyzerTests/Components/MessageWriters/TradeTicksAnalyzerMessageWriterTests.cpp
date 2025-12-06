@@ -5,7 +5,7 @@
 TESTS(TradeTicksAnalyzerMessageWriterTests)
 AFACT(Initialize_DoesSo)
 // Actions
-AFACT(WriteMessage_ReadingAndFindingPossibleBadTradeTicks_DoesSo)
+AFACT(WriteMessage_FindingPossibleBadTradeTicks_DoesSo)
 AFACT(WriteExceptionMessage_FindPossibleBadTradeTicks_ThenExit1_DoesSo)
 EVIDENCE
 
@@ -30,13 +30,13 @@ TEST(Initialize_DoesSo)
 
 // Actions
 
-TEST(WriteMessage_ReadingAndFindingPossibleBadTradeTicks_DoesSo)
+TEST(WriteMessage_FindingPossibleBadTradeTicks_DoesSo)
 {
    _loggerMock->WriteProgramNameTimestampedThreadIdLineThenFlushMock.Expect();
    const size_t realTimeTextTradeTicksFilePathsSize = ZenUnit::Random<size_t>();
    const fs::path realTimeTextTradeTicksInputFolderPath = ZenUnit::Random<fs::path>();
    //
-   _tradeTicksAnalyzerMessageWriter.WriteMessage_ReadingAndFindingPossibleBadTradeTicks(
+   _tradeTicksAnalyzerMessageWriter.WriteMessage_FindingPossibleBadTradeTicks(
       realTimeTextTradeTicksFilePathsSize, realTimeTextTradeTicksInputFolderPath);
    //
    const string expectedMessage = Utils::String::ConcatValues(

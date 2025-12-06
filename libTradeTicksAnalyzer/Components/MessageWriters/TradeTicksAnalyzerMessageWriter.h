@@ -16,7 +16,7 @@ public:
    virtual ~TradeTicksAnalyzerMessageWriter();
    virtual void Initialize(const Utils::Logger* logger);
    // Actions
-   virtual void WriteMessage_ReadingAndFindingPossibleBadTradeTicks(
+   virtual void WriteMessage_FindingPossibleBadTradeTicks(
       size_t realTimeTextTradeTicksFilePathsSize, const fs::path& realTimeTextTradeTicksFolderPath) const;
 
    virtual void WriteExceptionMessage_FindPossibleBadTradeTicks_ThenExit1(
