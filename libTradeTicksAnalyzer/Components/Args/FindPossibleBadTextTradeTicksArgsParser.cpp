@@ -25,8 +25,8 @@ TradeTicksAnalyzerArgs FindPossibleBadTextTradeTicksArgsParser::ParseDocoptArgs(
       p_fileSystemPather->MakeThreeDeepFolderPathWhichMustExist(
          args.tradingLogsInputFolderPath, dateDashRunNumberFolderName, "Polygon", "FilteredRealTimeTextTradeTicks");
 
-   args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks =
+   args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBad =
       p_fileSystemPather->MakeThreeDeepFolderPathWhichNeedNotExist(
-         args.tradingLogsOutputFolderPath, dateDashRunNumberFolderName, "Polygon", "FilteredRealTimeTextTradeTicks-PossibleBadTradeTicks");
+         args.tradingLogsOutputFolderPath, dateDashRunNumberFolderName, "Polygon", "FilteredRealTimeTextTradeTicks-PossibleBad");
    return args;
 }

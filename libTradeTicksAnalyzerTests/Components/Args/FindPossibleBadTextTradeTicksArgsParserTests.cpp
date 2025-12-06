@@ -36,7 +36,7 @@ TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTextTradeTicksrgs_ReturnsArgs)
    const fs::path tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks =
       p_fileSystemPatherMock->MakeThreeDeepFolderPathWhichMustExistMock.ReturnRandom();
 
-   const fs::path tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks =
+   const fs::path tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBad =
       p_fileSystemPatherMock->MakeThreeDeepFolderPathWhichNeedNotExistMock.ReturnRandom();
 
    const map<string, docopt::Value> docoptArgs = ZenUnit::RandomOrderedMap<string, docopt::Value>();
@@ -53,7 +53,7 @@ TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTextTradeTicksrgs_ReturnsArgs)
    METALMOCKTHEN(p_fileSystemPatherMock->MakeThreeDeepFolderPathWhichMustExistMock.CalledOnceWith(
       args.tradingLogsInputFolderPath, expectedDateDashRunNumberFolderName, "Polygon", "FilteredRealTimeTextTradeTicks"))).Then(
    METALMOCKTHEN(p_fileSystemPatherMock->MakeThreeDeepFolderPathWhichNeedNotExistMock.CalledOnceWith(
-      args.tradingLogsOutputFolderPath, expectedDateDashRunNumberFolderName, "Polygon", "FilteredRealTimeTextTradeTicks-PossibleBadTradeTicks")));
+      args.tradingLogsOutputFolderPath, expectedDateDashRunNumberFolderName, "Polygon", "FilteredRealTimeTextTradeTicks-PossibleBad")));
    TradeTicksAnalyzerArgs expectedArgs;
    expectedArgs.programMode = ProgramMode::FindPossibleBadTextTradeTicks;
    expectedArgs.tradingLogsInputFolderPath = tradingLogsInputFolderPath;
@@ -64,7 +64,7 @@ TEST(ParseDocoptArgs_ParsesSetFindPossibleBadTextTradeTicksrgs_ReturnsArgs)
    expectedArgs.parallel = parallel;
    // Calculated Fields
    expectedArgs.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks;
-   expectedArgs.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks = tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks;
+   expectedArgs.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBad = tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBad;
    ARE_EQUAL(expectedArgs, args);
 }
 

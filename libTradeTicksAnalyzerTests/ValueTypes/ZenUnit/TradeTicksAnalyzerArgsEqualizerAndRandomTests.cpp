@@ -16,7 +16,7 @@ TEST(ZenUnitEqualizer_ThrowsIfAnyFieldsNotEqual)
    ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, parallel, true);
    // Calculated Fields
    ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks, ZenUnit::Random<fs::path>());
-   ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks, ZenUnit::Random<fs::path>());
+   ZENUNIT_EQUALIZER_THROWS_WHEN_FIELD_NOT_EQUAL(TradeTicksAnalyzerArgs, tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBad, ZenUnit::Random<fs::path>());
 }
 
 TEST(TestableRandomTradeTicksAnalyzerArgs_ReturnsAllNonDefaultFields)
@@ -32,12 +32,12 @@ TEST(TestableRandomTradeTicksAnalyzerArgs_ReturnsAllNonDefaultFields)
    const fs::path tradingLogsInputFolderPath = ZenUnit::Random<fs::path>();
    const fs::path tradingLogsOutputFolderPath = ZenUnit::Random<fs::path>();
    const fs::path tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = ZenUnit::Random<fs::path>();
-   const fs::path tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks = ZenUnit::Random<fs::path>();
+   const fs::path tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBad = ZenUnit::Random<fs::path>();
    randomGeneratorMock.FilesystemPathMock.ReturnValues(
       tradingLogsInputFolderPath,
       tradingLogsOutputFolderPath,
       tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks,
-      tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks);
+      tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBad);
 
    const Time::DateWithDayOfWeek dateWithDayOfWeek = timeRandomGeneratorMock.RandomDateWithDayOfWeekMock.ReturnRandom();
 
@@ -71,7 +71,7 @@ TEST(TestableRandomTradeTicksAnalyzerArgs_ReturnsAllNonDefaultFields)
    expectedRandomArgs.parallel = parallel;
    // Calculated Fields
    expectedRandomArgs.tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks = tradingLogsInputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicks;
-   expectedRandomArgs.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks = tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks;
+   expectedRandomArgs.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBad = tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBad;
    ARE_EQUAL(expectedRandomArgs, randomArgs);
 }
 

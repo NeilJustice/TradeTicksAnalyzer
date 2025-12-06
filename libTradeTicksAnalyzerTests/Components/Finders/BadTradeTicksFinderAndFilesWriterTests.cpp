@@ -136,7 +136,7 @@ TEST(FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
    METALMOCKTHEN(_textTradeTicksFileWriterMock->CreatePossibleBadTradeTicksFileMock.CalledOnceWith(
       tradeTicksFileContent.symbol,
       possibleBadTradeTicks,
-      _args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks)));
+      _args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBad)));
 }
 
 TEST(ExceptionHandler_FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
