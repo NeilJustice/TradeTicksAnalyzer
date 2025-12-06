@@ -121,7 +121,7 @@ TEST(FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
    const vector<TickData::TradeTick> possibleBadTradeTicks =
       _badTradeTicksDeterminerMock->FindPossibleBadTradeTicksMock.ReturnRandom();
 
-   _textTradeTicksFileWriterMock->CreateHistoricalTextTradeTicksFileMock.Expect();
+   _textTradeTicksFileWriterMock->CreatePossibleBadTradeTicksFileMock.Expect();
 
    const fs::path realTimeTextTradeTicksInputFilePath = ZenUnit::Random<fs::path>();
    //
@@ -133,12 +133,10 @@ TEST(FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
    METALMOCKTHEN(_badTradeTicksDeterminerMock->FindPossibleBadTradeTicksMock.CalledOnceWith(
       tradeTicksFileContent.tradeTicks, _args.badTickChangePercentThreshold))).Then(
 
-   METALMOCKTHEN(_textTradeTicksFileWriterMock->CreateHistoricalTextTradeTicksFileMock.CalledOnceWith(
+   METALMOCKTHEN(_textTradeTicksFileWriterMock->CreatePossibleBadTradeTicksFileMock.CalledOnceWith(
       tradeTicksFileContent.symbol,
-      tradeTicksFileContent.date,
       possibleBadTradeTicks,
-      _args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks,
-      true)));
+      _args.tradingLogsOutputFolderPath_dateDashRunNumber_Polygon_FilteredRealTimeTextTradeTicksDashPossibleBadTradeTicks)));
 }
 
 TEST(ExceptionHandler_FindPossibleBadTradeTicksAndWriteResultsFile_DoesSo)
