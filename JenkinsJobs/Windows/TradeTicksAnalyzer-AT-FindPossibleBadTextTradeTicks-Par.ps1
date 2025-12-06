@@ -3,7 +3,7 @@ AcceptanceRunner.exe run-acceptance-test-with-multiple-possible-standard-outputs
    --program="C:\bin\TradeTicksAnalyzerRelease.exe" `
    --program-args-file="ProgramArgs.txt" `
    --required-standard-output-possibilities-file="RequiredStandardOutputPossibilities.txt" `
-   --required-text-file-writes-possibilities-folder="RequiredTextFileWrites" `
+   --required-text-file-writes-possibilities-folder="RequiredTextFileWritePossibilities" `
    --test-runs=2 `
    --required-exit-code=0 `
    --acceptance-test-results-folder-to-delete-first="X:\AcceptanceTestResults\TradeTicksAnalyzer\FindPossibleBadTextTradeTicks-Par"

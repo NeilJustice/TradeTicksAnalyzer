@@ -1,1 +1,3 @@
 RequiredStandardOutputPossibility1.txt
+RequiredStandardOutputPossibility_SYM1_SYM2.txt
+RequiredStandardOutputPossibility_SYM2_SYM1.txt
