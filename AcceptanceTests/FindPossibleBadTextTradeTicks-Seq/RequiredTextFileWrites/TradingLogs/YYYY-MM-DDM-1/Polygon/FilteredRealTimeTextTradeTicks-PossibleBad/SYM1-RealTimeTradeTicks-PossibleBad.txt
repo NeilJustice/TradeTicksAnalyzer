@@ -1,1 +1,0 @@
-SIPReceiveTime TPReceiveTime Latency      Exchange Tape Price      Delta%  Size      TC1                       TC2                       TC3                       TC4                       TC5                       CT Dark TCI SequenceNumber             

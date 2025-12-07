@@ -1,1 +1,2 @@
 RelativeFilePathRequiredToBeWritten|ExpectedAbsoluteFilePathWriteLocation
+RequiredTextFileWrites\TradingLogs\YYYY-MM-DDM-1\Polygon\FilteredRealTimeTextTradeTicks-PossibleBad\SYM2-RealTimeTradeTicks-PossibleBad.txt|#RESULTSFOLDER#\TradingLogs\YYYY-MM-DDM-1\Polygon\FilteredRealTimeTextTradeTicks-PossibleBad\SYM2-RealTimeTradeTicks-PossibleBad.txt
