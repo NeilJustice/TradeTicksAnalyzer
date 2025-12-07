@@ -32,8 +32,8 @@ vector<TickData::TradeTick> BadTradeTicksDeterminer::FindPossibleBadTradeTicks(
 bool BadTradeTicksDeterminer::IsTradeTickPossiblyBad(
    const TickData::TradeTick& tradeTick, float badTickChangePercentThreshold) const
 {
-   const bool isExtendedHoursTradeTick = _tradeConditionIdentifierDeterminer->IsExtendedHours(tradeTick.tradeConditionIdentifier);
-   if (isExtendedHoursTradeTick)
+   const bool isExtendedHours = _tradeConditionIdentifierDeterminer->IsExtendedHours(tradeTick.tradeConditionIdentifier);
+   if (isExtendedHours)
    {
       return false;
    }

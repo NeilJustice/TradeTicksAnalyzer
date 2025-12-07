@@ -7,9 +7,9 @@
 TESTS(BadTradeTicksDeterminerTests)
 AFACT(FindPossibleBadTradeTicks_DoesSo)
 // Private Functions
-AFACT(IsTradeTickPossiblyBad_TradeTickIsExtendedHours_ReturnsFalse)
-AFACT(IsTradeTickPossiblyBad_TradeTickIsRegularHours_PriceDeltaPercentIsFLT_MAX_ReturnsFalse)
-AFACT(IsTradeTickPossiblyBad_TradeTickIsRegularHours_ReturnsTrueIfTradeTickPriceDeltaPercentIsAtOrOutsideThreshold)
+AFACT(IsTradeTickPossiblyBad_ExtendedHours_ReturnsFalse)
+AFACT(IsTradeTickPossiblyBad_RegularHours_PriceDeltaPercentIsFLT_MAX_ReturnsFalse)
+AFACT(IsTradeTickPossiblyBad_RegularHours_PriceDeltaPercentIsNotFLT_MAX_ReturnsTrueIfPriceDeltaPercentIsAtOrOutsideThreshold)
 EVIDENCE
 
 BadTradeTicksDeterminer _badTradeTicksDeterminer;
@@ -50,7 +50,7 @@ TEST(FindPossibleBadTradeTicks_DoesSo)
 
 // Private Functions
 
-TEST(IsTradeTickPossiblyBad_TradeTickIsExtendedHours_ReturnsFalse)
+TEST(IsTradeTickPossiblyBad_ExtendedHours_ReturnsFalse)
 {
    _tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.Return(true);
    const TickData::TradeTick tradeTick = ZenUnit::Random<TickData::TradeTick>();
@@ -62,7 +62,7 @@ TEST(IsTradeTickPossiblyBad_TradeTickIsExtendedHours_ReturnsFalse)
    IS_FALSE(isTradeTickPossiblyBad);
 }
 
-TEST(IsTradeTickPossiblyBad_TradeTickIsRegularHours_PriceDeltaPercentIsFLT_MAX_ReturnsFalse)
+TEST(IsTradeTickPossiblyBad_RegularHours_PriceDeltaPercentIsFLT_MAX_ReturnsFalse)
 {
    _tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.Return(false);
    TickData::TradeTick tradeTick = ZenUnit::Random<TickData::TradeTick>();
@@ -75,7 +75,7 @@ TEST(IsTradeTickPossiblyBad_TradeTickIsRegularHours_PriceDeltaPercentIsFLT_MAX_R
    IS_FALSE(isTradeTickPossiblyBad);
 }
 
-TEST(IsTradeTickPossiblyBad_TradeTickIsRegularHours_ReturnsTrueIfTradeTickPriceDeltaPercentIsAtOrOutsideThreshold)
+TEST(IsTradeTickPossiblyBad_RegularHours_PriceDeltaPercentIsNotFLT_MAX_ReturnsTrueIfPriceDeltaPercentIsAtOrOutsideThreshold)
 {
    _tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.Return(false);
    const bool isTradeTickPossiblyBad = _floatHelperMock->IsFloatAtOrOutsideRangeMock.ReturnRandom();
