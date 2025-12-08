@@ -66,7 +66,7 @@ TEST(IsTradeTickPossiblyBad_RegularHours_PriceDeltaPercentIsFLT_MAX_ReturnsFalse
 {
    _tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.Return(false);
    TickData::TradeTick tradeTick = ZenUnit::Random<TickData::TradeTick>();
-   tradeTick.priceDeltaPercent = FLT_MAX;
+   tradeTick.priceChangePercent = FLT_MAX;
    const float badTickChangePercentThreshold = ZenUnit::Random<float>();
    //
    const bool isTradeTickPossiblyBad = _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
@@ -80,14 +80,14 @@ TEST(IsTradeTickPossiblyBad_RegularHours_PriceDeltaPercentIsNotFLT_MAX_ReturnsTr
    _tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.Return(false);
    const bool isTradeTickPossiblyBad = _floatHelperMock->IsFloatAtOrOutsideRangeMock.ReturnRandom();
    TickData::TradeTick tradeTick = ZenUnit::Random<TickData::TradeTick>();
-   tradeTick.priceDeltaPercent = ZenUnit::RandomNotEqualTo(FLT_MAX);
+   tradeTick.priceChangePercent = ZenUnit::RandomNotEqualTo(FLT_MAX);
    const float badTickChangePercentThreshold = ZenUnit::Random<float>();
    //
    const bool returnedIsTradeTickPossiblyBad = _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
    //
    METALMOCKTHEN(_tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.CalledOnceWith(tradeTick.tradeConditionIdentifier)).Then(
    METALMOCKTHEN(_floatHelperMock->IsFloatAtOrOutsideRangeMock.CalledOnceWith(
-      tradeTick.priceDeltaPercent,
+      tradeTick.priceChangePercent,
       -badTickChangePercentThreshold,
       badTickChangePercentThreshold)));
    ARE_EQUAL(isTradeTickPossiblyBad, returnedIsTradeTickPossiblyBad);
