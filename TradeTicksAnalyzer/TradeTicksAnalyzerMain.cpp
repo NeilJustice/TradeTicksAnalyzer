@@ -7,9 +7,6 @@ using namespace std;
 
 // Production Args
 // ===============
-// find-possible-bad-binary-trade-ticks --trading-logs-input-folder=X:\Trading\TradingProgram\PaperTradingLogs --date=2025-12-02T --bad-tick-change-percent-threshold=0.5 --trading-logs-output-folder=X:\Trading\TradingProgram\PaperTradingLogs
-// find-possible-bad-binary-trade-ticks --trading-logs-input-folder=X:\Trading\TradingProgram\PaperTradingLogs --date=2025-12-02T --bad-tick-change-percent-threshold=0.5 --trading-logs-output-folder=X:\Trading\TradingProgram\PaperTradingLogs --parallel
-
 // find-possible-bad-text-trade-ticks --trading-logs-input-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --date=2025-12-08M --run-number=1 --bad-tick-change-percent-threshold=0.5 --trading-logs-output-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay
 // find-possible-bad-text-trade-ticks --trading-logs-input-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --date=2025-12-08M --run-number=1 --bad-tick-change-percent-threshold=0.5 --trading-logs-output-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --parallel
 
