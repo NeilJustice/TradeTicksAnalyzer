@@ -56,7 +56,8 @@ TEST(IsTradeTickPossiblyBad_IsClosingPriceOrExtendedHoursTradeTick_ReturnsFalse)
    const TickData::TradeTick tradeTick = ZenUnit::Random<TickData::TradeTick>();
    const float badTickChangePercentThreshold = ZenUnit::Random<float>();
    //
-   const bool isTradeTickPossiblyBad = _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
+   const bool isTradeTickPossiblyBad =
+      _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
    //
    METALMOCK(_tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.CalledOnceWith(tradeTick.tradeConditionIdentifier));
    IS_FALSE(isTradeTickPossiblyBad);
@@ -69,7 +70,8 @@ TEST(IsTradeTickPossiblyBad_IsNotClosingPriceOrExtendedHoursTradeTick_PriceDelta
    tradeTick.priceChangePercent = FLT_MAX;
    const float badTickChangePercentThreshold = ZenUnit::Random<float>();
    //
-   const bool isTradeTickPossiblyBad = _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
+   const bool isTradeTickPossiblyBad =
+      _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
    //
    METALMOCK(_tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.CalledOnceWith(tradeTick.tradeConditionIdentifier));
    IS_FALSE(isTradeTickPossiblyBad);
@@ -83,7 +85,8 @@ TEST(IsTradeTickPossiblyBad_IsNotClosingPriceOrExtendedHoursTradeTick_PriceDelta
    tradeTick.priceChangePercent = ZenUnit::RandomNotEqualTo(FLT_MAX);
    const float badTickChangePercentThreshold = ZenUnit::Random<float>();
    //
-   const bool returnedIsTradeTickPossiblyBad = _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
+   const bool returnedIsTradeTickPossiblyBad =
+      _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
    //
    METALMOCKTHEN(_tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.CalledOnceWith(tradeTick.tradeConditionIdentifier)).Then(
    METALMOCKTHEN(_floatHelperMock->IsFloatAtOrOutsideRangeMock.CalledOnceWith(
