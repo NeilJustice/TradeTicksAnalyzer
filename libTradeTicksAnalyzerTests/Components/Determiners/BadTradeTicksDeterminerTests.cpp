@@ -7,9 +7,9 @@
 TESTS(BadTradeTicksDeterminerTests)
 AFACT(FindPossibleBadTradeTicks_DoesSo)
 // Private Functions
-AFACT(IsTradeTickPossiblyBad_IsClosingPriceOrExtendedHoursTradeTick_ReturnsFalse)
-AFACT(IsTradeTickPossiblyBad_IsNotClosingPriceOrExtendedHoursTradeTick_PriceDeltaPercentIsFLT_MAX_ReturnsFalse)
-AFACT(IsTradeTickPossiblyBad_IsNotClosingPriceOrExtendedHoursTradeTick_PriceDeltaPercentIsNotFLT_MAX_ReturnsTrueIfPriceDeltaPercentIsAtOrOutsideThreshold)
+AFACT(IsTradeTickPossiblyBad_IsExtendedHoursOrClosingPrice_ReturnsFalse)
+AFACT(IsTradeTickPossiblyBad_IsNotExtendedHoursOrClosingPrice_PriceDeltaPercentIsFLT_MAX_ReturnsFalse)
+AFACT(IsTradeTickPossiblyBad_IsNotExtendedHoursOrClosingPrice_PriceDeltaPercentIsNotFLT_MAX_ReturnsTrueIfPriceDeltaPercentIsAtOrOutsideThreshold)
 EVIDENCE
 
 BadTradeTicksDeterminer _badTradeTicksDeterminer;
@@ -50,22 +50,23 @@ TEST(FindPossibleBadTradeTicks_DoesSo)
 
 // Private Functions
 
-TEST(IsTradeTickPossiblyBad_IsClosingPriceOrExtendedHoursTradeTick_ReturnsFalse)
+TEST(IsTradeTickPossiblyBad_IsExtendedHoursOrClosingPrice_ReturnsFalse)
 {
-   _tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.Return(true);
+   _tradeConditionIdentifierDeterminerMock->IsExtendedHoursOrClosingPriceMock.Return(true);
    const TickData::TradeTick tradeTick = ZenUnit::Random<TickData::TradeTick>();
    const float badTickChangePercentThreshold = ZenUnit::Random<float>();
    //
    const bool isTradeTickPossiblyBad =
       _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
    //
-   METALMOCK(_tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.CalledOnceWith(tradeTick.tradeConditionIdentifier));
+   METALMOCK(_tradeConditionIdentifierDeterminerMock->IsExtendedHoursOrClosingPriceMock.CalledOnceWith(
+      tradeTick.tradeConditionIdentifier));
    IS_FALSE(isTradeTickPossiblyBad);
 }
 
-TEST(IsTradeTickPossiblyBad_IsNotClosingPriceOrExtendedHoursTradeTick_PriceDeltaPercentIsFLT_MAX_ReturnsFalse)
+TEST(IsTradeTickPossiblyBad_IsNotExtendedHoursOrClosingPrice_PriceDeltaPercentIsFLT_MAX_ReturnsFalse)
 {
-   _tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.Return(false);
+   _tradeConditionIdentifierDeterminerMock->IsExtendedHoursOrClosingPriceMock.Return(false);
    TickData::TradeTick tradeTick = ZenUnit::Random<TickData::TradeTick>();
    tradeTick.priceChangePercent = FLT_MAX;
    const float badTickChangePercentThreshold = ZenUnit::Random<float>();
@@ -73,13 +74,14 @@ TEST(IsTradeTickPossiblyBad_IsNotClosingPriceOrExtendedHoursTradeTick_PriceDelta
    const bool isTradeTickPossiblyBad =
       _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
    //
-   METALMOCK(_tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.CalledOnceWith(tradeTick.tradeConditionIdentifier));
+   METALMOCK(_tradeConditionIdentifierDeterminerMock->IsExtendedHoursOrClosingPriceMock.CalledOnceWith(
+      tradeTick.tradeConditionIdentifier));
    IS_FALSE(isTradeTickPossiblyBad);
 }
 
-TEST(IsTradeTickPossiblyBad_IsNotClosingPriceOrExtendedHoursTradeTick_PriceDeltaPercentIsNotFLT_MAX_ReturnsTrueIfPriceDeltaPercentIsAtOrOutsideThreshold)
+TEST(IsTradeTickPossiblyBad_IsNotExtendedHoursOrClosingPrice_PriceDeltaPercentIsNotFLT_MAX_ReturnsTrueIfPriceDeltaPercentIsAtOrOutsideThreshold)
 {
-   _tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.Return(false);
+   _tradeConditionIdentifierDeterminerMock->IsExtendedHoursOrClosingPriceMock.Return(false);
    const bool isTradeTickPossiblyBad = _floatHelperMock->IsFloatAtOrOutsideRangeMock.ReturnRandom();
    TickData::TradeTick tradeTick = ZenUnit::Random<TickData::TradeTick>();
    tradeTick.priceChangePercent = ZenUnit::RandomNotEqualTo(FLT_MAX);
@@ -88,7 +90,8 @@ TEST(IsTradeTickPossiblyBad_IsNotClosingPriceOrExtendedHoursTradeTick_PriceDelta
    const bool returnedIsTradeTickPossiblyBad =
       _badTradeTicksDeterminer.IsTradeTickPossiblyBad(tradeTick, badTickChangePercentThreshold);
    //
-   METALMOCKTHEN(_tradeConditionIdentifierDeterminerMock->IsExtendedHoursMock.CalledOnceWith(tradeTick.tradeConditionIdentifier)).Then(
+   METALMOCKTHEN(_tradeConditionIdentifierDeterminerMock->IsExtendedHoursOrClosingPriceMock.CalledOnceWith(
+      tradeTick.tradeConditionIdentifier)).Then(
    METALMOCKTHEN(_floatHelperMock->IsFloatAtOrOutsideRangeMock.CalledOnceWith(
       tradeTick.priceChangePercent,
       -badTickChangePercentThreshold,
