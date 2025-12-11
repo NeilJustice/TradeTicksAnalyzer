@@ -7,8 +7,8 @@ using namespace std;
 
 // Production Args
 // ===============
-// find-possible-bad-text-trade-ticks --trading-logs-input-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --date=2025-12-10W --run-number=2 --bad-tick-change-percent-threshold=0.5 --trading-logs-output-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay
-// find-possible-bad-text-trade-ticks --trading-logs-input-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --date=2025-12-10W --run-number=2 --bad-tick-change-percent-threshold=0.5 --trading-logs-output-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --parallel
+// find-possible-bad-text-trade-ticks --trading-logs-input-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --date=2025-12-11R --run-number=1 --bad-tick-change-percent-threshold=1.0 --trading-logs-output-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay
+// find-possible-bad-text-trade-ticks --trading-logs-input-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --date=2025-12-11R --run-number=1 --bad-tick-change-percent-threshold=1.0 --trading-logs-output-folder=X:\Trading\TradingProgram\PaperTradingLogsReplay --parallel
 
 // Acceptance Tests
 // ================
